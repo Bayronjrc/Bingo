@@ -4,6 +4,10 @@
  */
 package controlador;
 
+import modelo.Jugador;
+import vista.*;
+import controlador.*;
+
 /**
  *
  * @author User
@@ -11,6 +15,12 @@ package controlador;
 public class main {
     public static void main(String[] args) {
         
+        RegistroJugador vista = new RegistroJugador();
+        Jugador jugador = new Jugador();
+        ControladorJugador controladorJugador = new ControladorJugador(vista, jugador);
+        controladorJugador.vista.setVisible(true);
+        
+
     }
     
 }

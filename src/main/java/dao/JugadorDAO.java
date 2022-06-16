@@ -1,6 +1,7 @@
 package dao;
 
 import java.util.ArrayList;
+import javax.xml.parsers.ParserConfigurationException;
 import modelo.Jugador;
 
 /**
@@ -9,7 +10,7 @@ import modelo.Jugador;
  */
 public interface JugadorDAO {
     
-    abstract Jugador registrarJugador(Jugador pJugador);
+    abstract Jugador registrarJugador(Jugador pJugador)throws ParserConfigurationException, ParserConfigurationException, ParserConfigurationException;
     abstract ArrayList<Jugador> cargarListaUsuario();
     abstract Jugador buscarJugador(int pCedula);
 }
