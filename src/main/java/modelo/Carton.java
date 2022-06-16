@@ -9,28 +9,30 @@ import java.util.Random;
  */
 public class Carton
 {
-    private int cantidad;
-    private String identificador;
-    private int[] listaNumeros;
+    private String Identificador;
+    private int[] ListaNumeros;
 
-    public Carton()
+    public Carton(String[] listaIdentificadores)
     {
-        listaNumeros = GenerarNumerosCarton();
+        ListaNumeros = GenerarNumerosCarton();
+        Identificador = GenerarIdentificadorCarton(listaIdentificadores);
     }
-    
+
     public String getIdentificador()
     {
-        return identificador;
-    }
-    
-    public void setIdentificador(String identificador)
-    {
-        this.identificador = identificador;
+        return Identificador;
     }
 
-    /***
+    public void setIdentificador(String identificador)
+    {
+        this.Identificador = identificador;
+    }
+
+    /**
+     * *
      * Genera los números del cartón en una lista de enteros
-     * @return 
+     *
+     * @return
      */
     public int[] GenerarNumerosCarton()
     {
@@ -78,50 +80,109 @@ public class Carton
 
         return numerosCarton;
     }
-    
-    /***
+
+    /**
+     * *
      * Genera un número random en el rango indicado, sin repetir en la lista.
+     *
      * @param rangoInferior
      * @param rangoSuperior
      * @param lista
-     * @return 
+     * @return
      */
     private int ObtenerNumeroRandom(int rangoInferior, int rangoSuperior, int[] lista)
     {
         int numeroAleatorio = 0;
         Random rn = new Random();
         Boolean numeroInvalido = true;
-        
-        while(numeroInvalido)
+
+        while (numeroInvalido)
         {
             numeroAleatorio = rn.nextInt(rangoSuperior);
-            
-            numeroAleatorio = numeroAleatorio < rangoInferior? rangoInferior + rn.nextInt(15) : numeroAleatorio;
-            
+
+            numeroAleatorio = numeroAleatorio < rangoInferior ? rangoInferior + rn.nextInt(15) : numeroAleatorio;
+
             numeroInvalido = ExisteNumero(numeroAleatorio, lista);
         }
-        
+
         return numeroAleatorio;
     }
-    
-    /***
+
+    /**
+     * *
      * Verfica si existe o no el número en la lista.
+     *
      * @param numero
-     * @param lista
-     * @return 
+     * @param listaNumeros
+     * @return
      */
-    private Boolean ExisteNumero(int numeroAleatorio, int[] lista)
+    private Boolean ExisteNumero(int numeroAleatorio, int[] listaNumeros)
     {
-        for (int numero : lista)
+        for (int numero : listaNumeros)
         {
-            if(numero == numeroAleatorio)
+            if (numero == 0)
+            {
+                return false;
+            }
+            else if (numero == numeroAleatorio)
             {
                 return true;
             }
         }
-        
+
         return false;
     }
+
+    /**
+     * *
+     * Genera los números del cartón en una lista de enteros
+     *
+     * @param listaIdentificadores
+     * @return Identificador
+     */
+    public String GenerarIdentificadorCarton(String[] listaIdentificadores)
+    {
+        Boolean identificadorInvalido = true;
+        String identificador = "";
+        String[] letras = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
+        Random rn = new Random();
+        
+        while (identificadorInvalido)
+        {
+            int numeroIdentificador = rn.nextInt(999);
+            identificador = letras[rn.nextInt(25)] + "" + letras[rn.nextInt(25)] + "" + letras[rn.nextInt(25)] + "" + (numeroIdentificador < 100? "0" + numeroIdentificador : numeroIdentificador < 10? "00" + numeroIdentificador : numeroIdentificador + "");
+            identificadorInvalido = ExisteIdentificador(identificador, listaIdentificadores);
+        }
+
+        return identificador;
+    }
+    
+    /**
+     * *
+     * Verfica si existe o no el identificador en la lista.
+     *
+     * @param identificadorAleatorio
+     * @param listaIdentificadores
+     * @return
+     */
+    private Boolean ExisteIdentificador(String identificadorAleatorio, String[] listaIdentificadores)
+    {
+        for (String identificador : listaIdentificadores)
+        {
+            if(identificador.equals(""))
+            {
+                return false;
+            }
+            if (identificador.equals(identificadorAleatorio))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    
     
     /*
     Main de pruebas del los números de los cartones de bingo
@@ -152,5 +213,15 @@ public class Carton
                 }
             }
         }
-    */
+     */
+
+    public int[] getListaNumeros()
+    {
+        return ListaNumeros;
+    }
+
+    public void setListaNumeros(int[] ListaNumeros)
+    {
+        this.ListaNumeros = ListaNumeros;
+    }
 }
