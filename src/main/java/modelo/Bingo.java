@@ -1,27 +1,49 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package modelo;
+
+import java.util.Arrays;
+import java.util.Random;
 
 /**
  *
- * @author User
+ * @author Bayron Rodriguez Centeno
  */
-public class Bingo {
+public class Bingo
+{
+
     private String modoJuego;
     private int monto;
-
-    public Bingo(String pModoJuego, int pMonto) {
-        this.modoJuego = pModoJuego;
-        this.monto = pMonto;
-    }
     
-    public String getModoJuego() {
+    private int[] numeros;
+
+    public int[] getNumeros()
+    {
+        return numeros;
+    }
+
+    public void setNumeros(int[] numeros)
+    {
+        this.numeros = numeros;
+    }
+
+    public String getModoJuego()
+    {
         return modoJuego;
     }
 
-    public int getMonto() {
+    public int getMonto()
+    {
         return monto;
     }
+
+    public void setModoJuego(String modoJuego)
+    {
+        this.modoJuego = modoJuego;
+    }
+
+    public void setMonto(int monto)
+    {
+        this.monto = monto;
+    }
+
+    
 }
