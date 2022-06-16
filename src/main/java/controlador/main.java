@@ -9,5 +9,8 @@ package controlador;
  * @author User
  */
 public class main {
+    public static void main(String[] args) {
+        
+    }
     
 }
