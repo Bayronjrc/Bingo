@@ -2,7 +2,7 @@
 <Jugador>
 	<Nombre>Bayron</Nombre>
 	<Correo>xzvgzcxv</Correo>
-	<Cedula>123456789</Cedula>
+	<Cedula>702890416</Cedula>
 </Jugador>
 <Jugador>
 	<Nombre>Mardcos</Nombre>
@@ -17,6 +17,6 @@
 <Jugador>
 	<Nombre>MArio</Nombre>
 	<Correo>xzvgzcxv</Correo>
-	<Cedula>123456789</Cedula>
+	<Cedula>987654321</Cedula>
 </Jugador>
-<Jugador><Nombre/><Correo/><Cedula>123456789</Cedula></Jugador></Jugadores>
+<Jugador><Nombre/><Correo/><Cedula>123456789</Cedula></Jugador><Jugador><Nombre>zxvdsa</Nombre><Correo>dsfsd</Correo><Cedula>702890416</Cedula></Jugador><Jugador><Nombre>zxvdsa</Nombre><Correo>dsfsd</Correo><Cedula>987654321</Cedula></Jugador><Jugador><Nombre>gsdfg</Nombre><Correo>hgk</Correo><Cedula>702890416</Cedula></Jugador><Jugador><Nombre>dgvsdxcgvb</Nombre><Correo>gbfdcfb</Correo><Cedula>12345</Cedula></Jugador></Jugadores>

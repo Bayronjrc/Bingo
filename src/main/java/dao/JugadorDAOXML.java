@@ -4,6 +4,7 @@
  */
 package dao;
 
+import controlador.Utilitarios;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.xml.parsers.ParserConfigurationException;
@@ -15,10 +16,10 @@ import org.xml.sax.SAXException;
  * @author User
  */
 public class JugadorDAOXML implements JugadorDAO{
-
+   
     @Override
     public Jugador registrarJugador(Jugador pJugador) throws ParserConfigurationException, ParserConfigurationException, ParserConfigurationException, SAXException, IOException{
-        if(pJugador.getCedula()== 123456789){
+        if(Utilitarios.ExisteCedula(String.valueOf(pJugador.getCedula()))){
             Jugador nuevoJugador = new Jugador();
             nuevoJugador.agregarJugador(pJugador.getNombreCompleto(), pJugador.getCorreoElectronico(),pJugador.getCedula());
             return nuevoJugador;

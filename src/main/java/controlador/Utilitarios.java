@@ -1,5 +1,13 @@
 package controlador;
 
+import java.io.File;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
 /**
  *
  * @author Bayron Rodriguez Centeno
@@ -64,5 +72,36 @@ public class Utilitarios
         return false;
     }
     
-    public 
+    public static boolean ExisteCedula(String pCedula){
+        
+         try {
+            File file = new File("Jugadores.xml");
+
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+ 
+            DocumentBuilder db = dbf.newDocumentBuilder();
+            Document doc = db.parse(file);
+            doc.getDocumentElement().normalize();
+            
+
+            NodeList nodeList = doc.getElementsByTagName("Jugador");
+
+            for (int i = 0; i < nodeList.getLength(); ++i) {
+                Node node = nodeList.item(i);
+                if (node.getNodeType()== Node.ELEMENT_NODE) {
+                    Element tElement = (Element)node;
+                    int o=0;
+                    if((tElement.getElementsByTagName("Cedula").item(0).getTextContent()).equals(pCedula)){
+                        
+                        return false;
+                    }
+                }
+            }return true;
+        }
+        
+
+        catch (Exception e) {
+            System.out.println(e);
+        }return true;
+    }
 }
