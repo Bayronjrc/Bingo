@@ -20,13 +20,6 @@ public final class VistaCarton extends javax.swing.JPanel
     public VistaCarton()
     {
         initComponents();
-        CambiarTamannoImagen();
-    }
-
-    public void CambiarTamannoImagen()
-    {
-        ImageIcon imageIcon = new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/BingoLogo.png")).getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT));
-        jLabel1.setIcon(imageIcon);
     }
     
     /**
