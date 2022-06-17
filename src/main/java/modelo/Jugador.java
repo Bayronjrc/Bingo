@@ -1,6 +1,8 @@
 package modelo;
 
+import com.opencsv.CSVWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -64,6 +66,15 @@ public class Jugador {
             DOMSource source = new DOMSource(doc);
             StreamResult result = new StreamResult(("Jugadores.xml"));
             transformer.transform(source, result);
+            
+            String[] Jugadores = {pNombre, pCorreo, String.valueOf(pCedula)};
+
+            String archCSV = "Jugadores.csv";
+            CSVWriter writer = new CSVWriter(new FileWriter(archCSV,true));
+
+            writer.writeNext(Jugadores);
+
+            writer.close();
         } catch (ParserConfigurationException pce) {
             pce.printStackTrace();
         } catch (TransformerException tfe) {
