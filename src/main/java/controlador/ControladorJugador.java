@@ -23,15 +23,18 @@ public class ControladorJugador implements ActionListener
 {
 
     public RegistroJugador objRegistroJugador;
-    public JugadorDAO daoJugador;
-    public Jugador jugador;
+    public JugadorDAO objJugadorDAO;
+    public Jugador objJugador;
+    public ControladorInicio objControladorInicio;
 
-    public ControladorJugador(RegistroJugador objRegistroJugador, Jugador pJugador)
+    public ControladorJugador(RegistroJugador objRegistroJugador, Jugador objJugador, ControladorInicio objControladorInicio)
     {
         this.objRegistroJugador = objRegistroJugador;
-        this.jugador = pJugador;
-        this.daoJugador = new JugadorDAOXML();
+        this.objJugador = objJugador;
+        this.objJugadorDAO = new JugadorDAOXML();
+        this.objControladorInicio = objControladorInicio;
         this.objRegistroJugador.btRegresar.addActionListener(this);
+        this.objRegistroJugador.btRegistrar.addActionListener(this);
     }
 
     @Override
@@ -44,37 +47,45 @@ public class ControladorJugador implements ActionListener
                 try
                 {
                     logIn();
-                } catch (ParserConfigurationException | SAXException | IOException ex)
+                }
+                catch (ParserConfigurationException | SAXException | IOException ex)
                 {
                     Logger.getLogger(ControladorJugador.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-
+            case "Regresar" ->
+            {
+                InicioOpcion objInicioOpcion = new InicioOpcion();
+                objInicioOpcion.setSize(850, 450);
+                objInicioOpcion.setVisible(true);
+                ControladorOpciones objControladorOpciones = new ControladorOpciones(objInicioOpcion, this.objControladorInicio);
+                this.objControladorInicio.CambiaPanel(objControladorOpciones.objInicioOpcion);
+            }
         }
     }
 
     public void logIn() throws ParserConfigurationException, SAXException, IOException
     {
-        if (objRegistroJugador.logInDatosCorrectos() == true)
+        if (objRegistroJugador.logInDatosCorrectos())
         {
             String nombreJugador = objRegistroJugador.txtNombre.getText();
             String correo = objRegistroJugador.txtCorreo.getText();
             String cedula = objRegistroJugador.txtCedula.getText();
-            jugador = new Jugador(nombreJugador, correo, Integer.parseInt(cedula));
-            Jugador usuarioActual = daoJugador.registrarJugador(jugador);
+            objJugador = new Jugador(nombreJugador, correo, Integer.parseInt(cedula));
+            Jugador usuarioActual = objJugadorDAO.registrarJugador(objJugador);
 
             if (usuarioActual != null)
             {
                 objRegistroJugador.setVisible(false);
-                JOptionPane.showMessageDialog(objRegistroJugador, "Bienvenido: " + jugador.getNombreCompleto());
+                JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Bienvenido: " + objJugador.getNombreCompleto());
                 objRegistroJugador.setVisible(true);
             } else
             {
-                JOptionPane.showMessageDialog(objRegistroJugador, "El usuario indicado no existe");
+                JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "El usuario indicado no existe");
             }
         } else
         {
-            JOptionPane.showMessageDialog(objRegistroJugador, "Todos lo datos son requeridos");
+            JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Todos lo datos son requeridos");
         }
     }
 

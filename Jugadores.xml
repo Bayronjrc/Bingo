@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<Jugadores>	
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Jugadores>	
 <Jugador>
 	<Nombre>Bayron</Nombre>
 	<Correo>xzvgzcxv</Correo>
@@ -20,4 +19,4 @@
 	<Correo>xzvgzcxv</Correo>
 	<Cedula>123456789</Cedula>
 </Jugador>
-</Jugadores>
+<Jugador><Nombre/><Correo/><Cedula>123456789</Cedula></Jugador></Jugadores>

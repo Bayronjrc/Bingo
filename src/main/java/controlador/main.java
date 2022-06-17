@@ -17,6 +17,7 @@ public class main
         Inicio objInicio = new Inicio();
         objInicio.setSize(850,450);
         ControladorInicio objControladorInicio = new ControladorInicio(objInicio);
+        objControladorInicio.objInicio.setLocationRelativeTo(null);
         objControladorInicio.objInicio.setVisible(true);
     }
 }

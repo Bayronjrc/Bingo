@@ -68,7 +68,7 @@ public class ControladorOpciones implements ActionListener
         objRegistroJugador.setSize(850, 450);
         objRegistroJugador.setVisible(true);
         Jugador jugador = new Jugador();
-        ControladorJugador controladorUsuario = new ControladorJugador(objRegistroJugador, jugador);
+        ControladorJugador controladorUsuario = new ControladorJugador(objRegistroJugador, jugador, objControladorInicio);
         objControladorInicio.CambiaPanel(controladorUsuario.objRegistroJugador);
     }
 }
