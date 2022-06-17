@@ -1,5 +1,6 @@
 package modelo;
 
+import controlador.Utilitarios;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -7,7 +8,7 @@ import java.util.Random;
  *
  * @author Bayron Rodriguez
  */
-public class Carton
+public final class Carton
 {
     private String Identificador;
     private int[] ListaNumeros;
@@ -88,49 +89,29 @@ public class Carton
      * @param rangoInferior
      * @param rangoSuperior
      * @param lista
-     * @return
+     * @return Número aleatorio sin repetir en la lista de entrada.
      */
     private int ObtenerNumeroRandom(int rangoInferior, int rangoSuperior, int[] lista)
     {
-        int numeroAleatorio = 0;
         Random rn = new Random();
+        
+        int numeroAleatorio = 0;
         Boolean numeroInvalido = true;
 
+        // Se ejecuta hasta encontrar un número valido, sin repetir.
         while (numeroInvalido)
         {
+            // Número aleatorio menor al rango superior indicado en el proyecto.
             numeroAleatorio = rn.nextInt(rangoSuperior);
-
+            
+            // Se valida, si el número es menor al rango inferior, se setea el rango inferior más un random entre 0 y 15.
             numeroAleatorio = numeroAleatorio < rangoInferior ? rangoInferior + rn.nextInt(15) : numeroAleatorio;
-
-            numeroInvalido = ExisteNumero(numeroAleatorio, lista);
+            
+            // Se envía a evaluar si el número está repetido o no.
+            numeroInvalido = Utilitarios.ExisteNumero(numeroAleatorio, lista, false);
         }
 
         return numeroAleatorio;
-    }
-
-    /**
-     * *
-     * Verfica si existe o no el número en la lista.
-     *
-     * @param numero
-     * @param listaNumeros
-     * @return
-     */
-    private Boolean ExisteNumero(int numeroAleatorio, int[] listaNumeros)
-    {
-        for (int numero : listaNumeros)
-        {
-            if (numero == 0)
-            {
-                return false;
-            }
-            else if (numero == numeroAleatorio)
-            {
-                return true;
-            }
-        }
-
-        return false;
     }
 
     /**
@@ -142,78 +123,21 @@ public class Carton
      */
     public String GenerarIdentificadorCarton(String[] listaIdentificadores)
     {
-        Boolean identificadorInvalido = true;
-        String identificador = "";
-        String[] letras = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
         Random rn = new Random();
+        
+        String identificador = "";
+        Boolean identificadorInvalido = true;
+        String[] letras = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
         
         while (identificadorInvalido)
         {
             int numeroIdentificador = rn.nextInt(999);
             identificador = letras[rn.nextInt(25)] + "" + letras[rn.nextInt(25)] + "" + letras[rn.nextInt(25)] + "" + (numeroIdentificador < 100? "0" + numeroIdentificador : numeroIdentificador < 10? "00" + numeroIdentificador : numeroIdentificador + "");
-            identificadorInvalido = ExisteIdentificador(identificador, listaIdentificadores);
+            identificadorInvalido = Utilitarios.ExisteString(identificador, listaIdentificadores, true);
         }
 
         return identificador;
     }
-    
-    /**
-     * *
-     * Verfica si existe o no el identificador en la lista.
-     *
-     * @param identificadorAleatorio
-     * @param listaIdentificadores
-     * @return
-     */
-    private Boolean ExisteIdentificador(String identificadorAleatorio, String[] listaIdentificadores)
-    {
-        for (String identificador : listaIdentificadores)
-        {
-            if(identificador.equals(""))
-            {
-                return false;
-            }
-            if (identificador.equals(identificadorAleatorio))
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    
-    
-    /*
-    Main de pruebas del los números de los cartones de bingo
-     
-        package controlador;
-
-        import java.util.Arrays;
-        import modelo.Bingo;
-
-        public class main
-        {
-            public static void main(String[] args)
-            {
-                Bingo objBingo = new Bingo();
-                int[] numerosBungo = objBingo.GenerarNumerosCarton();
-                System.err.println(Arrays.toString(numerosBungo));
-                int cont = 0;
-                for(int numero: numerosBungo)
-                {
-                    if(cont == 5)
-                    {
-                        cont = 0;
-                        System.err.println("");
-                    }
-
-                    System.out.format("%02d | ", numero);
-                    cont++;
-                }
-            }
-        }
-     */
 
     public int[] getListaNumeros()
     {
