@@ -24,8 +24,7 @@ public class Inicio extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jButton7 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
@@ -36,13 +35,12 @@ public class Inicio extends javax.swing.JFrame {
         btEstadisticas = new javax.swing.JButton();
         btEnviarCarton = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
         jButton7.setText("jButton7");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(204, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -66,7 +64,6 @@ public class Inicio extends javax.swing.JFrame {
 
         jButton9.setText("Salir");
         jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 120, 40));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 620, 340));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -92,7 +89,6 @@ public class Inicio extends javax.swing.JFrame {
     public javax.swing.JButton btVerCarton;
     private javax.swing.JButton jButton7;
     public javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel1;
     public javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
