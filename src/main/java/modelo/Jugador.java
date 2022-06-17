@@ -1,6 +1,7 @@
 package modelo;
 
 import java.io.File;
+import java.io.IOException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -12,6 +13,8 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.xml.sax.SAXException;
 
 
 /**
@@ -31,19 +34,18 @@ public class Jugador {
     
     public Jugador(){}
     
-    public void agregarJugador(String pNombre,String pCorreo, int pCedula) throws ParserConfigurationException, ParserConfigurationException, ParserConfigurationException{
+    public void agregarJugador(String pNombre,String pCorreo, int pCedula) throws ParserConfigurationException, ParserConfigurationException, ParserConfigurationException, SAXException, IOException{
         try {
 
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
             //Elemento raíz
-            Document doc = docBuilder.newDocument();
-            Element rootElement = doc.createElement("Jugadores");
-            doc.appendChild(rootElement);
-            //Primer elemento
-            Element elemento1 = doc.createElement("Jugador");
-            rootElement.appendChild(elemento1);
+            Document doc = docBuilder.parse("Jugadores.xml");
+            doc.getDocumentElement().normalize();
             
+            Node root = doc.getFirstChild();
+            Element elemento1 = doc.createElement("Jugador");
+            root.appendChild(elemento1);
             Element nombre = doc.createElement("Nombre");
             nombre.setTextContent(pNombre);
             elemento1.appendChild(nombre);
@@ -60,7 +62,7 @@ public class Jugador {
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource source = new DOMSource(doc);
-            StreamResult result = new StreamResult(new File("Jugadores.xml"));
+            StreamResult result = new StreamResult(("Jugadores.xml"));
             transformer.transform(source, result);
         } catch (ParserConfigurationException pce) {
             pce.printStackTrace();
