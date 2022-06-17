@@ -16,6 +16,7 @@ public class Inicio extends javax.swing.JFrame
     public Inicio()
     {
         initComponents();
+        this.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
     }
     
     /**
