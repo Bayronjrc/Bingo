@@ -8,6 +8,7 @@ import java.awt.event.*;
 import modelo.*;
 import vista.*;
 import dao.*;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.parsers.ParserConfigurationException;
@@ -35,13 +36,15 @@ public class ControladorJugador implements ActionListener{
                     logIn();
                 } catch (ParserConfigurationException | SAXException ex) {
                     Logger.getLogger(ControladorJugador.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                } catch (IOException ex) {
+                Logger.getLogger(ControladorJugador.class.getName()).log(Level.SEVERE, null, ex);
+            }
             }
 
         }
     }
 
-    public void logIn() throws ParserConfigurationException, SAXException {
+    public void logIn() throws ParserConfigurationException, SAXException, IOException {
         if (vista.logInDatosCorrectos() == true) {
             String nombreJugador = vista.txtNombre.getText();
             String correo = vista.txtCorreo.getText();
