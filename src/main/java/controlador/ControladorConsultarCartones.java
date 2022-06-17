@@ -52,7 +52,7 @@ public class ControladorConsultarCartones implements ActionListener
             // Regresar
             case "0" ->
             {
-                this.objControladorInicio.CambiaPanelOpciones();
+                this.objControladorInicio.CambiaPanelOpcionesHabilitarBotones();
             }
         }
     }
@@ -80,7 +80,8 @@ public class ControladorConsultarCartones implements ActionListener
 
         JFrame frame = new JFrame();
         frame.setContentPane(objVistaCarton);
-        frame.setSize(464, 610);
+        frame.setSize(480, 650);
         frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
     }
 }

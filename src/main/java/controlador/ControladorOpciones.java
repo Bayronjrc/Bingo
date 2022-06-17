@@ -64,7 +64,7 @@ public class ControladorOpciones implements ActionListener
             // Ver Carton
             case "5" ->
             {
-
+                consultarCartones();
             }
             // Estadisticas
             case "6" ->

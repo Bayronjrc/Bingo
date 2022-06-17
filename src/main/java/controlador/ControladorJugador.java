@@ -51,7 +51,7 @@ public class ControladorJugador implements ActionListener
             }
             case "Regresar" ->
             {
-                this.objControladorInicio.CambiaPanelOpciones();
+                this.objControladorInicio.CambiaPanelOpcionesHabilitarBotones();
             }
         }
     }

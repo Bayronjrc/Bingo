@@ -71,7 +71,7 @@ public class RegistroJugador extends javax.swing.JPanel {
         jLabel4.setText("Cedula:");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 90, -1));
 
-        txtNombre.setFont(new java.awt.Font("Viner Hand ITC", 0, 18)); // NOI18N
+        txtNombre.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         txtNombre.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -81,10 +81,10 @@ public class RegistroJugador extends javax.swing.JPanel {
         });
         add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 650, -1));
 
-        txtCorreo.setFont(new java.awt.Font("Viner Hand ITC", 0, 18)); // NOI18N
+        txtCorreo.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 650, -1));
 
-        txtCedula.setFont(new java.awt.Font("Viner Hand ITC", 0, 18)); // NOI18N
+        txtCedula.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         txtCedula.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)

@@ -48,4 +48,17 @@ public final class ControladorInicio implements ActionListener
         ControladorOpciones objControladorOpciones = new ControladorOpciones(objInicioOpcion, this);
         CambiaPanel(objControladorOpciones.objInicioOpcion);  
     }
+    
+    public void CambiaPanelOpcionesHabilitarBotones()
+    {
+        InicioOpcion objInicioOpcion = new InicioOpcion();
+        objInicioOpcion.setSize(850, 450);
+        objInicioOpcion.setVisible(true);
+        ControladorOpciones objControladorOpciones = new ControladorOpciones(objInicioOpcion, this);
+        objControladorOpciones.objInicioOpcion.btIniciar.setEnabled(true);
+        objControladorOpciones.objInicioOpcion.btEnviarCarton.setEnabled(true);
+        objControladorOpciones.objInicioOpcion.btVerCarton.setEnabled(true);
+        objControladorOpciones.objInicioOpcion.btEstadisticas.setEnabled(true);
+        CambiaPanel(objControladorOpciones.objInicioOpcion);  
+    }
 }

@@ -48,7 +48,7 @@ public class ConsultarCarton extends javax.swing.JPanel {
         jLabel2.setText("Identificación:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, 40));
 
-        txtIdentificación.setFont(new java.awt.Font("Viner Hand ITC", 0, 20)); // NOI18N
+        txtIdentificación.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         txtIdentificación.setToolTipText("Valor entre 1 y 500");
         txtIdentificación.addActionListener(new java.awt.event.ActionListener()
         {
@@ -57,7 +57,7 @@ public class ConsultarCarton extends javax.swing.JPanel {
                 txtIdentificaciónActionPerformed(evt);
             }
         });
-        add(txtIdentificación, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, 300, -1));
+        add(txtIdentificación, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, 300, 40));
 
         btMostrar.setBackground(new java.awt.Color(102, 102, 102));
         btMostrar.setFont(new java.awt.Font("Viner Hand ITC", 0, 20)); // NOI18N

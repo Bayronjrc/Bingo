@@ -56,6 +56,7 @@ public class InicioOpcion extends javax.swing.JPanel
         btEstadisticas.setText("Estadísticas");
         btEstadisticas.setActionCommand("6");
         btEstadisticas.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btEstadisticas.setEnabled(false);
         add(btEstadisticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 270, 40));
 
         btVerCarton.setBackground(new java.awt.Color(102, 102, 102));
@@ -64,6 +65,7 @@ public class InicioOpcion extends javax.swing.JPanel
         btVerCarton.setText("Ver Cartón");
         btVerCarton.setActionCommand("5");
         btVerCarton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btVerCarton.setEnabled(false);
         add(btVerCarton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 270, 40));
 
         btGenerar.setBackground(new java.awt.Color(102, 102, 102));
@@ -80,6 +82,7 @@ public class InicioOpcion extends javax.swing.JPanel
         btEnviarCarton.setText("Enviar Cartón");
         btEnviarCarton.setActionCommand("3");
         btEnviarCarton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btEnviarCarton.setEnabled(false);
         add(btEnviarCarton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 270, 40));
 
         btRegistrar.setBackground(new java.awt.Color(102, 102, 102));
@@ -96,6 +99,7 @@ public class InicioOpcion extends javax.swing.JPanel
         btIniciar.setText("Iniciar Juego");
         btIniciar.setActionCommand("1");
         btIniciar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btIniciar.setEnabled(false);
         add(btIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 270, 40));
 
         jLabel1.setFont(new java.awt.Font("Viner Hand ITC", 0, 100)); // NOI18N

@@ -48,7 +48,7 @@ public class GenerarCartones extends javax.swing.JPanel {
         jLabel2.setText("Cantidad:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, -1, 40));
 
-        txtCantidad.setFont(new java.awt.Font("Viner Hand ITC", 0, 20)); // NOI18N
+        txtCantidad.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         txtCantidad.setToolTipText("Valor entre 1 y 500");
         txtCantidad.addActionListener(new java.awt.event.ActionListener()
         {
@@ -57,7 +57,7 @@ public class GenerarCartones extends javax.swing.JPanel {
                 txtCantidadActionPerformed(evt);
             }
         });
-        add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 300, -1));
+        add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 300, 40));
 
         btRegresar.setBackground(new java.awt.Color(102, 102, 102));
         btRegresar.setFont(new java.awt.Font("Viner Hand ITC", 0, 20)); // NOI18N

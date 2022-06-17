@@ -68,9 +68,9 @@ public class ControladorGenerarCartones implements ActionListener
         if (Utilitarios.ValidarEntero(strCantidad, Boolean.TRUE))
         {
             this.objControladorInicio.objBingo.GenerarCartones(Integer.parseInt(strCantidad));
-            this.objControladorInicio.objBingo.ImprimirCartones();
-            this.objControladorInicio.CambiaPanelOpciones();
             GenerarVistaCarton();
+            this.objControladorInicio.CambiaPanelOpcionesHabilitarBotones();
+            JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Se han generado los cartones.","Éxito", JOptionPane.INFORMATION_MESSAGE);
         }
         else
         {
@@ -109,8 +109,6 @@ public class ControladorGenerarCartones implements ActionListener
             catch (IOException exp)
             {
             }
-            
-            this.objControladorInicio.objBingo.ImprimirCartones();
         }
     }
 }
