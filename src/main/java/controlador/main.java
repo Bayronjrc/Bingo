@@ -4,21 +4,19 @@
  */
 package controlador;
 
-import modelo.Jugador;
 import vista.*;
-import controlador.*;
 
 /**
  *
  * @author User
  */
-public class main {
+public class main
+{
     public static void main(String[] args)
     {
-        
-        Inicio ini = new Inicio();
-        ControladorInicio cI = new ControladorInicio(ini);
-        cI.vista.setVisible(true);
-    
+        Inicio objInicio = new Inicio();
+        objInicio.setSize(850,450);
+        ControladorInicio objControladorInicio = new ControladorInicio(objInicio);
+        objControladorInicio.objInicio.setVisible(true);
     }
 }

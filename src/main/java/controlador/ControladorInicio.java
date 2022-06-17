@@ -3,61 +3,41 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package controlador;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import vista.*;
-import modelo.*;
 
 /**
  *
  * @author User
  */
-public class ControladorInicio implements ActionListener{
-    public Inicio vista;
-    
-    public ControladorInicio(Inicio pVista){
-        vista = pVista;
-        this.vista.btGenerar.addActionListener(this);
-        this.vista.btEnviarCarton.addActionListener(this);
-        this.vista.btEstadisticas.addActionListener(this);
-        this.vista.btIniciar.addActionListener(this);
-        this.vista.btRegistrar.addActionListener(this);
-        this.vista.btVerCarton.addActionListener(this);
-        this.vista.jButton9.addActionListener(this);
+public final class ControladorInicio implements ActionListener
+{
+
+    public Inicio objInicio;
+
+    public ControladorInicio(Inicio objInicio)
+    {
+        this.objInicio = objInicio;
+        InicioOpcion objInicioOpcion = new InicioOpcion();
+        objInicioOpcion.setSize(850, 450);
+        objInicioOpcion.setVisible(true);
+        ControladorOpciones objControladorOpciones = new ControladorOpciones(objInicioOpcion, this);
+        CambiaPanel(objControladorOpciones.objInicioOpcion);
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        switch (e.getActionCommand()) {
-            case "Generar Cartones" -> {
-            }
-            case "Ver Carton" -> {
-            }
-            case "Registrar jugador" -> registrarJugador();
-            case "Enviar Carton" -> {
-            }
-            case "Estadisticas" -> {
-            }
-            case "Iniciar Juego" -> {
-            }
-            case "Salir" -> {
-            }
-        }
+    public void actionPerformed(ActionEvent e)
+    {
     }
     
-    public void registrarJugador(){
-        RegistroJugador vista = new RegistroJugador();
-        Jugador jugador = new Jugador();
-        ControladorJugador controladorUsuario = new ControladorJugador(vista, jugador);
-        cambiaPanel(vista);
-        controladorUsuario.vista.setVisible(true); 
-    }
-    
-    public void cambiaPanel(JPanel panel){
-        this.vista.jPanel1.removeAll();
-        this.vista.jPanel1.add(panel);
-        this.vista.jPanel1.repaint();
-        this.vista.jPanel1.revalidate();
+    public void CambiaPanel(JPanel panel)
+    {
+        this.objInicio.getContentPane().removeAll(); 
+        this.objInicio.setContentPane(panel);  
+        this.objInicio.getContentPane().revalidate();
+        this.objInicio.getContentPane().repaint(); 
     }
 }
