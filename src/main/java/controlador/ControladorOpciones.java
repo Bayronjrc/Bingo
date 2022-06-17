@@ -27,7 +27,7 @@ public class ControladorOpciones implements ActionListener
     {
         this.objInicioOpcion = objInicioOpcion;
         this.objControladorInicio = objControladorInicio;
-        
+
         this.objInicioOpcion.btGenerar.addActionListener(this);
         this.objInicioOpcion.btEnviarCarton.addActionListener(this);
         this.objInicioOpcion.btEstadisticas.addActionListener(this);
@@ -64,6 +64,7 @@ public class ControladorOpciones implements ActionListener
             // Ver Carton
             case "5" ->
             {
+
             }
             // Estadisticas
             case "6" ->
@@ -74,7 +75,7 @@ public class ControladorOpciones implements ActionListener
             {
                 String path = System.getProperty("user.dir");
                 File file = new File(path + "\\Cartones");
-                if(file.exists())
+                if (file.exists())
                 {
                     try
                     {
@@ -93,29 +94,35 @@ public class ControladorOpciones implements ActionListener
     {
         RegistroJugador objRegistroJugador = new RegistroJugador();
         objRegistroJugador.setSize(850, 450);
-        objRegistroJugador.setVisible(true);
         Jugador jugador = new Jugador();
         ControladorJugador controladorUsuario = new ControladorJugador(objRegistroJugador, jugador, objControladorInicio);
         objControladorInicio.CambiaPanel(controladorUsuario.objRegistroJugador);
     }
-    
-    public void enviarCartones(){
+
+    public void enviarCartones()
+    {
         EnviarCarton objEnviarCarton = new EnviarCarton();
         objEnviarCarton.setSize(850, 450);
-        objEnviarCarton.setVisible(true);
         ControladorEnviarCarton controladorEnviarCarton = new ControladorEnviarCarton(objEnviarCarton, objControladorInicio);
         objControladorInicio.CambiaPanel(controladorEnviarCarton.objEnviarCarton);
     }
-    
+
     public void generarCartones()
     {
         GenerarCartones objGenerarCartones = new GenerarCartones();
         objGenerarCartones.setSize(850, 450);
-        objGenerarCartones.setVisible(true);
         ControladorGenerarCartones objControladorGenerarCartones = new ControladorGenerarCartones(objGenerarCartones, objControladorInicio);
         objControladorInicio.CambiaPanel(objControladorGenerarCartones.objGenerarCartones);
     }
     
+    public void consultarCartones()
+    {
+        ConsultarCarton objConsultarCarton = new ConsultarCarton();
+        objConsultarCarton.setSize(850, 450);
+        ControladorConsultarCartones objControladorConsultarCartones = new ControladorConsultarCartones(objConsultarCarton, objControladorInicio);
+        objControladorInicio.CambiaPanel(objControladorConsultarCartones.objGenerarCartones);
+    }
+
     void deleteDirectoryRecursionJava6(File file) throws IOException
     {
         if (file.isDirectory())

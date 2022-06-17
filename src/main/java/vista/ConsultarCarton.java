@@ -24,74 +24,69 @@ public class ConsultarCarton extends javax.swing.JPanel {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        txtIdentificación = new javax.swing.JTextField();
+        btMostrar = new javax.swing.JButton();
+        btRegresar = new javax.swing.JButton();
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("Consultar Carton");
+        setBackground(new java.awt.Color(51, 51, 51));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("Identificacion");
+        jLabel1.setFont(new java.awt.Font("Viner Hand ITC", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 153, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Consultar cartón");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 840, 70));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+        jLabel2.setFont(new java.awt.Font("Viner Hand ITC", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 153, 0));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel2.setText("Identificación:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, 40));
+
+        txtIdentificación.setFont(new java.awt.Font("Viner Hand ITC", 0, 20)); // NOI18N
+        txtIdentificación.setToolTipText("Valor entre 1 y 500");
+        txtIdentificación.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                txtIdentificaciónActionPerformed(evt);
             }
         });
+        add(txtIdentificación, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, 300, -1));
 
-        jButton1.setText("Mostrar");
+        btMostrar.setBackground(new java.awt.Color(102, 102, 102));
+        btMostrar.setFont(new java.awt.Font("Viner Hand ITC", 0, 20)); // NOI18N
+        btMostrar.setForeground(new java.awt.Color(255, 153, 0));
+        btMostrar.setText("Mostrar");
+        btMostrar.setActionCommand("1");
+        btMostrar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        add(btMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 150, 140, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(23, 23, 23))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        btRegresar.setBackground(new java.awt.Color(102, 102, 102));
+        btRegresar.setFont(new java.awt.Font("Viner Hand ITC", 0, 20)); // NOI18N
+        btRegresar.setForeground(new java.awt.Color(255, 153, 0));
+        btRegresar.setText("Regresar");
+        btRegresar.setActionCommand("0");
+        btRegresar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        add(btRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 140, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtIdentificaciónActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_txtIdentificaciónActionPerformed
+    {//GEN-HEADEREND:event_txtIdentificaciónActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtIdentificaciónActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    public javax.swing.JButton btMostrar;
+    public javax.swing.JButton btRegresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextField1;
+    public javax.swing.JTextField txtIdentificación;
     // End of variables declaration//GEN-END:variables
 }
