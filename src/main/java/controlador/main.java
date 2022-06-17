@@ -17,6 +17,8 @@ public class main {
     {
         
         Inicio ini = new Inicio();
-        ini.setVisible(true);
+        ControladorInicio cI = new ControladorInicio(ini);
+        cI.vista.setVisible(true);
+    
     }
 }
