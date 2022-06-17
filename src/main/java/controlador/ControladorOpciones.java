@@ -50,6 +50,7 @@ public class ControladorOpciones implements ActionListener
             // Enviar Cartón
             case "3" ->
             {
+                enviarCartones();
             }
             // Generar Cartones
             case "4" ->
@@ -79,6 +80,16 @@ public class ControladorOpciones implements ActionListener
         Jugador jugador = new Jugador();
         ControladorJugador controladorUsuario = new ControladorJugador(objRegistroJugador, jugador, objControladorInicio);
         objControladorInicio.CambiaPanel(controladorUsuario.objRegistroJugador);
+    }
+    
+    public void enviarCartones()
+    {
+        EnviarCarton objEnviarCarton = new EnviarCarton();
+        objEnviarCarton.setSize(850, 450);
+        objEnviarCarton.setVisible(true);
+        ControladorEnviarCarton objControladorEnviarCarton = new ControladorEnviarCarton(objEnviarCarton, objControladorInicio);
+        objControladorInicio.CambiaPanel(objControladorEnviarCarton.objEnviarCarton);
+        
     }
     
     public void generarCartones()

@@ -2,6 +2,19 @@ package controlador;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Properties;
+import javax.activation.DataHandler;
+import javax.activation.FileDataSource;
+import javax.mail.BodyPart;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -94,7 +107,7 @@ public class Utilitarios
                 if (node.getNodeType() == Node.ELEMENT_NODE)
                 {
                     Element tElement = (Element) node;
-                    int o = 0;
+                    
                     if ((tElement.getElementsByTagName("Cedula").item(0).getTextContent()).equals(pCedula))
                     {
 
@@ -108,6 +121,42 @@ public class Utilitarios
             System.out.println(e);
         }
         return true;
+    }
+    
+    public static String BuscaCorreo(String pCedula)
+    {
+        try
+        {
+            File file = new File("Jugadores.xml");
+
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+
+            DocumentBuilder db = dbf.newDocumentBuilder();
+            Document doc = db.parse(file);
+            doc.getDocumentElement().normalize();
+
+            NodeList nodeList = doc.getElementsByTagName("Jugador");
+
+            for (int i = 0; i < nodeList.getLength(); ++i)
+            {
+                Node node = nodeList.item(i);
+                if (node.getNodeType() == Node.ELEMENT_NODE)
+                {
+                    Element tElement = (Element) node;
+                    
+                    if ((tElement.getElementsByTagName("Cedula").item(0).getTextContent()).equals(pCedula))
+                    {
+                        String correo = tElement.getElementsByTagName("Correo").item(0).getTextContent();
+                        return correo;
+                    }
+                }
+            }
+            return "";
+        } catch (IOException | ParserConfigurationException | DOMException | SAXException e)
+        {
+            System.out.println(e);
+        }
+        return "";
     }
     
     /***
@@ -136,6 +185,49 @@ public class Utilitarios
         catch(NumberFormatException e)
         {
             return false;
+        }
+    }
+    
+    public static void EnviarCartonCorreo(String pTo) throws AddressException, MessagingException {
+        String pFrom = "rrodriguez@neotecnologias.com";
+        String pUsername = "rrodriguez@neotecnologias.com";
+        String pPassword = "5tzEWVRSVu4CwpV";
+        String pSubject = "Bingo";
+        String pMessage = "Bingo";
+        
+        try {
+            Properties props = new Properties();
+            props.put("mail.smtp.host", "smtp.gmail.com");
+            props.setProperty("mail.smtp.auth", "true");
+            props.setProperty("mail.smtp.starttls.enable", "true");
+            props.setProperty("mail.smtp.port", "25");
+            props.setProperty("mail.smtp.user", pFrom);
+
+            Session session = Session.getDefaultInstance(props, null);
+            BodyPart texto = new MimeBodyPart();
+            texto.setText(pMessage);
+            
+            BodyPart adjunto = new MimeBodyPart();
+            adjunto.setDataHandler(new DataHandler(new FileDataSource("gfdg.png")));
+            adjunto.setFileName("gfdg.png");
+
+            MimeMultipart multipart = new MimeMultipart();
+            multipart.addBodyPart(texto);
+            multipart.addBodyPart(adjunto);
+            
+            MimeMessage mensaje = new MimeMessage(session);
+            mensaje.setFrom(new InternetAddress(pFrom));
+            mensaje.addRecipient(Message.RecipientType.TO, new InternetAddress(pTo));
+            mensaje.setSubject(pSubject);
+            mensaje.setContent(multipart);
+
+            Transport transport =  session.getTransport("smtp");
+            transport.connect(pFrom, pPassword);
+            transport.sendMessage(mensaje, mensaje.getAllRecipients());
+            transport.close();
+            System.out.println("enviado");
+        }catch (Exception e){
+            System.out.println("error"+e);
         }
     }
 }
