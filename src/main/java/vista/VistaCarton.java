@@ -29,18 +29,202 @@ public final class VistaCarton extends javax.swing.JPanel
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(420, 500));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 10, 400, 70));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Bingo");
+        jLabel2.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 420, 50));
+
+        jLabel3.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel3.setForeground(new java.awt.Color(255, 102, 102));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 40, 30));
+
+        jLabel4.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("jLabel4");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, -1));
+
+        jLabel5.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("jLabel5");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, -1, -1));
+
+        jLabel6.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("jLabel6");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, -1, -1));
+
+        jLabel7.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("jLabel7");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, -1, -1));
+
+        jLabel8.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("jLabel8");
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 40, 30));
+
+        jLabel9.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("jLabel9");
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, -1, -1));
+
+        jLabel10.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("jLabel10");
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, -1, -1));
+
+        jLabel11.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("jLabel11");
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, -1, -1));
+
+        jLabel12.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("jLabel12");
+        add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 200, -1, -1));
+
+        jLabel13.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setText("jLabel13");
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
+
+        jLabel14.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel14.setText("jLabel14");
+        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, -1, -1));
+
+        jLabel15.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setText("jLabel15");
+        add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, -1, -1));
+
+        jLabel16.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText("jLabel16");
+        add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, -1, -1));
+
+        jLabel17.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setText("jLabel17");
+        add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, -1, -1));
+
+        jLabel18.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setText("jLabel18");
+        add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
+
+        jLabel19.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel19.setText("jLabel19");
+        add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, -1, -1));
+
+        jLabel20.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel20.setText("jLabel20");
+        add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, -1, -1));
+
+        jLabel21.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel21.setText("jLabel21");
+        add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, -1, -1));
+
+        jLabel22.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel22.setText("jLabel22");
+        add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 300, -1, -1));
+
+        jLabel23.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel23.setText("jLabel23");
+        add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
+
+        jLabel24.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel24.setText("jLabel24");
+        add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, -1, -1));
+
+        jLabel25.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel25.setText("jLabel25");
+        add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, -1, -1));
+
+        jLabel26.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel26.setText("jLabel26");
+        add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 340, -1, -1));
+
+        jLabel27.setBackground(new java.awt.Color(255, 51, 51));
+        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel27.setText("jLabel27");
+        add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 340, -1, -1));
+
+        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 440, 70));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }
