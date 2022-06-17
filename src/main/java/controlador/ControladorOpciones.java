@@ -120,7 +120,7 @@ public class ControladorOpciones implements ActionListener
         ConsultarCarton objConsultarCarton = new ConsultarCarton();
         objConsultarCarton.setSize(850, 450);
         ControladorConsultarCartones objControladorConsultarCartones = new ControladorConsultarCartones(objConsultarCarton, objControladorInicio);
-        objControladorInicio.CambiaPanel(objControladorConsultarCartones.objGenerarCartones);
+        objControladorInicio.CambiaPanel(objControladorConsultarCartones.objConsultarCartones);
     }
 
     void deleteDirectoryRecursionJava6(File file) throws IOException
