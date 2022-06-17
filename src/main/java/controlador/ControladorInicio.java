@@ -34,7 +34,7 @@ public class ControladorInicio implements ActionListener{
             }
             case "Ver Carton" -> {
             }
-            case "Registrar" -> registrarJugador();
+            case "Registrar jugador" -> registrarJugador();
             case "Enviar Carton" -> {
             }
             case "Estadisticas" -> {
