@@ -55,11 +55,7 @@ public class ControladorJugador implements ActionListener
             }
             case "Regresar" ->
             {
-                InicioOpcion objInicioOpcion = new InicioOpcion();
-                objInicioOpcion.setSize(850, 450);
-                objInicioOpcion.setVisible(true);
-                ControladorOpciones objControladorOpciones = new ControladorOpciones(objInicioOpcion, this.objControladorInicio);
-                this.objControladorInicio.CambiaPanel(objControladorOpciones.objInicioOpcion);
+                this.objControladorInicio.CambiaPanelOpciones();
             }
         }
     }

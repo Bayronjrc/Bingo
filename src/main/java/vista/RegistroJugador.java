@@ -37,32 +37,41 @@ public class RegistroJugador extends javax.swing.JPanel {
         txtCedula = new javax.swing.JTextField();
         btRegistrar = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(153, 0, 0));
+        setBackground(new java.awt.Color(51, 51, 51));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btRegresar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btRegresar.setBackground(new java.awt.Color(102, 102, 102));
+        btRegresar.setFont(new java.awt.Font("Viner Hand ITC", 0, 20)); // NOI18N
+        btRegresar.setForeground(new java.awt.Color(255, 153, 0));
         btRegresar.setText("Regresar");
-        btRegresar.setBorderPainted(false);
+        btRegresar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add(btRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 150, 40));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Viner Hand ITC", 0, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 153, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Registro de Jugadores");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 830, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 830, 70));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Viner Hand ITC", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 153, 0));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Nombre:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 90, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Viner Hand ITC", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 153, 0));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Correo:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 80, -1));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Viner Hand ITC", 0, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 153, 0));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Cedula:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 90, -1));
 
-        txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtNombre.setFont(new java.awt.Font("Viner Hand ITC", 0, 18)); // NOI18N
         txtNombre.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -70,12 +79,12 @@ public class RegistroJugador extends javax.swing.JPanel {
                 txtNombreActionPerformed(evt);
             }
         });
-        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 660, -1));
+        add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 650, -1));
 
-        txtCorreo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 660, -1));
+        txtCorreo.setFont(new java.awt.Font("Viner Hand ITC", 0, 18)); // NOI18N
+        add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 650, -1));
 
-        txtCedula.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtCedula.setFont(new java.awt.Font("Viner Hand ITC", 0, 18)); // NOI18N
         txtCedula.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -83,11 +92,13 @@ public class RegistroJugador extends javax.swing.JPanel {
                 txtCedulaActionPerformed(evt);
             }
         });
-        add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 240, -1));
+        add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 230, -1));
 
-        btRegistrar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btRegistrar.setBackground(new java.awt.Color(102, 102, 102));
+        btRegistrar.setFont(new java.awt.Font("Viner Hand ITC", 0, 20)); // NOI18N
+        btRegistrar.setForeground(new java.awt.Color(255, 153, 0));
         btRegistrar.setText("Guardar");
-        btRegistrar.setBorderPainted(false);
+        btRegistrar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btRegistrar.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -95,7 +106,7 @@ public class RegistroJugador extends javax.swing.JPanel {
                 btRegistrarActionPerformed(evt);
             }
         });
-        add(btRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 320, 150, 40));
+        add(btRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 320, 150, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed

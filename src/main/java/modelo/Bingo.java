@@ -23,17 +23,17 @@ public final class Bingo
     public final static int MODO_JUEGO_CUATRO_ESQUINAS = 2;
     public final static int MODO_JUEGO_CARTON_LLENO = 3;
     public final static int MODO_JUEGO_EN_Z = 4;
+
+    public Bingo()
+    {
+    }
     
     /***
-     * Constructor.
+     * Genera los cartones.
      * @param cantidadCartones 
-     * @param monto 
-     * @param modoJuego 
      */
-    public Bingo(int cantidadCartones, double monto, int modoJuego)
+    public void GenerarCartones(int cantidadCartones)
     {
-        this.Monto = monto;
-        this.ModoJuego = modoJuego;
         Arrays.fill(this.ListaBolas, 0);
         this.ListaIdentificadores = new String[cantidadCartones];
         Arrays.fill(this.ListaIdentificadores, "");
@@ -183,84 +183,130 @@ public final class Bingo
         
         return null;
     }
+
+    public int getModoJuego()
+    {
+        return ModoJuego;
+    }
+
+    public void setModoJuego(int ModoJuego)
+    {
+        this.ModoJuego = ModoJuego;
+    }
+
+    public double getMonto()
+    {
+        return Monto;
+    }
+
+    public void setMonto(double Monto)
+    {
+        this.Monto = Monto;
+    }
+    
+    /***
+     * Validar que el valor ingresados ea entero y en el rango solicitado.
+     * @param strCantidad
+     * @param validarRango
+     * @return 
+     */
+    public Boolean ValidarCantidadCartones(String strCantidad, Boolean validarRango)
+    {
+        try
+        {
+            int cantidad = Integer.parseInt(strCantidad);
+            if(validarRango)
+            {
+                return !(cantidad > 500 || cantidad < 1);
+            }
+            else
+            {
+                return true;
+            }
+        }
+        catch(NumberFormatException e)
+        {
+            return false;
+        }
+    }
     
     /***
      * 
      * @param args 
      */
-    public static void main(String[] args)
-    {
-        Bingo objBingo = new Bingo(10, 2000.00, Bingo.MODO_JUEGO_EN_X);
-        int cont;
-        
-        for(Carton objCarton: objBingo.ListaCarton)
-        {
-            cont = 0;
-            System.err.format("%n");
-            System.err.format("%n");
-            System.err.format("Bingo: " + objCarton.getIdentificador());
-            System.err.format("%n");
-            System.err.format("%n");
-            
-            for(int numero: objCarton.getListaNumeros())
-            {
-                System.out.format("%02d | ", numero);
-                
-                if(cont != 4)
-                {
-                    cont++;
-                }
-                else
-                {
-                    cont = 0;
-                    System.err.format("%n");
-                }
-            }
-        }
-        
-        System.err.format("%n");
-        System.err.format("%n");
-        System.err.format(Arrays.toString(objBingo.ListaIdentificadores));
-        System.err.format("%n");
-        System.err.format("%n");
-        
-        cont = 0;
-        for(int i = 0; i < 80; i++)
-        {
-            System.out.format("%02d | ", objBingo.ObtenerBola());
-            
-            Boolean ganador = false;
-            
-            for(Carton objCarton: objBingo.ListaCarton)
-            {
-                Boolean cartonValido = objBingo.ValidarCartonGanador(objCarton.getIdentificador());
-                
-                if(cartonValido)
-                {
-                    ganador = true;
-                    System.err.format("%n");
-                    System.err.format("%n");
-                    System.err.format("Cartón " + objCarton.getIdentificador() + " - Ganador");
-                }
-            }
-            
-            if(ganador)
-            {
-                System.err.format("%n");
-                System.err.format("%n");
-                System.out.format(Arrays.toString(objBingo.ListaBolas));
-                break;
-            }
-
-            if(cont != 9)
-            {
-                cont++;
-            }
-            else
-            {
-                cont = 0;
-                System.err.format("%n");
-            }
-        }
-    }
+//    public static void main(String[] args)
+//    {
+//        Bingo objBingo = new Bingo(10, 2000.00, Bingo.MODO_JUEGO_EN_X);
+//        int cont;
+//        
+//        for(Carton objCarton: objBingo.ListaCarton)
+//        {
+//            cont = 0;
+//            System.err.format("%n");
+//            System.err.format("%n");
+//            System.err.format("Bingo: " + objCarton.getIdentificador());
+//            System.err.format("%n");
+//            System.err.format("%n");
+//            
+//            for(int numero: objCarton.getListaNumeros())
+//            {
+//                System.out.format("%02d | ", numero);
+//                
+//                if(cont != 4)
+//                {
+//                    cont++;
+//                }
+//                else
+//                {
+//                    cont = 0;
+//                    System.err.format("%n");
+//                }
+//            }
+//        }
+//        
+//        System.err.format("%n");
+//        System.err.format("%n");
+//        System.err.format(Arrays.toString(objBingo.ListaIdentificadores));
+//        System.err.format("%n");
+//        System.err.format("%n");
+//        
+//        cont = 0;
+//        for(int i = 0; i < 80; i++)
+//        {
+//            System.out.format("%02d | ", objBingo.ObtenerBola());
+//            
+//            Boolean ganador = false;
+//            
+//            for(Carton objCarton: objBingo.ListaCarton)
+//            {
+//                Boolean cartonValido = objBingo.ValidarCartonGanador(objCarton.getIdentificador());
+//                
+//                if(cartonValido)
+//                {
+//                    ganador = true;
+//                    System.err.format("%n");
+//                    System.err.format("%n");
+//                    System.err.format("Cartón " + objCarton.getIdentificador() + " - Ganador");
+//                }
+//            }
+//            
+//            if(ganador)
+//            {
+//                System.err.format("%n");
+//                System.err.format("%n");
+//                System.out.format(Arrays.toString(objBingo.ListaBolas));
+//                break;
+//            }
+//
+//            if(cont != 9)
+//            {
+//                cont++;
+//            }
+//            else
+//            {
+//                cont = 0;
+//                System.err.format("%n");
+//            }
+//        }
+//    }
 }

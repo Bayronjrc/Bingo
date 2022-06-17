@@ -31,7 +31,6 @@ public class ControladorOpciones implements ActionListener
         this.objInicioOpcion.btRegistrar.addActionListener(this);
         this.objInicioOpcion.btVerCarton.addActionListener(this);
         this.objInicioOpcion.btSalir.addActionListener(this);
-        
     }
 
     @Override
@@ -39,24 +38,34 @@ public class ControladorOpciones implements ActionListener
     {
         switch (e.getActionCommand())
         {
-            case "Generar Cartones" ->
+            // Iniciar Juego
+            case "1" ->
             {
             }
-            case "Ver Carton" ->
+            // Registrar jugador
+            case "2" ->
             {
-            }
-            case "Registrar jugador" ->
                 registrarJugador();
-            case "Enviar Carton" ->
+            }
+            // Enviar Cartón
+            case "3" ->
             {
             }
-            case "Estadisticas" ->
+            // Generar Cartones
+            case "4" ->
+            {
+                generarCartones();
+            }
+            // Ver Carton
+            case "5" ->
             {
             }
-            case "Iniciar Juego" ->
+            // Estadisticas
+            case "6" ->
             {
             }
-            case "Salir" ->
+            // Salir
+            case "0" ->
             {
             }
         }
@@ -70,5 +79,14 @@ public class ControladorOpciones implements ActionListener
         Jugador jugador = new Jugador();
         ControladorJugador controladorUsuario = new ControladorJugador(objRegistroJugador, jugador, objControladorInicio);
         objControladorInicio.CambiaPanel(controladorUsuario.objRegistroJugador);
+    }
+    
+    public void generarCartones()
+    {
+        GenerarCartones objGenerarCartones = new GenerarCartones();
+        objGenerarCartones.setSize(850, 450);
+        objGenerarCartones.setVisible(true);
+        ControladorGenerarCartones objControladorGenerarCartones = new ControladorGenerarCartones(objGenerarCartones, objControladorInicio);
+        objControladorInicio.CambiaPanel(objControladorGenerarCartones.objGenerarCartones);
     }
 }

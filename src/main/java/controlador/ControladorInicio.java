@@ -7,6 +7,7 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
+import modelo.Bingo;
 import vista.*;
 
 /**
@@ -17,15 +18,13 @@ public final class ControladorInicio implements ActionListener
 {
 
     public Inicio objInicio;
+    public Bingo objBingo;
 
     public ControladorInicio(Inicio objInicio)
     {
         this.objInicio = objInicio;
-        InicioOpcion objInicioOpcion = new InicioOpcion();
-        objInicioOpcion.setSize(850, 450);
-        objInicioOpcion.setVisible(true);
-        ControladorOpciones objControladorOpciones = new ControladorOpciones(objInicioOpcion, this);
-        CambiaPanel(objControladorOpciones.objInicioOpcion);
+        this.objBingo = new Bingo();
+        CambiaPanelOpciones();
     }
 
     @Override
@@ -39,5 +38,14 @@ public final class ControladorInicio implements ActionListener
         this.objInicio.setContentPane(panel);  
         this.objInicio.getContentPane().revalidate();
         this.objInicio.getContentPane().repaint(); 
+    }
+    
+    public void CambiaPanelOpciones()
+    {
+        InicioOpcion objInicioOpcion = new InicioOpcion();
+        objInicioOpcion.setSize(850, 450);
+        objInicioOpcion.setVisible(true);
+        ControladorOpciones objControladorOpciones = new ControladorOpciones(objInicioOpcion, this);
+        CambiaPanel(objControladorOpciones.objInicioOpcion);  
     }
 }
