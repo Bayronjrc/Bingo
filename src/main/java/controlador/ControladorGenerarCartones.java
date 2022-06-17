@@ -6,7 +6,6 @@ package controlador;
 
 import javax.swing.*;
 import java.awt.event.*;
-import modelo.*;
 import vista.*;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -61,14 +60,15 @@ public class ControladorGenerarCartones implements ActionListener
     {
         String strCantidad = this.objGenerarCartones.txtCantidad.getText();
         
-        if (this.objControladorInicio.objBingo.ValidarCantidadCartones(strCantidad, Boolean.FALSE))
+        if (Utilitarios.ValidarEntero(strCantidad, Boolean.TRUE))
         {
             this.objControladorInicio.objBingo.GenerarCartones(Integer.parseInt(strCantidad));
+            this.objControladorInicio.objBingo.ImprimirCartones();
             this.objControladorInicio.CambiaPanelOpciones();
         }
         else
         {
-            JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Debe ingregar un valor entero positivo, entre 1 y 500.");
+            JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Debe ingregar un valor entero positivo, entre 1 y 500.","Error", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 }

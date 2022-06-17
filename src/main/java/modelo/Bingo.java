@@ -204,72 +204,41 @@ public final class Bingo
         this.Monto = Monto;
     }
     
-    /***
-     * Validar que el valor ingresados ea entero y en el rango solicitado.
-     * @param strCantidad
-     * @param validarRango
-     * @return 
-     */
-    public Boolean ValidarCantidadCartones(String strCantidad, Boolean validarRango)
+    public void ImprimirCartones()
     {
-        try
+        int cont;
+        
+        for(Carton objCarton: this.ListaCarton)
         {
-            int cantidad = Integer.parseInt(strCantidad);
-            if(validarRango)
+            cont = 0;
+            System.err.format("%n");
+            System.err.format("%n");
+            System.err.format("Bingo: " + objCarton.getIdentificador());
+            System.err.format("%n");
+            System.err.format("%n");
+            
+            for(int numero: objCarton.getListaNumeros())
             {
-                return !(cantidad > 500 || cantidad < 1);
-            }
-            else
-            {
-                return true;
+                System.out.format("%02d | ", numero);
+                
+                if(cont != 4)
+                {
+                    cont++;
+                }
+                else
+                {
+                    cont = 0;
+                    System.err.format("%n");
+                }
             }
         }
-        catch(NumberFormatException e)
-        {
-            return false;
-        }
-    }
-    
-    /***
-     * 
-     * @param args 
-     */
-//    public static void main(String[] args)
-//    {
-//        Bingo objBingo = new Bingo(10, 2000.00, Bingo.MODO_JUEGO_EN_X);
-//        int cont;
-//        
-//        for(Carton objCarton: objBingo.ListaCarton)
-//        {
-//            cont = 0;
-//            System.err.format("%n");
-//            System.err.format("%n");
-//            System.err.format("Bingo: " + objCarton.getIdentificador());
-//            System.err.format("%n");
-//            System.err.format("%n");
-//            
-//            for(int numero: objCarton.getListaNumeros())
-//            {
-//                System.out.format("%02d | ", numero);
-//                
-//                if(cont != 4)
-//                {
-//                    cont++;
-//                }
-//                else
-//                {
-//                    cont = 0;
-//                    System.err.format("%n");
-//                }
-//            }
-//        }
-//        
-//        System.err.format("%n");
-//        System.err.format("%n");
-//        System.err.format(Arrays.toString(objBingo.ListaIdentificadores));
-//        System.err.format("%n");
-//        System.err.format("%n");
-//        
+        
+        System.err.format("%n");
+        System.err.format("%n");
+        System.err.format(Arrays.toString(this.ListaIdentificadores));
+        System.err.format("%n");
+        System.err.format("%n");
+        
 //        cont = 0;
 //        for(int i = 0; i < 80; i++)
 //        {
@@ -308,5 +277,5 @@ public final class Bingo
 //                System.err.format("%n");
 //            }
 //        }
-//    }
+    }
 }

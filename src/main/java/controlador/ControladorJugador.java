@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controlador;
 
 import javax.swing.*;
@@ -77,11 +73,11 @@ public class ControladorJugador implements ActionListener
                 objRegistroJugador.setVisible(true);
             } else
             {
-                JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "El usuario indicado no existe");
+                JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "El usuario indicado no existe","Error", JOptionPane.INFORMATION_MESSAGE);
             }
         } else
         {
-            JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Todos lo datos son requeridos");
+            JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Todos lo datos son requeridos","Error", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
