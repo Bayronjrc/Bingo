@@ -40,15 +40,6 @@ public final class Carton
         this.objJugador = objJugador;
     }
     
-    /***
-     * Asigna el jugador a los cartones.
-     * @param objJugador
-     */
-    public void AsignarJugador(Jugador objJugador)
-    {
-        this.objJugador = objJugador;
-    }
-    
     /**
      * *
      * Genera los números del cartón en una lista de enteros
@@ -167,5 +158,19 @@ public final class Carton
     public void setListaNumeros(int[] ListaNumeros)
     {
         this.ListaNumeros = ListaNumeros;
+    }
+
+    /***
+     * 
+     * @return 
+     */    
+    public String ObtenerCedulaJugador()
+    {
+        if(getJugador() != null)
+        {
+            return String.valueOf(getJugador().getCedula());
+        }
+        
+        return "";
     }
 }

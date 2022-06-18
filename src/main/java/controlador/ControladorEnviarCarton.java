@@ -57,7 +57,7 @@ public class ControladorEnviarCarton implements ActionListener
             Jugador objJugador = objJugadorDAOXML.buscarJugador(strCedula);
             
             this.objControladorInicio.objBingo.AsingarCartones(objJugador, Integer.parseInt(strCantidad));
-            Utilitarios.EnviarCartonCorreo(Utilitarios.BuscaCorreo(strCedula));
+            Utilitarios.EnviarCartonCorreo(Utilitarios.BuscaCorreo(strCedula), objControladorInicio.objBingo.ListaCarton);
             
             this.objControladorInicio.CambiaPanelOpcionesHabilitarBotones();
         }

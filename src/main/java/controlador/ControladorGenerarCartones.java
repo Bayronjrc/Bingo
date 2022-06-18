@@ -81,33 +81,37 @@ public class ControladorGenerarCartones implements ActionListener
     
     public void GenerarVistaCarton ()
     {
+        String path = System.getProperty("user.dir");
+        File file = new File(path + "\\Cartones");
         
-        for(Carton objCarton: objControladorInicio.objBingo.ListaCarton)
+        if(!file.exists())
         {
-            VistaCarton objVistaCarton = new VistaCarton();
-            objVistaCarton.setSize(464, 610);
-            objVistaCarton.AgregarLabels(objCarton);
-            
-            JFrame frame = new JFrame();
-            frame.setContentPane(objVistaCarton);
-            frame.setSize(464, 610);
-            frame.setUndecorated(true);
-            frame.setVisible(true);
-            
-            BufferedImage image = new BufferedImage(frame.getWidth(), frame.getHeight(), BufferedImage.TYPE_INT_RGB);
-            Graphics2D g = image.createGraphics();
-            frame.printAll(g);
-            g.dispose();
-            frame.dispose();
-            try
+            for(Carton objCarton: objControladorInicio.objBingo.ListaCarton)
             {
-                String path = System.getProperty("user.dir");
-                File file = new File(path + "\\Cartones");
-                file.mkdir();
-                ImageIO.write(image, "png", new File(path + "\\Cartones\\" + objCarton.getIdentificador() + ".png"));
-            }
-            catch (IOException exp)
-            {
+                VistaCarton objVistaCarton = new VistaCarton();
+                objVistaCarton.setSize(464, 610);
+                objVistaCarton.AgregarLabels(objCarton);
+
+                JFrame frame = new JFrame();
+                frame.setContentPane(objVistaCarton);
+                frame.setSize(464, 610);
+                frame.setUndecorated(true);
+                frame.setVisible(true);
+
+                BufferedImage image = new BufferedImage(frame.getWidth(), frame.getHeight(), BufferedImage.TYPE_INT_RGB);
+                Graphics2D g = image.createGraphics();
+                frame.printAll(g);
+                g.dispose();
+                frame.dispose();
+                try
+                {
+                        file.mkdir();
+                        ImageIO.write(image, "png", new File(path + "\\Cartones\\" + objCarton.getIdentificador() + ".png"));
+
+                }
+                catch (IOException exp)
+                {
+                }
             }
         }
     }

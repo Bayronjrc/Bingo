@@ -229,6 +229,26 @@ public final class Bingo
         return cantidad;
     }
     
+    /***
+     * Retorna la lista de cartones del jugador.
+     * @param strCedula
+     * @return 
+     */
+    public ArrayList<Carton> ObtenerCartonesPorJugador(String strCedula)
+    {
+        ArrayList<Carton> lista = new ArrayList<>();
+        
+        for(Carton objCarton: this.ListaCarton)
+        {
+            if(objCarton.ObtenerCedulaJugador().equals(strCedula))
+            {
+                lista.add(objCarton);
+            }
+        }
+        
+        return lista;
+    }
+    
     public int getModoJuego()
     {
         return ModoJuego;

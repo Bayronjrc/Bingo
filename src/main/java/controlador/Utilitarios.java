@@ -2,6 +2,7 @@ package controlador;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Properties;
 import javax.activation.DataHandler;
 import javax.activation.FileDataSource;
@@ -18,6 +19,7 @@ import javax.mail.internet.MimeMultipart;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import modelo.Carton;
 import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -205,12 +207,14 @@ public class Utilitarios
 
     /**
      * *
-     * Funcion que envia correos.
+     * Función que envía correos.
      *
      * @param pTo
+     * @param listaCartones
+     * @return 
      * @throws javax.mail.internet.AddressException
      */
-    public static Boolean EnviarCartonCorreo(String pTo) throws AddressException, MessagingException
+    public static Boolean EnviarCartonCorreo(String pTo, ArrayList<Carton> listaCartones) throws AddressException, MessagingException
     {
         String pFrom = "rrodriguez@neotecnologias.com";
         String pUsername = "rrodriguez@neotecnologias.com";
@@ -231,13 +235,22 @@ public class Utilitarios
             BodyPart texto = new MimeBodyPart();
             texto.setText(pMessage);
 
-            BodyPart adjunto = new MimeBodyPart();
-            adjunto.setDataHandler(new DataHandler(new FileDataSource("gfdg.png")));
-            adjunto.setFileName("gfdg.png");
-
+            BodyPart archivos = new MimeBodyPart();
+            
+            for(Carton objCarton: listaCartones)
+            {
+                String path = System.getProperty("user.dir");
+                File file = new File(path + "\\Cartones");
+                
+                if(file.exists())
+                {
+                    archivos.setDataHandler(new DataHandler(new FileDataSource(path + "\\Cartones\\" + objCarton.getIdentificador() + ".png")));
+                    archivos.setFileName(objCarton.getIdentificador() + ".png");
+                }
+            }
             MimeMultipart multipart = new MimeMultipart();
             multipart.addBodyPart(texto);
-            multipart.addBodyPart(adjunto);
+            multipart.addBodyPart(archivos);
 
             MimeMessage mensaje = new MimeMessage(session);
             mensaje.setFrom(new InternetAddress(pFrom));
@@ -245,10 +258,10 @@ public class Utilitarios
             mensaje.setSubject(pSubject);
             mensaje.setContent(multipart);
 
-            Transport transport = session.getTransport("smtp");
-            transport.connect(pFrom, pPassword);
-            transport.sendMessage(mensaje, mensaje.getAllRecipients());
-            transport.close();
+            Transport objTransport = session.getTransport("smtp");
+            objTransport.connect(pFrom, pPassword);
+            objTransport.sendMessage(mensaje, mensaje.getAllRecipients());
+            objTransport.close();
             
             return true;
         }
