@@ -45,7 +45,7 @@ public class ControladorEnviarCarton implements ActionListener{
         String strCedula = this.objEnviarCarton.txtCedula.getText();
         
         if(Utilitarios.ValidarEntero(strCantidad, Boolean.TRUE)&&!Utilitarios.ExisteCedula(strCedula)){
-            Utilitarios.EnviarCartonCorreo(Utilitarios.BuscaCorreo(strCedula));
+            //Utilitarios.EnviarCartonCorreo(Utilitarios.BuscaCorreo(strCedula));
             this.objControladorInicio.CambiaPanelOpciones();
         }else{
             JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Debe ingregar un valor entero positivo, entre 1 y 500.","Error", JOptionPane.INFORMATION_MESSAGE);

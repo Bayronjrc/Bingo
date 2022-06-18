@@ -46,6 +46,9 @@ public class Fin extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 153, 0));
         jLabel2.setText("Premio:");
 
+        jLabel3.setForeground(new java.awt.Color(255, 153, 0));
+        jLabel3.setText("x");
+
         jLabel4.setFont(new java.awt.Font("Viner Hand ITC", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 153, 0));
         jLabel4.setText("Cartones Ganadores:");
@@ -63,6 +66,8 @@ public class Fin extends javax.swing.JPanel {
         jButton1.setText("Terminar Juego");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 153, 0));
+        jLabel6.setText("x");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
