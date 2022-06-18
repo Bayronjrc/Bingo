@@ -24,7 +24,8 @@ public class EnviarCarton extends javax.swing.JPanel {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         jLabel2 = new javax.swing.JLabel();
         btEnviarCartones = new javax.swing.JButton();
@@ -34,68 +35,44 @@ public class EnviarCarton extends javax.swing.JPanel {
         txtCantidad = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(51, 51, 51));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Viner Hand ITC", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 133, 0));
         jLabel2.setText("Cedula:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(471, 135, -1, -1));
 
         btEnviarCartones.setFont(new java.awt.Font("Viner Hand ITC", 0, 20)); // NOI18N
         btEnviarCartones.setForeground(new java.awt.Color(255, 153, 0));
         btEnviarCartones.setText("Enviar Cartones Digitales");
+        add(btEnviarCartones, new org.netbeans.lib.awtextra.AbsoluteConstraints(267, 291, -1, 33));
+
+        txtCedula.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
+        txtCedula.setForeground(new java.awt.Color(255, 153, 0));
+        add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(564, 135, 262, 41));
 
         jLabel3.setFont(new java.awt.Font("Viner Hand ITC", 1, 47)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 153, 0));
         jLabel3.setText("Enviar Carton  a Jugador Registrado");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Viner Hand ITC", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 153, 0));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Cantidad:");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 134, -1, 40));
 
-        txtCantidad.setFont(new java.awt.Font("Viner Hand ITC", 0, 20)); // NOI18N
+        txtCantidad.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
+        txtCantidad.setForeground(new java.awt.Color(255, 153, 0));
         txtCantidad.setToolTipText("Valor entre 1 y 500");
-        txtCantidad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        txtCantidad.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
                 txtCantidadActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(267, 267, 267)
-                        .addComponent(btEnviarCartones))
-                    .addComponent(jLabel3))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addGap(48, 48, 48)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(115, 115, 115)
-                .addComponent(btEnviarCartones, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(126, Short.MAX_VALUE))
-        );
+        add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 136, 300, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantidadActionPerformed
