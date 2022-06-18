@@ -183,7 +183,52 @@ public final class Bingo
         
         return null;
     }
+    
+    /***
+     * Asigna el jugador a alguno de los cartones.
+     * @param objJugador
+     * @return 
+     */
+    private Boolean AsingarJugador(Jugador objJugador)
+    {
+        for(Carton objCarton: this.ListaCarton)
+        {
+            if(objCarton.getJugador() == null)
+            {
+                objCarton.setJugador(objJugador);
+                return true;
+            }
+        }
+        
+        return false;
+    }
 
+    /***
+     * Asing
+     * @param objJugador
+     * @param cantidad
+     * @return 
+     */
+    public int AsingarCartones(Jugador objJugador, int cantidad)
+    {
+        for(int i = 0; i < cantidad; i++)
+        {
+            if(!AsingarJugador(objJugador))
+            {
+                if(i == 0)
+                {
+                    return -1;
+                }
+                else
+                {
+                    return i + 1;
+                }
+            }
+        }
+        
+        return cantidad;
+    }
+    
     public int getModoJuego()
     {
         return ModoJuego;

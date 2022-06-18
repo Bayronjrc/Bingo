@@ -12,6 +12,7 @@ public final class Carton
 {
     private String Identificador;
     private int[] ListaNumeros;
+    private Jugador objJugador;
 
     public Carton(String[] listaIdentificadores)
     {
@@ -29,6 +30,25 @@ public final class Carton
         this.Identificador = identificador;
     }
 
+    public Jugador getJugador()
+    {
+        return objJugador;
+    }
+
+    public void setJugador(Jugador objJugador)
+    {
+        this.objJugador = objJugador;
+    }
+    
+    /***
+     * Asigna el jugador a los cartones.
+     * @param objJugador
+     */
+    public void AsignarJugador(Jugador objJugador)
+    {
+        this.objJugador = objJugador;
+    }
+    
     /**
      * *
      * Genera los números del cartón en una lista de enteros
