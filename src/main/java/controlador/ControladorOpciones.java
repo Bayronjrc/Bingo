@@ -45,6 +45,7 @@ public class ControladorOpciones implements ActionListener
             // Iniciar Juego
             case "1" ->
             {
+                iniciarJuego();
             }
             // Registrar jugador
             case "2" ->
@@ -90,6 +91,14 @@ public class ControladorOpciones implements ActionListener
         }
     }
 
+    public void iniciarJuego()
+    {
+        IniciarJuego objIniciarJuego = new IniciarJuego();
+        objIniciarJuego.setSize(850,450);
+        ControladorIniciarJuego controladorIniciarJuego = new ControladorIniciarJuego(objIniciarJuego,objControladorInicio);
+        objControladorInicio.CambiaPanel(controladorIniciarJuego.objIniciarJuego);
+    }
+    
     public void registrarJugador()
     {
         RegistroJugador objRegistroJugador = new RegistroJugador();

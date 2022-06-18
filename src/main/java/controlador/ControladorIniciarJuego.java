@@ -47,6 +47,11 @@ public class ControladorIniciarJuego implements ActionListener
     {
         int Tipo = objIniciarJuego.jComboBox1.getSelectedIndex();
         String premio = objIniciarJuego.jTextField1.getText();
+        if(Utilitarios.ValidarEntero(premio, Boolean.FALSE)){
+            this.objControladorInicio.objBingo.setModoJuego(Tipo+1);
+            this.objControladorInicio.objBingo.setMonto(Double.valueOf(premio));
+            
+        }
         
     }
     

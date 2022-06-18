@@ -52,6 +52,7 @@ public class IniciarJuego extends javax.swing.JPanel {
         jComboBox1.setFont(new java.awt.Font("Viner Hand ITC", 0, 24)); // NOI18N
         jComboBox1.setForeground(new java.awt.Color(255, 153, 0));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jugar X", "Cuatro esquinas", "Carton Lleno", "Jugar Z" }));
+        jComboBox1.setSelectedIndex(2);
         jComboBox1.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -82,7 +83,7 @@ public class IniciarJuego extends javax.swing.JPanel {
         btInciar.setFont(new java.awt.Font("Viner Hand ITC", 0, 20)); // NOI18N
         btInciar.setForeground(new java.awt.Color(255, 153, 0));
         btInciar.setText("Iniciar");
-        btInciar.setActionCommand("0");
+        btInciar.setActionCommand("1");
         btInciar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add(btInciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 320, 140, -1));
 
