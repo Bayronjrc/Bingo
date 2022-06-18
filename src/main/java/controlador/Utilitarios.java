@@ -120,16 +120,15 @@ public class Utilitarios
                     if ((tElement.getElementsByTagName("Cedula").item(0).getTextContent()).equals(pCedula))
                     {
 
-                        return false;
+                        return true;
                     }
                 }
             }
-            return true;
         } catch (IOException | ParserConfigurationException | DOMException | SAXException e)
         {
             System.out.println(e);
         }
-        return true;
+        return false;
     }
 
     /**

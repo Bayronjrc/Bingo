@@ -38,7 +38,7 @@ public class Jugador
     {
     }
 
-    public void agregarJugador(String pNombre, String pCorreo, int pCedula) throws ParserConfigurationException, ParserConfigurationException, ParserConfigurationException, SAXException, IOException
+    public void agregarJugador(String pNombre, String pCorreo, String pCedula) throws ParserConfigurationException, ParserConfigurationException, ParserConfigurationException, SAXException, IOException
     {
         try
         {
@@ -61,7 +61,7 @@ public class Jugador
             elemento1.appendChild(correo);
 
             Element Cedula = doc.createElement("Cedula");
-            Cedula.setTextContent(String.valueOf(pCedula));
+            Cedula.setTextContent(pCedula);
             elemento1.appendChild(Cedula);
 
             //Se escribe el contenido del XML en un archivo
@@ -73,7 +73,7 @@ public class Jugador
 
             String[] Jugadores =
             {
-                pNombre, pCorreo, String.valueOf(pCedula)
+                pNombre, pCorreo, pCedula
             };
 
             String archCSV = "Jugadores.csv";
@@ -98,9 +98,9 @@ public class Jugador
         return correoElectronico;
     }
 
-    public int getCedula()
+    public String getCedula()
     {
-        return Integer.parseInt(cedula);
+        return cedula;
     }
 
 }

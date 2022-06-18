@@ -29,7 +29,7 @@ public class JugadorDAOXML implements JugadorDAO
     @Override
     public Jugador registrarJugador(Jugador pJugador) throws ParserConfigurationException, ParserConfigurationException, ParserConfigurationException, SAXException, IOException
     {
-        if (Utilitarios.ExisteCedula(String.valueOf(pJugador.getCedula())))
+        if (!Utilitarios.ExisteCedula(pJugador.getCedula()))
         {
             Jugador nuevoJugador = new Jugador();
             nuevoJugador.agregarJugador(pJugador.getNombreCompleto(), pJugador.getCorreoElectronico(), pJugador.getCedula());
