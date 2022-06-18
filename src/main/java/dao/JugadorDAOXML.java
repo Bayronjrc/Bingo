@@ -15,27 +15,33 @@ import org.xml.sax.SAXException;
  *
  * @author User
  */
-public class JugadorDAOXML implements JugadorDAO{
-   
+public class JugadorDAOXML implements JugadorDAO
+{
+
     @Override
-    public Jugador registrarJugador(Jugador pJugador) throws ParserConfigurationException, ParserConfigurationException, ParserConfigurationException, SAXException, IOException{
-        if(Utilitarios.ExisteCedula(String.valueOf(pJugador.getCedula()))){
+    public Jugador registrarJugador(Jugador pJugador) throws ParserConfigurationException, ParserConfigurationException, ParserConfigurationException, SAXException, IOException
+    {
+        if (Utilitarios.ExisteCedula(String.valueOf(pJugador.getCedula())))
+        {
             Jugador nuevoJugador = new Jugador();
-            nuevoJugador.agregarJugador(pJugador.getNombreCompleto(), pJugador.getCorreoElectronico(),pJugador.getCedula());
+            nuevoJugador.agregarJugador(pJugador.getNombreCompleto(), pJugador.getCorreoElectronico(), pJugador.getCedula());
             return nuevoJugador;
-        }else{
+        } else
+        {
             return null;
         }
     }
 
     @Override
-    public ArrayList<Jugador> cargarListaUsuario() {
+    public ArrayList<Jugador> cargarListaUsuario()
+    {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Jugador buscarJugador(int pCedula) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Jugador buscarJugador(String pCedula)
+    {
+        return new Jugador();
     }
-    
+
 }

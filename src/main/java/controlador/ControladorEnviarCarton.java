@@ -1,11 +1,13 @@
 package controlador;
 
+import dao.*;
 import javax.swing.*;
 import java.awt.event.*;
 import vista.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.mail.MessagingException;
+import modelo.Jugador;
 
 /**
  *
@@ -51,9 +53,15 @@ public class ControladorEnviarCarton implements ActionListener
 
         if (Utilitarios.ValidarEntero(strCantidad, Boolean.TRUE) && !Utilitarios.ExisteCedula(strCedula))
         {
-            //Utilitarios.EnviarCartonCorreo(Utilitarios.BuscaCorreo(strCedula));
-            this.objControladorInicio.CambiaPanelOpciones();
-        } else
+            JugadorDAOXML objJugadorDAOXML = new JugadorDAOXML();
+            Jugador objJugador = objJugadorDAOXML.buscarJugador(strCedula);
+            
+            this.objControladorInicio.objBingo.AsingarCartones(objJugador, Integer.parseInt(strCantidad));
+            Utilitarios.EnviarCartonCorreo(Utilitarios.BuscaCorreo(strCedula));
+            
+            this.objControladorInicio.CambiaPanelOpcionesHabilitarBotones();
+        }
+        else
         {
             JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Debe ingregar un valor entero positivo, entre 1 y 500.", "Error", JOptionPane.INFORMATION_MESSAGE);
         }

@@ -114,7 +114,7 @@ public class Utilitarios
                 if (node.getNodeType() == Node.ELEMENT_NODE)
                 {
                     Element tElement = (Element) node;
-                    
+
                     if ((tElement.getElementsByTagName("Cedula").item(0).getTextContent()).equals(pCedula))
                     {
 
@@ -129,10 +129,11 @@ public class Utilitarios
         }
         return true;
     }
-    
+
     /**
      * *
-     * Verfica si existe o no la cedula en la lista de jugadores y retorna el correo.
+     * Verfica si existe o no la cedula en la lista de jugadores y retorna el
+     * correo.
      *
      * @param pCedula
      * @return
@@ -157,7 +158,7 @@ public class Utilitarios
                 if (node.getNodeType() == Node.ELEMENT_NODE)
                 {
                     Element tElement = (Element) node;
-                    
+
                     if ((tElement.getElementsByTagName("Cedula").item(0).getTextContent()).equals(pCedula))
                     {
                         String correo = tElement.getElementsByTagName("Correo").item(0).getTextContent();
@@ -172,12 +173,14 @@ public class Utilitarios
         }
         return "";
     }
-    
-    /***
+
+    /**
+     * *
      * Validar que el valor ingresados ea entero y en el rango solicitado.
+     *
      * @param strCantidad
      * @param validarRango
-     * @return 
+     * @return
      */
     public static Boolean ValidarEntero(String strCantidad, Boolean validarRango)
     {
@@ -185,37 +188,38 @@ public class Utilitarios
         {
             // Convierte a entero,
             int cantidad = Integer.parseInt(strCantidad);
-            
+
             // Si se validad el rango.
-            if(validarRango)
+            if (validarRango)
             {
                 return !(cantidad > 500 || cantidad < 1);
-            }
-            else
+            } else
             {
                 return true;
             }
-        }
-        catch(NumberFormatException e)
+        } catch (NumberFormatException e)
         {
             return false;
         }
     }
-    
+
     /**
      * *
      * Funcion que envia correos.
      *
      * @param pTo
+     * @throws javax.mail.internet.AddressException
      */
-    public static void EnviarCartonCorreo(String pTo) throws AddressException, MessagingException {
+    public static Boolean EnviarCartonCorreo(String pTo) throws AddressException, MessagingException
+    {
         String pFrom = "rrodriguez@neotecnologias.com";
         String pUsername = "rrodriguez@neotecnologias.com";
         String pPassword = "5tzEWVRSVu4CwpV";
         String pSubject = "Bingo";
         String pMessage = "Bingo";
-        
-        try {
+
+        try
+        {
             Properties props = new Properties();
             props.put("mail.smtp.host", "smtp.gmail.com");
             props.setProperty("mail.smtp.auth", "true");
@@ -226,7 +230,7 @@ public class Utilitarios
             Session session = Session.getDefaultInstance(props, null);
             BodyPart texto = new MimeBodyPart();
             texto.setText(pMessage);
-            
+
             BodyPart adjunto = new MimeBodyPart();
             adjunto.setDataHandler(new DataHandler(new FileDataSource("gfdg.png")));
             adjunto.setFileName("gfdg.png");
@@ -234,20 +238,23 @@ public class Utilitarios
             MimeMultipart multipart = new MimeMultipart();
             multipart.addBodyPart(texto);
             multipart.addBodyPart(adjunto);
-            
+
             MimeMessage mensaje = new MimeMessage(session);
             mensaje.setFrom(new InternetAddress(pFrom));
             mensaje.addRecipient(Message.RecipientType.TO, new InternetAddress(pTo));
             mensaje.setSubject(pSubject);
             mensaje.setContent(multipart);
 
-            Transport transport =  session.getTransport("smtp");
+            Transport transport = session.getTransport("smtp");
             transport.connect(pFrom, pPassword);
             transport.sendMessage(mensaje, mensaje.getAllRecipients());
             transport.close();
-            System.out.println("enviado");
-        }catch (Exception e){
-            System.out.println("error"+e);
+            
+            return true;
         }
+        catch (MessagingException e)
+        {
+        }
+        return false;
     }
 }

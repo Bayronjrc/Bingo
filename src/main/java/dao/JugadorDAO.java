@@ -10,9 +10,12 @@ import org.xml.sax.SAXException;
  *
  * @author User
  */
-public interface JugadorDAO {
-    
-    abstract Jugador registrarJugador(Jugador pJugador)throws ParserConfigurationException, ParserConfigurationException, ParserConfigurationException, SAXException, IOException;
+public interface JugadorDAO
+{
+
+    abstract Jugador registrarJugador(Jugador pJugador) throws ParserConfigurationException, ParserConfigurationException, ParserConfigurationException, SAXException, IOException;
+
     abstract ArrayList<Jugador> cargarListaUsuario();
-    abstract Jugador buscarJugador(int pCedula);
+
+    abstract Jugador buscarJugador(String pCedula);
 }
