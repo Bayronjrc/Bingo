@@ -50,6 +50,10 @@ public class ControladorIniciarJuego implements ActionListener
         if(Utilitarios.ValidarEntero(premio, Boolean.FALSE)){
             this.objControladorInicio.objBingo.setModoJuego(Tipo+1);
             this.objControladorInicio.objBingo.setMonto(Double.valueOf(premio));
+            Juego objJuego = new Juego();
+            objJuego.setSize(850, 450);
+            ControladorJuego objControladorJuego = new ControladorJuego(objJuego, objControladorInicio);
+            objControladorInicio.CambiaPanel(objControladorJuego.objJuego);
             
         }
         

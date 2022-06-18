@@ -52,12 +52,12 @@ public class Juego extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Viner Hand ITC", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 153, 0));
         jLabel2.setText("Total Cartones");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 393, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Viner Hand ITC", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 153, 0));
         jLabel3.setText("Total jugadores");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(568, 393, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(568, 320, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Viner Hand ITC", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 153, 0));
@@ -91,6 +91,7 @@ public class Juego extends javax.swing.JPanel {
         jTextArea1.setColumns(20);
         jTextArea1.setForeground(new java.awt.Color(255, 153, 0));
         jTextArea1.setRows(5);
+        jTextArea1.setEnabled(false);
         jScrollPane1.setViewportView(jTextArea1);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 194, 812, 79));
@@ -101,11 +102,11 @@ public class Juego extends javax.swing.JPanel {
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setForeground(new java.awt.Color(255, 153, 0));
         jLabel8.setText("x");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 393, 91, 39));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 320, 91, 39));
 
         jLabel9.setForeground(new java.awt.Color(255, 153, 0));
         jLabel9.setText("x");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(756, 393, 66, 39));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(756, 320, 66, 39));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
