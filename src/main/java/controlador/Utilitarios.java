@@ -87,6 +87,13 @@ public class Utilitarios
         return false;
     }
 
+    /**
+     * *
+     * Verfica si existe o no la cedula en la lista de jugadores.
+     *
+     * @param pCedula
+     * @return
+     */
     public static boolean ExisteCedula(String pCedula)
     {
         try
@@ -123,6 +130,13 @@ public class Utilitarios
         return true;
     }
     
+    /**
+     * *
+     * Verfica si existe o no la cedula en la lista de jugadores y retorna el correo.
+     *
+     * @param pCedula
+     * @return
+     */
     public static String BuscaCorreo(String pCedula)
     {
         try
@@ -188,6 +202,12 @@ public class Utilitarios
         }
     }
     
+    /**
+     * *
+     * Funcion que envia correos.
+     *
+     * @param pTo
+     */
     public static void EnviarCartonCorreo(String pTo) throws AddressException, MessagingException {
         String pFrom = "rrodriguez@neotecnologias.com";
         String pUsername = "rrodriguez@neotecnologias.com";
