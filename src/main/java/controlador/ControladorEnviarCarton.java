@@ -52,12 +52,24 @@ public class ControladorEnviarCarton implements ActionListener
 
     }
 
+    /***
+     * 
+     * @throws MessagingException 
+     */
     public void EnviarCarton() throws MessagingException
     {
         String strCantidad = this.objEnviarCarton.txtCantidad.getText();
         String strCedula = this.objEnviarCarton.txtCedula.getText();
 
-        if (Utilitarios.ValidarEntero(strCantidad, Boolean.TRUE) && Utilitarios.ExisteCedula(strCedula))
+        if (!Utilitarios.ValidarEntero(strCantidad, Boolean.TRUE))
+        {
+            JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Debe ingregar un valor entero positivo de 9 dígitos.", "Error", JOptionPane.INFORMATION_MESSAGE);
+        }    
+        else if(!Utilitarios.ExisteCedula(strCedula))
+        {
+            JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "La cédula no existe.", "Error", JOptionPane.INFORMATION_MESSAGE);
+        }
+        else
         {
             JugadorDAOXML objJugadorDAOXML = new JugadorDAOXML();
             Jugador objJugador = objJugadorDAOXML.buscarJugador(strCedula);
@@ -71,15 +83,11 @@ public class ControladorEnviarCarton implements ActionListener
             }
             else
             {
-                JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Se enviaron " + respuesta + " cartones al correo del jugador.", "Error", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Se enviaron " + respuesta + " cartones al correo del jugador.", "", JOptionPane.INFORMATION_MESSAGE);
             }
             
             objEnviarCarton.txtCantidad.setText("");
             objEnviarCarton.txtCedula.setText("");
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Debe ingregar un valor entero positivo, entre 1 y 500.", "Error", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 }
