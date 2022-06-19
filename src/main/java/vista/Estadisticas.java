@@ -38,6 +38,8 @@ public class Estadisticas extends javax.swing.JPanel
         setBackground(new java.awt.Color(51, 51, 51));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        pnlGrafoBarras.setBackground(new java.awt.Color(51, 51, 51));
+
         javax.swing.GroupLayout pnlGrafoBarrasLayout = new javax.swing.GroupLayout(pnlGrafoBarras);
         pnlGrafoBarras.setLayout(pnlGrafoBarrasLayout);
         pnlGrafoBarrasLayout.setHorizontalGroup(
@@ -50,6 +52,8 @@ public class Estadisticas extends javax.swing.JPanel
         );
 
         add(pnlGrafoBarras, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 400, 400));
+
+        pnlCircularHistorica.setBackground(new java.awt.Color(51, 51, 51));
 
         javax.swing.GroupLayout pnlCircularHistoricaLayout = new javax.swing.GroupLayout(pnlCircularHistorica);
         pnlCircularHistorica.setLayout(pnlCircularHistoricaLayout);
@@ -64,6 +68,8 @@ public class Estadisticas extends javax.swing.JPanel
 
         add(pnlCircularHistorica, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, 400, 400));
 
+        pnlDateHanding.setBackground(new java.awt.Color(51, 51, 51));
+
         javax.swing.GroupLayout pnlDateHandingLayout = new javax.swing.GroupLayout(pnlDateHanding);
         pnlDateHanding.setLayout(pnlDateHandingLayout);
         pnlDateHandingLayout.setHorizontalGroup(
@@ -76,6 +82,8 @@ public class Estadisticas extends javax.swing.JPanel
         );
 
         add(pnlDateHanding, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 400, 400));
+
+        pnlTopCinco.setBackground(new java.awt.Color(51, 51, 51));
 
         javax.swing.GroupLayout pnlTopCincoLayout = new javax.swing.GroupLayout(pnlTopCinco);
         pnlTopCinco.setLayout(pnlTopCincoLayout);
