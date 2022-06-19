@@ -271,8 +271,30 @@ public class Utilitarios
         return false;
     }
     
+     /***
+     * Crear carpeta.
+     * @param carpeta
+     * @return 
+     */
+    public static String CrearCarpeta(String carpeta)
+    {
+        String path = System.getProperty("user.dir");
+        File file = new File(path + "\\" + carpeta);
+        
+        if (!file.exists())
+        {
+            file.mkdir();
+        }
+        else
+        {
+            return null;
+        }
+        
+        return file.getPath();
+    }
+    
     /***
-     * Elimina la carpeta Cartones.
+     * Elimina carpeta.
      * @param carpeta
      */
     public static void BorrarCarpeta(String carpeta)

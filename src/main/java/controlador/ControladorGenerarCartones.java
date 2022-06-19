@@ -66,30 +66,38 @@ public class ControladorGenerarCartones implements ActionListener
         }
     }
 
+    /***
+     * Obtiene los datos de la interfaz y los valida.
+     * @throws ParserConfigurationException
+     * @throws SAXException
+     * @throws IOException 
+     */
     public void ObtenerValidarCampos() throws ParserConfigurationException, SAXException, IOException
     {
         String strCantidad = this.objGenerarCartones.txtCantidad.getText();
         
-        if (Utilitarios.ValidarEntero(strCantidad, Boolean.TRUE))
-        {
-            this.objControladorInicio.objBingo.GenerarCartones(Integer.parseInt(strCantidad));
-            GenerarVistaCarton();
-            this.objControladorInicio.CambiaPanelOpcionesHabilitarBotones();
-            JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Se han generado los cartones.","Éxito", JOptionPane.INFORMATION_MESSAGE);
-        }
-        else
+        // Valida que la cantidad sea entera positiva entre 1 y 500.
+        if (!Utilitarios.ValidarEntero(strCantidad, Boolean.TRUE))
         {
             JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Debe ingregar un valor entero positivo, entre 1 y 500.","Error", JOptionPane.INFORMATION_MESSAGE);
         }
+        else
+        {
+            this.objControladorInicio.objBingo.GenerarCartones(Integer.parseInt(strCantidad));
+            GenerarVistaCarton();
+            JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Se han generado los cartones.","Éxito", JOptionPane.INFORMATION_MESSAGE);
+            this.objControladorInicio.CambiaPanelOpcionesHabilitarBotones();
+        }
     }
     
-    
+    /***
+     * Se crea la carpeta 
+     */
     public void GenerarVistaCarton ()
     {
-        String path = System.getProperty("user.dir");
-        File file = new File(path + "\\Cartones");
+        String path = Utilitarios.CrearCarpeta("Cartones");
         
-        if(!file.exists())
+        if(path != null)
         {
             for(Carton objCarton: objControladorInicio.objBingo.ListaCarton)
             {
@@ -108,11 +116,10 @@ public class ControladorGenerarCartones implements ActionListener
                 frame.printAll(g);
                 g.dispose();
                 frame.dispose();
+                
                 try
                 {
-                        file.mkdir();
-                        ImageIO.write(image, "png", new File(path + "\\Cartones\\" + objCarton.getIdentificador() + ".png"));
-
+                    ImageIO.write(image, "png", new File(path + "\\" + objCarton.getIdentificador() + ".png"));
                 }
                 catch (IOException exp)
                 {
