@@ -6,10 +6,13 @@ import vista.*;
 import dao.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.mail.MessagingException;
 import javax.swing.JOptionPane;
+import modelo.Carton;
 
 /**
  *
@@ -49,7 +52,10 @@ public class ControladorJuego implements ActionListener
                 } catch (CsvException ex)
                 {
                     Logger.getLogger(ControladorJuego.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                } catch (MessagingException ex)
+            {
+                Logger.getLogger(ControladorJuego.class.getName()).log(Level.SEVERE, null, ex);
+            }
             }
             case "0" ->
             {
@@ -58,7 +64,7 @@ public class ControladorJuego implements ActionListener
         }
     }
 
-    public void cantarNumero() throws IOException, FileNotFoundException, CsvException
+    public void cantarNumero() throws IOException, FileNotFoundException, CsvException, MessagingException
     {
         this.objJuego.btCantarNumero.setEnabled(true);
         String carton = this.objControladorInicio.objBingo.validarCartones();
@@ -79,7 +85,7 @@ public class ControladorJuego implements ActionListener
                 Fin objFin = new Fin();
                 objFin.setSize(850, 450);
                 ControladorFin controladorFin = new ControladorFin(objFin, objControladorInicio);
-                
+                Carton cartonGanador = this.objControladorInicio.objBingo.ObtenerCarton(carton);
                 objFin.lblPremio.setText(String.valueOf(this.objControladorInicio.objBingo.getMonto()));
                 switch (String.valueOf(this.objControladorInicio.objBingo.getModoJuego()))
                 {
@@ -102,7 +108,14 @@ public class ControladorJuego implements ActionListener
                 }
                 
                 objFin.lblGanadores.setText(carton);
-                objControladorInicio.CambiaPanel(controladorFin.objFin);
+                if(cartonGanador.getJugador()==null){
+                    objControladorInicio.CambiaPanel(controladorFin.objFin);
+                }
+                else{
+                   Utilitarios.EnviarCartonCorreo(cartonGanador.getJugador().getCorreoElectronico(), new ArrayList<Carton>(), "Ganador", "Felicidades tu carton "+cartonGanador.getIdentificador()+" Fue el ganador del bingo");
+                   objControladorInicio.CambiaPanel(controladorFin.objFin);
+                }
+                
                 
             }
 
