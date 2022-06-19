@@ -44,6 +44,7 @@ public class RegistroJugador extends javax.swing.JPanel {
         btRegresar.setFont(new java.awt.Font("Viner Hand ITC", 0, 20)); // NOI18N
         btRegresar.setForeground(new java.awt.Color(255, 153, 0));
         btRegresar.setText("Regresar");
+        btRegresar.setActionCommand("0");
         btRegresar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add(btRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 150, 40));
 
@@ -98,6 +99,7 @@ public class RegistroJugador extends javax.swing.JPanel {
         btRegistrar.setFont(new java.awt.Font("Viner Hand ITC", 0, 20)); // NOI18N
         btRegistrar.setForeground(new java.awt.Color(255, 153, 0));
         btRegistrar.setText("Guardar");
+        btRegistrar.setActionCommand("1");
         btRegistrar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btRegistrar.addActionListener(new java.awt.event.ActionListener()
         {

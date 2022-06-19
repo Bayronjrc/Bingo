@@ -51,7 +51,7 @@ public class Estadisticas extends javax.swing.JPanel
             .addGap(0, 400, Short.MAX_VALUE)
         );
 
-        add(pnlGrafoBarras, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 400, 400));
+        add(pnlGrafoBarras, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 400, 400));
 
         pnlCircularHistorica.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -66,7 +66,7 @@ public class Estadisticas extends javax.swing.JPanel
             .addGap(0, 400, Short.MAX_VALUE)
         );
 
-        add(pnlCircularHistorica, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, 400, 400));
+        add(pnlCircularHistorica, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 400, 400));
 
         pnlDateHanding.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -81,7 +81,7 @@ public class Estadisticas extends javax.swing.JPanel
             .addGap(0, 400, Short.MAX_VALUE)
         );
 
-        add(pnlDateHanding, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 400, 400));
+        add(pnlDateHanding, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 400, 400));
 
         pnlTopCinco.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -96,7 +96,7 @@ public class Estadisticas extends javax.swing.JPanel
             .addGap(0, 400, Short.MAX_VALUE)
         );
 
-        add(pnlTopCinco, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 400, 400, 400));
+        add(pnlTopCinco, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 400, 400, 400));
 
         btRegresar1.setBackground(new java.awt.Color(102, 102, 102));
         btRegresar1.setFont(new java.awt.Font("Viner Hand ITC", 0, 20)); // NOI18N
@@ -104,7 +104,7 @@ public class Estadisticas extends javax.swing.JPanel
         btRegresar1.setText("Regresar");
         btRegresar1.setActionCommand("0");
         btRegresar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        add(btRegresar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 750, 140, -1));
+        add(btRegresar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 760, 140, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
