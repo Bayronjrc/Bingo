@@ -29,72 +29,72 @@ public class Estadisticas extends javax.swing.JPanel
     private void initComponents()
     {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
+        pnlGrafoBarras = new javax.swing.JPanel();
+        pnlCircularHistorica = new javax.swing.JPanel();
+        pnlDateHanding = new javax.swing.JPanel();
+        pnlTopCinco = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(51, 51, 51));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        javax.swing.GroupLayout pnlGrafoBarrasLayout = new javax.swing.GroupLayout(pnlGrafoBarras);
+        pnlGrafoBarras.setLayout(pnlGrafoBarrasLayout);
+        pnlGrafoBarrasLayout.setHorizontalGroup(
+            pnlGrafoBarrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        pnlGrafoBarrasLayout.setVerticalGroup(
+            pnlGrafoBarrasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
 
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, -1, -1));
+        add(pnlGrafoBarras, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 400, 400));
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        javax.swing.GroupLayout pnlCircularHistoricaLayout = new javax.swing.GroupLayout(pnlCircularHistorica);
+        pnlCircularHistorica.setLayout(pnlCircularHistoricaLayout);
+        pnlCircularHistoricaLayout.setHorizontalGroup(
+            pnlCircularHistoricaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, -1, -1));
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        pnlCircularHistoricaLayout.setVerticalGroup(
+            pnlCircularHistoricaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
 
-        add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 260, -1, -1));
+        add(pnlCircularHistorica, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, 400, 400));
+
+        javax.swing.GroupLayout pnlDateHandingLayout = new javax.swing.GroupLayout(pnlDateHanding);
+        pnlDateHanding.setLayout(pnlDateHandingLayout);
+        pnlDateHandingLayout.setHorizontalGroup(
+            pnlDateHandingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        pnlDateHandingLayout.setVerticalGroup(
+            pnlDateHandingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+
+        add(pnlDateHanding, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 400, 400));
+
+        javax.swing.GroupLayout pnlTopCincoLayout = new javax.swing.GroupLayout(pnlTopCinco);
+        pnlTopCinco.setLayout(pnlTopCincoLayout);
+        pnlTopCincoLayout.setHorizontalGroup(
+            pnlTopCincoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        pnlTopCincoLayout.setVerticalGroup(
+            pnlTopCincoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+
+        add(pnlTopCinco, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 400, 400, 400));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
+    public javax.swing.JPanel pnlCircularHistorica;
+    public javax.swing.JPanel pnlDateHanding;
+    public javax.swing.JPanel pnlGrafoBarras;
+    public javax.swing.JPanel pnlTopCinco;
     // End of variables declaration//GEN-END:variables
 }

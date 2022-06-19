@@ -10,8 +10,13 @@ import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.UIManager;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.JFreeChart;
 import vista.*;
 import modelo.*;
+import org.jfree.data.general.DefaultPieDataset;
 
 /**
  *
@@ -70,22 +75,12 @@ public class ControladorOpciones implements ActionListener
             // Estadisticas
             case "6" ->
             {
+                estadisticas();
             }
             // Salir
             case "0" ->
             {
-                String path = System.getProperty("user.dir");
-                File file = new File(path + "\\Cartones");
-                if (file.exists())
-                {
-                    try
-                    {
-                        deleteDirectoryRecursionJava6(file);
-                    } catch (IOException ex)
-                    {
-                        Logger.getLogger(ControladorOpciones.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
+                Utilitarios.BorrarCarpeta("Cartones");
                 System.exit(0);
             }
         }
@@ -131,23 +126,24 @@ public class ControladorOpciones implements ActionListener
         ControladorConsultarCartones objControladorConsultarCartones = new ControladorConsultarCartones(objConsultarCarton, objControladorInicio);
         objControladorInicio.CambiaPanel(objControladorConsultarCartones.objConsultarCartones);
     }
-
-    void deleteDirectoryRecursionJava6(File file) throws IOException
+    
+    public void estadisticas()
     {
-        if (file.isDirectory())
-        {
-            File[] entries = file.listFiles();
-            if (entries != null)
-            {
-                for (File entry : entries)
-                {
-                    deleteDirectoryRecursionJava6(entry);
-                }
-            }
-        }
-        if (!file.delete())
-        {
-            throw new IOException("Failed to delete " + file);
-        }
+        Estadisticas objEstadisticas = new Estadisticas();
+        objEstadisticas.setSize(850, 850);
+        ControladorEstadisticas objControladorEstadisticas = new ControladorEstadisticas(objEstadisticas, objControladorInicio);
+       
+        DefaultPieDataset dataset = new DefaultPieDataset();
+        dataset.setValue("Value 1", 10);
+        dataset.setValue("Value 2", 20);
+        dataset.setValue("Value 3", 30);
+        dataset.setValue("Value 4", 40);
+        JFreeChart chart = ChartFactory.createPieChart("Your title", dataset, true, true, true);
+        ChartFrame ff = new ChartFrame("Your title", chart);
+        objEstadisticas.pnlCircularHistorica.add(ff);
+  
+        objControladorInicio.CambiaPanel(objControladorEstadisticas.objEstadisticas);
     }
+
+    
 }
