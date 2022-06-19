@@ -131,8 +131,8 @@ public class ControladorJuego implements ActionListener
                 } else
                 {
                     Utilitarios.EnviarCartonCorreo(objCarton.getJugador().getCorreoElectronico(), new ArrayList<>(), "Ganador", "Felicidades tu carton " + objCarton.getIdentificador() + " Fue el ganador del bingo");
-                    objControladorInicio.CambiaPanel(objControladorFin.objFin);
                     Utilitarios.GuardarHistorialPartidas(objControladorFin.objFin.lblTipoJuego.getText(), this.objJuego.txtNumerosCantados.getText(), objCarton.getIdentificador(), LocalDate.now(), LocalDateTime.now());
+                    objControladorInicio.CambiaPanel(objControladorFin.objFin);
                 }
 
                 JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Carton Ganador" + cartonGanador, "Felicidades", JOptionPane.INFORMATION_MESSAGE);
