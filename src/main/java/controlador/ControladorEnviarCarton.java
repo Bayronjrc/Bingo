@@ -56,8 +56,18 @@ public class ControladorEnviarCarton implements ActionListener
             JugadorDAOXML objJugadorDAOXML = new JugadorDAOXML();
             Jugador objJugador = objJugadorDAOXML.buscarJugador(strCedula);
             
-            this.objControladorInicio.objBingo.AsingarCartones(objJugador, Integer.parseInt(strCantidad));
-            Utilitarios.EnviarCartonCorreo(Utilitarios.BuscaCorreo(strCedula), objControladorInicio.objBingo.ListaCarton);
+            int respuesta = this.objControladorInicio.objBingo.AsingarCartones(objJugador, Integer.parseInt(strCantidad));
+            
+            if(respuesta == -1)
+            {
+                JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Ya no quedan cartones disponibles", "Error", JOptionPane.INFORMATION_MESSAGE);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Se enviaron " + respuesta + " cartones al correo del jugador.", "Error", JOptionPane.INFORMATION_MESSAGE);
+            }
+            
+            Utilitarios.EnviarCartonCorreo(Utilitarios.BuscaCorreo(strCedula), objControladorInicio.objBingo.ObtenerCartonesPorJugador(strCedula));
             
             this.objControladorInicio.CambiaPanelOpcionesHabilitarBotones();
         }
