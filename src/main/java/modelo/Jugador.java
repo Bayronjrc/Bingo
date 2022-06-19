@@ -1,9 +1,7 @@
 package modelo;
 
 import com.opencsv.CSVWriter;
-import com.opencsv.exceptions.CsvException;
-import java.io.File;
-import java.io.FileNotFoundException;
+import dao.JugadorDAO;
 import java.io.FileWriter;
 import java.io.IOException;
 import javax.xml.parsers.DocumentBuilder;
@@ -14,18 +12,16 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 /**
  *
  * @authorBayron Rodriguez
  */
-public final class Jugador
+public final class Jugador implements JugadorDAO
 {
 
     private String nombreCompleto;
@@ -39,8 +35,10 @@ public final class Jugador
         this.cedula = pCedula;
         this.agregarJugador(this.nombreCompleto, this.correoElectronico, this.cedula);
     }
-    
-    public Jugador(){}
+
+    public Jugador()
+    {
+    }
 
     /**
      * *
@@ -50,11 +48,10 @@ public final class Jugador
      * @param pCorreo
      * @param pCedula
      * @throws ParserConfigurationException
-     * @throws ParserConfigurationException
-     * @throws ParserConfigurationException
      * @throws SAXException
      * @throws IOException
      */
+    @Override
     public void agregarJugador(String pNombre, String pCorreo, String pCedula) throws ParserConfigurationException, ParserConfigurationException, ParserConfigurationException, SAXException, IOException
     {
         try
@@ -109,6 +106,7 @@ public final class Jugador
      *
      * @return
      */
+    @Override
     public String getNombreCompleto()
     {
         return nombreCompleto;
@@ -119,6 +117,7 @@ public final class Jugador
      *
      * @return
      */
+    @Override
     public String getCorreoElectronico()
     {
         return correoElectronico;
@@ -130,6 +129,7 @@ public final class Jugador
      *
      * @return
      */
+    @Override
     public String getCedula()
     {
         return cedula;
