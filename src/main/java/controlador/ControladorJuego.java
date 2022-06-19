@@ -16,12 +16,40 @@ public class ControladorJuego implements ActionListener
     {
         this.objJuego = objJuego;
         this.objControladorInicio = objControladorInicio;
+        this.objJuego.btCantarNumero.addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e)
     {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        switch (e.getActionCommand())
+        {
+            // cantar Numero
+            case "1" ->
+            {
+                cantarNumero();
+            }
+    }
+    }
+    
+    public void cantarNumero(){
+        this.objJuego.lbPremio.setText(String.valueOf(this.objControladorInicio.objBingo.getMonto()));
+        switch(String.valueOf(this.objControladorInicio.objBingo.getModoJuego())){
+            case "1"->{
+                this.objJuego.lbTipoJuego.setText("Juego en X");
+            }
+            case "2"->{
+                this.objJuego.lbTipoJuego.setText("Cuatro Esquinas");
+            }
+            case "3"->{
+                this.objJuego.lbTipoJuego.setText("Cartón Lleno");
+            }
+            case "4"->{
+                this.objJuego.lbTipoJuego.setText("Juego en Z");
+            }
+        }
+        this.objJuego.lbCartones.setText(String.valueOf(this.objControladorInicio.objBingo.getListaCarton().size()));
+        this.objJuego.lbJugadores.setText("");
     }
     
     

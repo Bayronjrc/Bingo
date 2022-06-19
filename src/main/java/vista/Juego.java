@@ -31,14 +31,15 @@ public class Juego extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        lbPremio = new javax.swing.JLabel();
+        btCantarNumero = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        lbCartones = new javax.swing.JLabel();
+        lbJugadores = new javax.swing.JLabel();
+        lbTipoJuego = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(51, 51, 51));
         setForeground(new java.awt.Color(51, 51, 51));
@@ -64,22 +65,23 @@ public class Juego extends javax.swing.JPanel {
         jLabel4.setText("Premio:");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(658, 10, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 153, 0));
-        jLabel5.setText("x");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(749, 10, 91, 39));
+        lbPremio.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        lbPremio.setForeground(new java.awt.Color(255, 153, 0));
+        lbPremio.setText("x");
+        add(lbPremio, new org.netbeans.lib.awtextra.AbsoluteConstraints(749, 10, 91, 39));
 
-        jButton1.setFont(new java.awt.Font("Viner Hand ITC", 0, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 153, 0));
-        jButton1.setText("Cantar Numero");
-        jButton1.addActionListener(new java.awt.event.ActionListener()
+        btCantarNumero.setFont(new java.awt.Font("Viner Hand ITC", 0, 24)); // NOI18N
+        btCantarNumero.setForeground(new java.awt.Color(255, 153, 0));
+        btCantarNumero.setText("Cantar Numero");
+        btCantarNumero.setActionCommand("1");
+        btCantarNumero.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                jButton1ActionPerformed(evt);
+                btCantarNumeroActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(302, 79, -1, -1));
+        add(btCantarNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(302, 79, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Viner Hand ITC", 0, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 153, 0));
@@ -99,33 +101,39 @@ public class Juego extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(176, 10, 145, -1));
 
-        jLabel8.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel8.setForeground(new java.awt.Color(255, 153, 0));
-        jLabel8.setText("x");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 320, 91, 39));
+        lbCartones.setBackground(new java.awt.Color(255, 255, 255));
+        lbCartones.setForeground(new java.awt.Color(255, 153, 0));
+        lbCartones.setText("x");
+        add(lbCartones, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 320, 91, 39));
 
-        jLabel9.setForeground(new java.awt.Color(255, 153, 0));
-        jLabel9.setText("x");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(756, 320, 66, 39));
+        lbJugadores.setForeground(new java.awt.Color(255, 153, 0));
+        lbJugadores.setText("x");
+        add(lbJugadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(756, 320, 66, 39));
+
+        lbTipoJuego.setFont(new java.awt.Font("Viner Hand ITC", 1, 24)); // NOI18N
+        lbTipoJuego.setForeground(new java.awt.Color(255, 153, 0));
+        lbTipoJuego.setText("x");
+        add(lbTipoJuego, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btCantarNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCantarNumeroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btCantarNumeroActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    public javax.swing.JButton btCantarNumero;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    public javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    public javax.swing.JTextArea jTextArea1;
+    public javax.swing.JLabel lbCartones;
+    public javax.swing.JLabel lbJugadores;
+    public javax.swing.JLabel lbPremio;
+    public javax.swing.JLabel lbTipoJuego;
     // End of variables declaration//GEN-END:variables
 }

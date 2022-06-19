@@ -1,5 +1,7 @@
 package dao;
 
+import com.opencsv.exceptions.CsvException;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.xml.parsers.ParserConfigurationException;
@@ -15,7 +17,7 @@ public interface JugadorDAO
 
     abstract Jugador registrarJugador(Jugador pJugador) throws ParserConfigurationException, ParserConfigurationException, ParserConfigurationException, SAXException, IOException;
 
-    abstract ArrayList<Jugador> cargarListaUsuario();
+    abstract int cantidadUsuarios()throws FileNotFoundException,IOException,CsvException;
 
     abstract Jugador buscarJugador(String pCedula);
 }

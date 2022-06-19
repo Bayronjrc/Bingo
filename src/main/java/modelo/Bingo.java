@@ -269,6 +269,10 @@ public final class Bingo
         this.Monto = Monto;
     }
     
+    public ArrayList getListaCarton(){
+        return ListaCarton;
+    }
+    
     public void ImprimirCartones()
     {
         int cont;

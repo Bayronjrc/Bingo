@@ -4,8 +4,13 @@
  */
 package dao;
 
+import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvException;
 import controlador.Utilitarios;
+import java.awt.List;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.xml.parsers.DocumentBuilder;
@@ -40,11 +45,7 @@ public class JugadorDAOXML implements JugadorDAO
         }
     }
 
-    @Override
-    public ArrayList<Jugador> cargarListaUsuario()
-    {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+   
 
     @Override
     public Jugador buscarJugador(String pCedula)
@@ -84,5 +85,15 @@ public class JugadorDAOXML implements JugadorDAO
         }
         return null;
     }
+
+    @Override
+    public int cantidadUsuarios() throws FileNotFoundException,IOException,CsvException
+    {
+        String file = "Jugadores.csv";
+        CSVReader csvReader = new CSVReader(new FileReader(file));
+        ArrayList<String[]> datos = (ArrayList<String[]>) csvReader.readAll();
+        return 2;
+    }
+        
 
 }
