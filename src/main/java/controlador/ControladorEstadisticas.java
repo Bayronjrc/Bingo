@@ -2,20 +2,25 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.UIManager;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartFrame;
-import org.jfree.chart.JFreeChart;
 import vista.*;
+
 /**
  *
- * @author User
+ * @author Bayron Rodriguez Centeno
  */
 public class ControladorEstadisticas implements ActionListener
 {
+
     public Estadisticas objEstadisticas;
     public ControladorInicio objControladorInicio;
-    
+
+    /**
+     * *
+     * Constructor
+     *
+     * @param objEstadisticas
+     * @param objControladorInicio
+     */
     public ControladorEstadisticas(Estadisticas objEstadisticas, ControladorInicio objControladorInicio)
     {
         this.objControladorInicio = objControladorInicio;
@@ -23,6 +28,12 @@ public class ControladorEstadisticas implements ActionListener
         this.objEstadisticas.btRegresar1.addActionListener(this);
     }
 
+    /**
+     * *
+     * Cambia el content panel de la vista principal.
+     *
+     * @param e
+     */
     @Override
     public void actionPerformed(ActionEvent e)
     {
@@ -34,6 +45,5 @@ public class ControladorEstadisticas implements ActionListener
                 this.objControladorInicio.CambiaPanelOpcionesHabilitarBotones();
             }
         }
-    
     }
 }

@@ -36,14 +36,6 @@ import org.xml.sax.SAXException;
  */
 public class Utilitarios
 {
-
-    /***
-     * Constructor
-     */
-    public Utilitarios()
-    {
-    }
-
     /**
      * *
      * Verfica si existe o no el número en la lista.
