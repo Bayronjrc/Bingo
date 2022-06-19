@@ -1,5 +1,6 @@
 package controlador;
 
+import com.opencsv.ICSVParser;
 import com.opencsv.exceptions.CsvException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -79,19 +80,22 @@ public class ControladorJuego implements ActionListener
      * @throws FileNotFoundException
      * @throws CsvException
      * @throws MessagingException
+     * @throws org.xml.sax.SAXException
      */
     public void ObtenerBolaValidarGanador() throws IOException, FileNotFoundException, CsvException, MessagingException, SAXException
     {
         this.objJuego.btCantarNumero.setEnabled(true);
-        String cartonGanador = this.objControladorInicio.objBingo.validarCartones();
         int bola = objControladorInicio.objBingo.ObtenerBola();
+        String cartonGanador = this.objControladorInicio.objBingo.validarCartones();
 
         if (bola == -1)
         {
+            System.out.println(Arrays.toString(this.objControladorInicio.objBingo.ListaBolas));
             JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Se acabaron las bolas", "Error", JOptionPane.INFORMATION_MESSAGE);
         } else
         {
-            this.objJuego.txtNumerosCantados.setText(this.objJuego.txtNumerosCantados.getText() + ", " + String.valueOf(bola));
+            String bolas = this.objJuego.txtNumerosCantados.getText() + ", " + String.valueOf(bola);
+            this.objJuego.txtNumerosCantados.setText(bolas + (bolas.length() % 50 == 0? ICSVParser.NEWLINE : ""));
 
             if (!cartonGanador.equals(""))
             {
@@ -130,12 +134,12 @@ public class ControladorJuego implements ActionListener
                     objControladorInicio.CambiaPanel(objControladorFin.objFin);
                 } else
                 {
-                    Utilitarios.EnviarCartonCorreo(objCarton.getJugador().getCorreoElectronico(), new ArrayList<>(), "Ganador", "Felicidades tu carton " + objCarton.getIdentificador() + " Fue el ganador del bingo");
-                    Utilitarios.GuardarHistorialPartidas(objControladorFin.objFin.lblTipoJuego.getText(), this.objJuego.txtNumerosCantados.getText(), objCarton.getIdentificador(), LocalDate.now(), LocalDateTime.now());
+                    Utilitarios.EnviarCartonCorreo(objCarton.getJugador().getCorreoElectronico(), new ArrayList<>(), "Ganador", "Felicidades tu cartón " + objCarton.getIdentificador() + " Fue el ganador del bingo");
+                    //Utilitarios.GuardarHistorialPartidas(objControladorFin.objFin.lblTipoJuego.getText(), this.objJuego.txtNumerosCantados.getText(), objCarton.getIdentificador(), LocalDate.now(), LocalDateTime.now());
                     objControladorInicio.CambiaPanel(objControladorFin.objFin);
                 }
 
-                JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Carton Ganador" + cartonGanador, "Felicidades", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Carton Ganador " + cartonGanador, "Felicidades", JOptionPane.INFORMATION_MESSAGE);
             }
         }
     }

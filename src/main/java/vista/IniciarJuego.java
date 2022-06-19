@@ -67,7 +67,6 @@ public class IniciarJuego extends javax.swing.JPanel {
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 100, -1, -1));
 
         jTextField1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jTextField1.setText("x");
         jTextField1.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)

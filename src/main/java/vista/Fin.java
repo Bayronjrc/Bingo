@@ -49,15 +49,14 @@ public class Fin extends javax.swing.JPanel {
         jLabel2.setText("Premio:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 10, -1, -1));
 
-        lblPremio.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lblPremio.setForeground(new java.awt.Color(255, 153, 0));
-        lblPremio.setText("x");
-        add(lblPremio, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 20, 40, 30));
+        lblPremio.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        lblPremio.setForeground(new java.awt.Color(255, 255, 255));
+        add(lblPremio, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 20, -1, 40));
 
         jLabel4.setFont(new java.awt.Font("Viner Hand ITC", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 153, 0));
-        jLabel4.setText("Cartones Ganadores:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
+        jLabel4.setText("Cartones Ganadores");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Viner Hand ITC", 1, 48)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 153, 0));
@@ -72,10 +71,9 @@ public class Fin extends javax.swing.JPanel {
         btTerminar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add(btTerminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 310, 212, -1));
 
-        lblTipoJuego.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        lblTipoJuego.setForeground(new java.awt.Color(255, 153, 0));
-        lblTipoJuego.setText("x");
-        add(lblTipoJuego, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 40, 30));
+        lblTipoJuego.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        lblTipoJuego.setForeground(new java.awt.Color(255, 255, 255));
+        add(lblTipoJuego, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, -1, 40));
 
         lblGanadores.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         lblGanadores.setForeground(new java.awt.Color(255, 255, 255));

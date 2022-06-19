@@ -64,12 +64,12 @@ public class Juego extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Viner Hand ITC", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 153, 0));
         jLabel4.setText("Premio:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(658, 10, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 10, -1, -1));
 
-        lbPremio.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        lbPremio.setForeground(new java.awt.Color(255, 153, 0));
-        lbPremio.setText("x");
-        add(lbPremio, new org.netbeans.lib.awtextra.AbsoluteConstraints(749, 10, 91, 39));
+        lbPremio.setBackground(new java.awt.Color(0, 0, 0));
+        lbPremio.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        lbPremio.setForeground(new java.awt.Color(255, 255, 255));
+        add(lbPremio, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 130, 40));
 
         btCantarNumero.setBackground(new java.awt.Color(102, 102, 102));
         btCantarNumero.setFont(new java.awt.Font("Viner Hand ITC", 0, 24)); // NOI18N
@@ -98,25 +98,26 @@ public class Juego extends javax.swing.JPanel {
         txtNumerosCantados.setAutoscrolls(false);
         txtNumerosCantados.setEnabled(false);
         jScrollPane1.setViewportView(txtNumerosCantados);
+        txtNumerosCantados.getAccessibleContext().setAccessibleParent(null);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 194, 812, 79));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(176, 10, 145, -1));
 
-        lbCartones.setBackground(new java.awt.Color(255, 255, 255));
-        lbCartones.setForeground(new java.awt.Color(255, 153, 0));
-        lbCartones.setText("x");
-        add(lbCartones, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, 91, 39));
+        lbCartones.setBackground(new java.awt.Color(0, 0, 0));
+        lbCartones.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        lbCartones.setForeground(new java.awt.Color(255, 255, 255));
+        add(lbCartones, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, 60, 40));
 
-        lbJugadores.setForeground(new java.awt.Color(255, 153, 0));
-        lbJugadores.setText("x");
-        add(lbJugadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(756, 320, 66, 39));
+        lbJugadores.setBackground(new java.awt.Color(0, 0, 0));
+        lbJugadores.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        lbJugadores.setForeground(new java.awt.Color(255, 255, 255));
+        add(lbJugadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(756, 320, 60, 40));
 
-        lbTipoJuego.setFont(new java.awt.Font("Viner Hand ITC", 1, 24)); // NOI18N
-        lbTipoJuego.setForeground(new java.awt.Color(255, 153, 0));
-        lbTipoJuego.setText("x");
-        add(lbTipoJuego, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, -1, -1));
+        lbTipoJuego.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        lbTipoJuego.setForeground(new java.awt.Color(255, 255, 255));
+        add(lbTipoJuego, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 250, 40));
 
         btRegresar.setBackground(new java.awt.Color(102, 102, 102));
         btRegresar.setFont(new java.awt.Font("Viner Hand ITC", 0, 20)); // NOI18N
