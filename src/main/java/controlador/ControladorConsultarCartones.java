@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controlador;
 
 import javax.swing.*;
@@ -12,6 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.parsers.ParserConfigurationException;
 import modelo.Carton;
+import modelo.Jugador;
 import org.xml.sax.SAXException;
 
 /**
@@ -32,6 +29,10 @@ public class ControladorConsultarCartones implements ActionListener
         this.objConsultarCartones.btMostrar.addActionListener(this);
     }
 
+    /**
+     *
+     * @param e
+     */
     @Override
     public void actionPerformed(ActionEvent e)
     {
@@ -60,20 +61,20 @@ public class ControladorConsultarCartones implements ActionListener
     public void MostrarCarton() throws ParserConfigurationException, SAXException, IOException
     {
         String strIdentificacion = this.objConsultarCartones.txtIdentificación.getText();
-        
-//        if (Utilitarios.ValidarIdentificacion(strIdentificacion, Boolean.TRUE))
-//        {
-                GenerarVistaCarton(strIdentificacion);
-//        }
-//        else
-//        {
-//            JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Debe ingregar un valor entero positivo, entre 1 y 500.","Error", JOptionPane.INFORMATION_MESSAGE);
-//        }
+        GenerarVistaCarton(strIdentificacion);
     }
     
     public void GenerarVistaCarton (String strIdentificacion)
     {
         Carton objCarton = objControladorInicio.objBingo.ObtenerCarton(strIdentificacion);
+        Jugador objJugador = objCarton.getJugador();
+        
+        if(objJugador != null)
+        {
+            this.objConsultarCartones.lblNombre.setText(objJugador.getNombreCompleto());
+            this.objConsultarCartones.lblCedula.setText(objJugador.getCedula());
+        }
+        
         VistaCarton objVistaCarton = new VistaCarton();
         objVistaCarton.setSize(464, 610);
         objVistaCarton.AgregarLabels(objCarton);

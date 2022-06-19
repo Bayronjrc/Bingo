@@ -39,31 +39,33 @@ public class EnviarCarton extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Viner Hand ITC", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 133, 0));
-        jLabel2.setText("Cedula:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(471, 135, -1, -1));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Cédula:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, -1, -1));
 
+        btEnviarCartones.setBackground(new java.awt.Color(102, 102, 102));
         btEnviarCartones.setFont(new java.awt.Font("Viner Hand ITC", 0, 20)); // NOI18N
         btEnviarCartones.setForeground(new java.awt.Color(255, 153, 0));
         btEnviarCartones.setText("Enviar Cartones Digitales");
-        add(btEnviarCartones, new org.netbeans.lib.awtextra.AbsoluteConstraints(267, 291, -1, 33));
+        btEnviarCartones.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        add(btEnviarCartones, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, -1, -1));
 
         txtCedula.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
-        txtCedula.setForeground(new java.awt.Color(255, 153, 0));
-        add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(564, 135, 262, 41));
+        add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(535, 130, 262, 40));
 
         jLabel3.setFont(new java.awt.Font("Viner Hand ITC", 1, 47)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 153, 0));
-        jLabel3.setText("Enviar Carton  a Jugador Registrado");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Enviar Cartón  a jugador registrado");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 840, -1));
 
         jLabel4.setFont(new java.awt.Font("Viner Hand ITC", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 153, 0));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Cantidad:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 134, -1, 40));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, 40));
 
         txtCantidad.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
-        txtCantidad.setForeground(new java.awt.Color(255, 153, 0));
         txtCantidad.setToolTipText("Valor entre 1 y 500");
         txtCantidad.addActionListener(new java.awt.event.ActionListener()
         {
@@ -72,7 +74,7 @@ public class EnviarCarton extends javax.swing.JPanel {
                 txtCantidadActionPerformed(evt);
             }
         });
-        add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 136, 300, -1));
+        add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 230, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantidadActionPerformed

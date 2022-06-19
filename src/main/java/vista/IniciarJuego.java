@@ -46,10 +46,10 @@ public class IniciarJuego extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Viner Hand ITC", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 153, 0));
-        jLabel2.setText("Configuracion:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 99, -1, -1));
+        jLabel2.setText("Configuración:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
 
-        jComboBox1.setFont(new java.awt.Font("Viner Hand ITC", 0, 24)); // NOI18N
+        jComboBox1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jComboBox1.setForeground(new java.awt.Color(255, 153, 0));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jugar X", "Cuatro esquinas", "Carton Lleno", "Jugar Z" }));
         jComboBox1.setSelectedIndex(2);
@@ -60,14 +60,14 @@ public class IniciarJuego extends javax.swing.JPanel {
                 jComboBox1ActionPerformed(evt);
             }
         });
-        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 96, -1, -1));
+        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 270, 40));
 
         jLabel3.setFont(new java.awt.Font("Viner Hand ITC", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 153, 0));
         jLabel3.setText("Premio:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 100, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 100, -1, -1));
 
-        jTextField1.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
+        jTextField1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(255, 153, 0));
         jTextField1.setText("x");
         jTextField1.addActionListener(new java.awt.event.ActionListener()
@@ -77,7 +77,7 @@ public class IniciarJuego extends javax.swing.JPanel {
                 jTextField1ActionPerformed(evt);
             }
         });
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 100, 140, 45));
+        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 100, 140, 40));
 
         btInciar.setBackground(new java.awt.Color(102, 102, 102));
         btInciar.setFont(new java.awt.Font("Viner Hand ITC", 0, 20)); // NOI18N

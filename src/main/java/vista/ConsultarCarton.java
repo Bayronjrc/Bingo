@@ -32,6 +32,8 @@ public class ConsultarCarton extends javax.swing.JPanel {
         txtIdentificación = new javax.swing.JTextField();
         btMostrar = new javax.swing.JButton();
         btRegresar = new javax.swing.JButton();
+        lblCedula = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(51, 51, 51));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -46,10 +48,10 @@ public class ConsultarCarton extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 153, 0));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Identificación:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, 40));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, -1, 40));
 
         txtIdentificación.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
-        txtIdentificación.setToolTipText("Valor entre 1 y 500");
+        txtIdentificación.setToolTipText("");
         txtIdentificación.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -57,7 +59,7 @@ public class ConsultarCarton extends javax.swing.JPanel {
                 txtIdentificaciónActionPerformed(evt);
             }
         });
-        add(txtIdentificación, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, 300, 40));
+        add(txtIdentificación, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 300, 40));
 
         btMostrar.setBackground(new java.awt.Color(102, 102, 102));
         btMostrar.setFont(new java.awt.Font("Viner Hand ITC", 0, 20)); // NOI18N
@@ -65,7 +67,7 @@ public class ConsultarCarton extends javax.swing.JPanel {
         btMostrar.setText("Mostrar");
         btMostrar.setActionCommand("1");
         btMostrar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        add(btMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 150, 140, -1));
+        add(btMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 100, 140, -1));
 
         btRegresar.setBackground(new java.awt.Color(102, 102, 102));
         btRegresar.setFont(new java.awt.Font("Viner Hand ITC", 0, 20)); // NOI18N
@@ -74,6 +76,16 @@ public class ConsultarCarton extends javax.swing.JPanel {
         btRegresar.setActionCommand("0");
         btRegresar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add(btRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 140, -1));
+
+        lblCedula.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
+        lblCedula.setForeground(new java.awt.Color(255, 153, 0));
+        lblCedula.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        add(lblCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 840, 70));
+
+        lblNombre.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(255, 153, 0));
+        lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 840, 70));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtIdentificaciónActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_txtIdentificaciónActionPerformed
@@ -87,6 +99,8 @@ public class ConsultarCarton extends javax.swing.JPanel {
     public javax.swing.JButton btRegresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    public javax.swing.JLabel lblCedula;
+    public javax.swing.JLabel lblNombre;
     public javax.swing.JTextField txtIdentificación;
     // End of variables declaration//GEN-END:variables
 }
