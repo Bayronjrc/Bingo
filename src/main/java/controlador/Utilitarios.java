@@ -37,6 +37,9 @@ import org.xml.sax.SAXException;
 public class Utilitarios
 {
 
+    /***
+     * Constructor
+     */
     public Utilitarios()
     {
     }

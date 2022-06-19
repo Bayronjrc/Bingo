@@ -24,10 +24,12 @@ public class ControladorGenerarCartones implements ActionListener
     public GenerarCartones objGenerarCartones;
     public ControladorInicio objControladorInicio;
 
-    /***
+    /**
+     * *
      * Constructor
+     *
      * @param objGenerarCartones
-     * @param objControladorInicio 
+     * @param objControladorInicio
      */
     public ControladorGenerarCartones(GenerarCartones objGenerarCartones, ControladorInicio objControladorInicio)
     {
@@ -37,9 +39,11 @@ public class ControladorGenerarCartones implements ActionListener
         this.objGenerarCartones.btGenerar.addActionListener(this);
     }
 
-    /***
-     * Evento de los botones de la interfaz..
-     * @param e 
+    /**
+     * *
+     * Evento de los botones de la interfaz.
+     *
+     * @param e
      */
     @Override
     public void actionPerformed(ActionEvent e)
@@ -52,8 +56,7 @@ public class ControladorGenerarCartones implements ActionListener
                 try
                 {
                     ObtenerValidarCampos();
-                }
-                catch (ParserConfigurationException | SAXException | IOException ex)
+                } catch (ParserConfigurationException | SAXException | IOException ex)
                 {
                     Logger.getLogger(ControladorJugador.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -66,40 +69,43 @@ public class ControladorGenerarCartones implements ActionListener
         }
     }
 
-    /***
+    /**
+     * *
      * Obtiene los datos de la interfaz y los valida.
+     *
      * @throws ParserConfigurationException
      * @throws SAXException
-     * @throws IOException 
+     * @throws IOException
      */
     public void ObtenerValidarCampos() throws ParserConfigurationException, SAXException, IOException
     {
         String strCantidad = this.objGenerarCartones.txtCantidad.getText();
-        
+
         // Valida que la cantidad sea entera positiva entre 1 y 500.
         if (!Utilitarios.ValidarEntero(strCantidad, Boolean.TRUE))
         {
-            JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Debe ingregar un valor entero positivo, entre 1 y 500.","Error", JOptionPane.INFORMATION_MESSAGE);
-        }
-        else
+            JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Debe ingregar un valor entero positivo, entre 1 y 500.", "Error", JOptionPane.INFORMATION_MESSAGE);
+        } else
         {
             this.objControladorInicio.objBingo.GenerarCartones(Integer.parseInt(strCantidad));
             GenerarVistaCarton();
-            JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Se han generado los cartones.","Éxito", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Se han generado los cartones.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             this.objControladorInicio.CambiaPanelOpcionesHabilitarBotones();
         }
     }
-    
-    /***
-     * Se crea la carpeta 
+
+    /**
+     * *
+     * Se generan los cartones si no han sido creados.
+     *
      */
-    public void GenerarVistaCarton ()
+    public void GenerarVistaCarton()
     {
         String path = Utilitarios.CrearCarpeta("Cartones");
-        
-        if(path != null)
+
+        if (path != null)
         {
-            for(Carton objCarton: objControladorInicio.objBingo.ListaCarton)
+            for (Carton objCarton : objControladorInicio.objBingo.ListaCarton)
             {
                 VistaCarton objVistaCarton = new VistaCarton();
                 objVistaCarton.setSize(464, 610);
@@ -116,12 +122,11 @@ public class ControladorGenerarCartones implements ActionListener
                 frame.printAll(g);
                 g.dispose();
                 frame.dispose();
-                
+
                 try
                 {
                     ImageIO.write(image, "png", new File(path + "\\" + objCarton.getIdentificador() + ".png"));
-                }
-                catch (IOException exp)
+                } catch (IOException exp)
                 {
                 }
             }

@@ -8,11 +8,12 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import vista.*;
 
 /**
  *
- * @author Bayron Rodriguez
+ * @author Bayron Rodriguez Centeno
  */
 public class ControladorIniciarJuego implements ActionListener
 {
@@ -21,6 +22,13 @@ public class ControladorIniciarJuego implements ActionListener
     public ControladorInicio objControladorInicio;
     public JugadorDAO objJugadorDAO;
 
+    /**
+     * *
+     * Constructor
+     *
+     * @param objIniciarJuego
+     * @param objControladorInicio
+     */
     public ControladorIniciarJuego(IniciarJuego objIniciarJuego, ControladorInicio objControladorInicio)
     {
         this.objControladorInicio = objControladorInicio;
@@ -28,9 +36,14 @@ public class ControladorIniciarJuego implements ActionListener
         this.objJugadorDAO = new JugadorDAOXML();
         this.objIniciarJuego.btInciar.addActionListener(this);
         this.objIniciarJuego.btRegresar1.addActionListener(this);
-
     }
 
+    /**
+     * *
+     * Evento de los botones de la interfaz.
+     *
+     * @param e
+     */
     @Override
     public void actionPerformed(ActionEvent e)
     {
@@ -39,18 +52,13 @@ public class ControladorIniciarJuego implements ActionListener
             // Iniciar
             case "1" ->
             {
-
-            try
-            {
-                IniciarJuego();
-            } catch (CsvException ex)
-            {
-                Logger.getLogger(ControladorIniciarJuego.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IOException ex)
-            {
-                Logger.getLogger(ControladorIniciarJuego.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
+                try
+                {
+                    IniciarJuego();
+                } catch (CsvException | IOException ex)
+                {
+                    Logger.getLogger(ControladorIniciarJuego.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
             // Regresar
             case "0" ->
@@ -60,18 +68,31 @@ public class ControladorIniciarJuego implements ActionListener
         }
     }
 
+    /**
+     * *
+     *
+     * @throws CsvException
+     * @throws IOException
+     */
     public void IniciarJuego() throws CsvException, IOException
     {
-        int Tipo = objIniciarJuego.jComboBox1.getSelectedIndex();
+        int tipo = objIniciarJuego.jComboBox1.getSelectedIndex();
         String premio = objIniciarJuego.jTextField1.getText();
-        if (Utilitarios.ValidarEntero(premio, Boolean.FALSE))
+
+        // Se valida que el premio sea entero positivo.
+        if (!Utilitarios.ValidarEntero(premio, Boolean.FALSE) || Double.parseDouble(premio) < 0)
         {
-            this.objControladorInicio.objBingo.setModoJuego(Tipo + 1);
+            JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "EL premio debe ser un valor decimal positivo.", "Error", JOptionPane.INFORMATION_MESSAGE);
+        } else
+        {
+            this.objControladorInicio.objBingo.setModoJuego(tipo + 1);
             this.objControladorInicio.objBingo.setMonto(Double.valueOf(premio));
+
             Juego objJuego = new Juego();
             objJuego.setSize(850, 450);
             ControladorJuego objControladorJuego = new ControladorJuego(objJuego, objControladorInicio);
             objJuego.lbPremio.setText(String.valueOf(this.objControladorInicio.objBingo.getMonto()));
+
             switch (String.valueOf(this.objControladorInicio.objBingo.getModoJuego()))
             {
                 case "1" ->
@@ -91,12 +112,10 @@ public class ControladorIniciarJuego implements ActionListener
                     objJuego.lbTipoJuego.setText("Juego en Z");
                 }
             }
+
             objJuego.lbCartones.setText(String.valueOf(this.objControladorInicio.objBingo.getListaCarton().size()));
             objJuego.lbJugadores.setText(String.valueOf(objJugadorDAO.cantidadUsuarios()));
             objControladorInicio.CambiaPanel(objControladorJuego.objJuego);
-
         }
-
     }
-    
 }

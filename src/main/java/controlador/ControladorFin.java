@@ -14,10 +14,12 @@ public class ControladorFin implements ActionListener
     public Fin objFin;
     public ControladorInicio objControladorInicio;
 
-    /***
+    /**
+     * *
      * Constructor
+     *
      * @param objFin
-     * @param objControladorInicio 
+     * @param objControladorInicio
      */
     public ControladorFin(Fin objFin, ControladorInicio objControladorInicio)
     {
@@ -26,9 +28,11 @@ public class ControladorFin implements ActionListener
         this.objFin.btTerminar.addActionListener(this);
     }
 
-    /***
+    /**
+     * *
      * Evento de los botones de la interfaz.
-     * @param e 
+     *
+     * @param e
      */
     @Override
     public void actionPerformed(ActionEvent e)
@@ -41,15 +45,15 @@ public class ControladorFin implements ActionListener
                 finJuego();
             }
         }
-
     }
 
-    /***
+    /**
+     * *
      * Borra la carpeta de catones y redirecciona a la pantalla principal.
      */
     public void finJuego()
     {
         Utilitarios.BorrarCarpeta("Cartones");
-        this.objControladorInicio.CambiaPanelOpcionesHabilitarBotones();
+        this.objControladorInicio.CambiaPanelOpciones();
     }
 }

@@ -8,8 +8,6 @@ import dao.*;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 
@@ -25,6 +23,14 @@ public class ControladorJugador implements ActionListener
     public Jugador objJugador;
     public ControladorInicio objControladorInicio;
 
+    /**
+     * *
+     * Constructor
+     *
+     * @param objRegistroJugador
+     * @param objJugador
+     * @param objControladorInicio
+     */
     public ControladorJugador(RegistroJugador objRegistroJugador, Jugador objJugador, ControladorInicio objControladorInicio)
     {
         this.objRegistroJugador = objRegistroJugador;
@@ -35,22 +41,30 @@ public class ControladorJugador implements ActionListener
         this.objRegistroJugador.btRegistrar.addActionListener(this);
     }
 
+    /**
+     * *
+     * Cambia el content panel de la vista principal.
+     *
+     * @param e
+     */
     @Override
     public void actionPerformed(ActionEvent e)
     {
         switch (e.getActionCommand())
         {
-            case "Guardar" ->
+            // Guardar.
+            case "1" ->
             {
                 try
                 {
-                    logIn();
+                    ValidarRegistrarJugador();
                 } catch (ParserConfigurationException | SAXException | IOException ex)
                 {
                     Logger.getLogger(ControladorJugador.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            case "Regresar" ->
+            // Regresar.
+            case "0" ->
             {
                 if (this.objControladorInicio.objBingo.getListaCarton() == null)
                 {
@@ -59,12 +73,19 @@ public class ControladorJugador implements ActionListener
                 {
                     this.objControladorInicio.CambiaPanelOpcionesHabilitarBotones();
                 }
-
             }
         }
     }
 
-    public void logIn() throws ParserConfigurationException, SAXException, IOException
+    /**
+     * *
+     * Valida y registra los datos para un nuevo jugador.
+     *
+     * @throws ParserConfigurationException
+     * @throws SAXException
+     * @throws IOException
+     */
+    public void ValidarRegistrarJugador() throws ParserConfigurationException, SAXException, IOException
     {
         if (objRegistroJugador.logInDatosCorrectos())
         {
@@ -77,20 +98,16 @@ public class ControladorJugador implements ActionListener
                 JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "La cédula debe ser un número entero de 9 dígitos", "Error", JOptionPane.INFORMATION_MESSAGE);
             } else
             {
-                objJugador = new Jugador(strNombre, strCorreo, strCedula);
-                JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Jugador " + objJugador.getNombreCompleto() + " registra con éxito.");
                 this.objRegistroJugador.txtNombre.setText("");
                 this.objRegistroJugador.txtCorreo.setText("");
                 this.objRegistroJugador.txtCedula.setText("");
+
+                objJugador = new Jugador(strNombre, strCorreo, strCedula);
+                JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Jugador " + objJugador.getNombreCompleto() + " registra con éxito.");
             }
         } else
         {
             JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Todos lo datos son requeridos", "Error", JOptionPane.INFORMATION_MESSAGE);
         }
-    }
-
-    public void cerrarVentanaLogin()
-    {
-        objRegistroJugador.cancelarIniciarSesion();
     }
 }

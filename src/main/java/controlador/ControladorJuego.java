@@ -1,4 +1,5 @@
 package controlador;
+
 import com.opencsv.exceptions.CsvException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,7 +17,7 @@ import modelo.Carton;
 
 /**
  *
- * @author User
+ * @author Bayron Rodriguez Centeno
  */
 public class ControladorJuego implements ActionListener
 {
@@ -25,6 +26,11 @@ public class ControladorJuego implements ActionListener
     public ControladorInicio objControladorInicio;
     public JugadorDAO objJugadorDAO;
 
+    /***
+     * Constructor
+     * @param objJuego
+     * @param objControladorInicio 
+     */
     public ControladorJuego(Juego objJuego, ControladorInicio objControladorInicio)
     {
         this.objJuego = objJuego;
@@ -32,30 +38,29 @@ public class ControladorJuego implements ActionListener
         this.objControladorInicio = objControladorInicio;
         this.objJuego.btCantarNumero.addActionListener(this);
         this.objJuego.btRegresar.addActionListener(this);
-
     }
 
+    /**
+     * *
+     * Cambia el content panel de la vista principal.
+     *
+     * @param e
+     */
     @Override
     public void actionPerformed(ActionEvent e)
     {
         switch (e.getActionCommand())
         {
-            // cantar Numero
+            // Cantar número
             case "1" ->
             {
                 try
                 {
-                    cantarNumero();
-                } catch (IOException ex)
+                    ObtenerBolaValidarGanador();
+                } catch (IOException | CsvException | MessagingException ex)
                 {
                     Logger.getLogger(ControladorJuego.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (CsvException ex)
-                {
-                    Logger.getLogger(ControladorJuego.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (MessagingException ex)
-            {
-                Logger.getLogger(ControladorJuego.class.getName()).log(Level.SEVERE, null, ex);
-            }
+                }
             }
             case "0" ->
             {
@@ -64,64 +69,71 @@ public class ControladorJuego implements ActionListener
         }
     }
 
-    public void cantarNumero() throws IOException, FileNotFoundException, CsvException, MessagingException
+    /**
+     * *
+     * Muestra las botas en las interfaz y valida si ya ganó algún cartón.
+     *
+     * @throws IOException
+     * @throws FileNotFoundException
+     * @throws CsvException
+     * @throws MessagingException
+     */
+    public void ObtenerBolaValidarGanador() throws IOException, FileNotFoundException, CsvException, MessagingException
     {
         this.objJuego.btCantarNumero.setEnabled(true);
-        String carton = this.objControladorInicio.objBingo.validarCartones();
+        String cartonGanador = this.objControladorInicio.objBingo.validarCartones();
         int bola = objControladorInicio.objBingo.ObtenerBola();
+
         if (bola == -1)
         {
             JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Se acabaron las bolas", "Error", JOptionPane.INFORMATION_MESSAGE);
         } else
         {
             this.objJuego.txtNumerosCantados.setText(this.objJuego.txtNumerosCantados.getText() + ", " + String.valueOf(bola));
-            if (carton.equals(""))
-            {
 
-            } else
+            if (!cartonGanador.equals(""))
             {
                 System.out.println(Arrays.toString(this.objControladorInicio.objBingo.ListaBolas));
-                JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Carton Ganador" + carton, "Felicidades", JOptionPane.INFORMATION_MESSAGE);
+
                 Fin objFin = new Fin();
                 objFin.setSize(850, 450);
-                ControladorFin controladorFin = new ControladorFin(objFin, objControladorInicio);
-                Carton cartonGanador = this.objControladorInicio.objBingo.ObtenerCarton(carton);
-                objFin.lblPremio.setText(String.valueOf(this.objControladorInicio.objBingo.getMonto()));
+                ControladorFin objControladorFin = new ControladorFin(objFin, objControladorInicio);
+                Carton objCarton = this.objControladorInicio.objBingo.ObtenerCarton(cartonGanador);
+                objControladorFin.objFin.lblPremio.setText(String.valueOf(this.objControladorInicio.objBingo.getMonto()));
+
                 switch (String.valueOf(this.objControladorInicio.objBingo.getModoJuego()))
                 {
                     case "1" ->
                     {
-                        objFin.lblTipoJuego.setText("Juego en X");
+                        objControladorFin.objFin.lblTipoJuego.setText("Juego en X");
                     }
                     case "2" ->
                     {
-                        objFin.lblTipoJuego.setText("Cuatro Esquinas");
+                        objControladorFin.objFin.lblTipoJuego.setText("Cuatro Esquinas");
                     }
                     case "3" ->
                     {
-                        objFin.lblTipoJuego.setText("Cartón Lleno");
+                        objControladorFin.objFin.lblTipoJuego.setText("Cartón Lleno");
                     }
                     case "4" ->
                     {
-                        objFin.lblTipoJuego.setText("Juego en Z");
+                        objControladorFin.objFin.lblTipoJuego.setText("Juego en Z");
                     }
                 }
-                
-                objFin.lblGanadores.setText(carton);
-                if(cartonGanador.getJugador()==null){
-                    objControladorInicio.CambiaPanel(controladorFin.objFin);
+
+                objControladorFin.objFin.lblGanadores.setText(cartonGanador);
+
+                if (objCarton.getJugador() == null)
+                {
+                    objControladorInicio.CambiaPanel(objControladorFin.objFin);
+                } else
+                {
+                    Utilitarios.EnviarCartonCorreo(objCarton.getJugador().getCorreoElectronico(), new ArrayList<>(), "Ganador", "Felicidades tu carton " + objCarton.getIdentificador() + " Fue el ganador del bingo");
+                    objControladorInicio.CambiaPanel(objControladorFin.objFin);
                 }
-                else{
-                   Utilitarios.EnviarCartonCorreo(cartonGanador.getJugador().getCorreoElectronico(), new ArrayList<Carton>(), "Ganador", "Felicidades tu carton "+cartonGanador.getIdentificador()+" Fue el ganador del bingo");
-                   objControladorInicio.CambiaPanel(controladorFin.objFin);
-                }
-                
-                
+
+                JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Carton Ganador" + cartonGanador, "Felicidades", JOptionPane.INFORMATION_MESSAGE);
             }
-
         }
-        
     }
-
-
 }
