@@ -72,16 +72,9 @@ public class ControladorJugador implements ActionListener
             String strCorreo = objRegistroJugador.txtCorreo.getText();
             String strCedula = objRegistroJugador.txtCedula.getText();
 
-            String regx = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^-]+(?:\\\\.[a-zA-Z0-9_!#$%&’*+/=?`{|}~^-]+)*@[a-zA-Z0-9-]+(?:\\\\.[a-zA-Z0-9-]+)*$";
-            Pattern pattern = Pattern.compile(regx);
-            Matcher matcher = pattern.matcher(strCorreo);
-
             if (Utilitarios.ExisteCedula(strCedula) || strCedula.length() > 9 || strCedula.length() < 1)
             {
                 JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "La cédula debe ser un número entero de 9 dígitos", "Error", JOptionPane.INFORMATION_MESSAGE);
-            } else if (!matcher.matches())
-            {
-                JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "El formato de correo es incorrecto.", "Error", JOptionPane.INFORMATION_MESSAGE);
             } else
             {
                 objJugador = new Jugador(strNombre, strCorreo, strCedula);
