@@ -234,10 +234,12 @@ public class Utilitarios
             BodyPart texto = new MimeBodyPart();
             texto.setText(pMessage);
 
-            BodyPart archivos = new MimeBodyPart();
+            MimeMultipart multipart = new MimeMultipart();
+            multipart.addBodyPart(texto);
             
             for(Carton objCarton: listaCartones)
             {
+                BodyPart archivos = new MimeBodyPart();
                 String path = System.getProperty("user.dir");
                 File file = new File(path + "\\Cartones");
                 
@@ -246,10 +248,9 @@ public class Utilitarios
                     archivos.setDataHandler(new DataHandler(new FileDataSource(path + "\\Cartones\\" + objCarton.getIdentificador() + ".png")));
                     archivos.setFileName(objCarton.getIdentificador() + ".png");
                 }
+                
+                multipart.addBodyPart(archivos);
             }
-            MimeMultipart multipart = new MimeMultipart();
-            multipart.addBodyPart(texto);
-            multipart.addBodyPart(archivos);
 
             MimeMessage mensaje = new MimeMessage(session);
             mensaje.setFrom(new InternetAddress(pFrom));
