@@ -5,6 +5,7 @@
 package vista;
 
 import modelo.Carton;
+import modelo.Jugador;
 
 /**
  *
@@ -49,6 +50,14 @@ public final class VistaCarton extends javax.swing.JPanel
         this.lbl23.setText(String.valueOf(objCarton.getListaNumeros()[23]));
         this.lbl24.setText(String.valueOf(objCarton.getListaNumeros()[24]));
         this.lblIdentificador.setText(objCarton.getIdentificador());
+        
+        Jugador objJugador = objCarton.getJugador();
+        
+        if(objJugador != null)
+        {
+            this.lblNombre.setText(objJugador.getNombreCompleto());
+            this.lblCedula.setText(objJugador.getCedula());
+        }
     }
 
     /**
@@ -305,17 +314,17 @@ public final class VistaCarton extends javax.swing.JPanel
         lblIdentificador.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         lblIdentificador.setForeground(new java.awt.Color(255, 153, 0));
         lblIdentificador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        add(lblIdentificador, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 445, -1));
+        add(lblIdentificador, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 445, 60));
 
-        lblNombre.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
-        lblNombre.setForeground(new java.awt.Color(255, 153, 0));
+        lblNombre.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(255, 255, 255));
         lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 600, 445, -1));
+        add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 600, 445, 60));
 
-        lblCedula.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
-        lblCedula.setForeground(new java.awt.Color(255, 153, 0));
+        lblCedula.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        lblCedula.setForeground(new java.awt.Color(255, 255, 255));
         lblCedula.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        add(lblCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 670, 445, -1));
+        add(lblCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 670, 445, 60));
     }// </editor-fold>//GEN-END:initComponents
 
 

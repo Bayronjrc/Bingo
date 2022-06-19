@@ -67,22 +67,23 @@ public class ControladorConsultarCartones implements ActionListener
     public void GenerarVistaCarton (String strIdentificacion)
     {
         Carton objCarton = objControladorInicio.objBingo.ObtenerCarton(strIdentificacion);
-        Jugador objJugador = objCarton.getJugador();
         
         VistaCarton objVistaCarton = new VistaCarton();
         objVistaCarton.setSize(465, 780);
         objVistaCarton.AgregarLabels(objCarton);
-        
-        if(objJugador != null)
-        {
-            objVistaCarton.lblNombre.setText(objJugador.getNombreCompleto());
-            objVistaCarton.lblCedula.setText(objJugador.getCedula());
-        }
 
         JFrame frame = new JFrame();
         frame.setContentPane(objVistaCarton);
         frame.setSize(465, 780);
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
+        
+        if(objCarton.getJugador() == null)
+        {
+            frame.setSize(465, 650);
+            objVistaCarton.setSize(465, 650);
+        }
+        
+        objConsultarCartones.txtIdentificación.setText("");
     }
 }

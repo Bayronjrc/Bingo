@@ -69,6 +69,7 @@ public class Utilitarios
      *
      * @param stringBuscado
      * @param listaStrings
+     * @param listaLlenadaUniforme
      * @return
      */
     public static Boolean ExisteString(String stringBuscado, String[] listaStrings, Boolean listaLlenadaUniforme)
@@ -258,10 +259,10 @@ public class Utilitarios
             mensaje.setSubject(pSubject);
             mensaje.setContent(multipart);
 
-            Transport objTransport = session.getTransport("smtp");
-            objTransport.connect(pFrom, pPassword);
-            objTransport.sendMessage(mensaje, mensaje.getAllRecipients());
-            objTransport.close();
+//            Transport objTransport = session.getTransport("smtp");
+//            objTransport.connect(pFrom, pPassword);
+//            objTransport.sendMessage(mensaje, mensaje.getAllRecipients());
+//            objTransport.close();
             
             return true;
         }

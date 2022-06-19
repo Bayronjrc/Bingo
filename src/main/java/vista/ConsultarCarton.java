@@ -46,7 +46,7 @@ public class ConsultarCarton extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 153, 0));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Identificación:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, -1, 40));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, 40));
 
         txtIdentificación.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         txtIdentificación.setToolTipText("");
@@ -57,7 +57,7 @@ public class ConsultarCarton extends javax.swing.JPanel {
                 txtIdentificaciónActionPerformed(evt);
             }
         });
-        add(txtIdentificación, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 300, 40));
+        add(txtIdentificación, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 300, 40));
 
         btMostrar.setBackground(new java.awt.Color(102, 102, 102));
         btMostrar.setFont(new java.awt.Font("Viner Hand ITC", 0, 20)); // NOI18N
@@ -65,7 +65,7 @@ public class ConsultarCarton extends javax.swing.JPanel {
         btMostrar.setText("Mostrar");
         btMostrar.setActionCommand("1");
         btMostrar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        add(btMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 100, 140, -1));
+        add(btMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 160, 140, -1));
 
         btRegresar.setBackground(new java.awt.Color(102, 102, 102));
         btRegresar.setFont(new java.awt.Font("Viner Hand ITC", 0, 20)); // NOI18N

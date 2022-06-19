@@ -24,6 +24,7 @@ public class ControladorEnviarCarton implements ActionListener
         this.objControladorInicio = objControladorInicio;
         this.objEnviarCarton = objEnviarCarton;
         this.objEnviarCarton.btEnviarCartones.addActionListener(this);
+        this.objEnviarCarton.btRegresar.addActionListener(this);
     }
 
     @Override
@@ -31,7 +32,8 @@ public class ControladorEnviarCarton implements ActionListener
     {
         switch (e.getActionCommand())
         {
-            case "Enviar Cartones Digitales" ->
+            // Enviar Cartones Digitales
+            case "1" ->
             {
                 try
                 {
@@ -41,7 +43,11 @@ public class ControladorEnviarCarton implements ActionListener
                     Logger.getLogger(ControladorEnviarCarton.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-
+            // Regresar
+            case "0" ->
+            {
+                this.objControladorInicio.CambiaPanelOpcionesHabilitarBotones();
+            }
         }
 
     }
@@ -57,7 +63,8 @@ public class ControladorEnviarCarton implements ActionListener
             Jugador objJugador = objJugadorDAOXML.buscarJugador(strCedula);
             
             int respuesta = this.objControladorInicio.objBingo.AsingarCartones(objJugador, Integer.parseInt(strCantidad));
-            
+            Utilitarios.EnviarCartonCorreo(Utilitarios.BuscaCorreo(strCedula), objControladorInicio.objBingo.ObtenerCartonesPorJugador(strCedula));
+
             if(respuesta == -1)
             {
                 JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Ya no quedan cartones disponibles", "Error", JOptionPane.INFORMATION_MESSAGE);
@@ -67,9 +74,8 @@ public class ControladorEnviarCarton implements ActionListener
                 JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Se enviaron " + respuesta + " cartones al correo del jugador.", "Error", JOptionPane.INFORMATION_MESSAGE);
             }
             
-            Utilitarios.EnviarCartonCorreo(Utilitarios.BuscaCorreo(strCedula), objControladorInicio.objBingo.ObtenerCartonesPorJugador(strCedula));
-            
-            this.objControladorInicio.CambiaPanelOpcionesHabilitarBotones();
+            objEnviarCarton.txtCantidad.setText("");
+            objEnviarCarton.txtCedula.setText("");
         }
         else
         {
