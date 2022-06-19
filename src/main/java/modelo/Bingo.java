@@ -1,6 +1,7 @@
 package modelo;
 
 import controlador.Utilitarios;
+import dao.BingoDAO;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
@@ -9,7 +10,7 @@ import java.util.Random;
  *
  * @author Bayron Rodriguez Centeno
  */
-public final class Bingo
+public final class Bingo implements BingoDAO
 {
 
     // Atributos de clase
@@ -25,16 +26,13 @@ public final class Bingo
     public final static int MODO_JUEGO_CARTON_LLENO = 3;
     public final static int MODO_JUEGO_EN_Z = 4;
 
-    public Bingo()
-    {
-    }
-
     /**
      * *
      * Genera los cartones.
      *
      * @param cantidadCartones
      */
+    @Override
     public void GenerarCartones(int cantidadCartones)
     {
         Arrays.fill(this.ListaBolas, 0);
@@ -50,6 +48,7 @@ public final class Bingo
      * @param cantidadCartones
      * @return Lista de cartones.
      */
+    @Override
     public ArrayList<Carton> GenerarCartonesBingo(int cantidadCartones)
     {
         ArrayList<Carton> listaCartones = new ArrayList<>();
@@ -71,6 +70,7 @@ public final class Bingo
      * @param identificador
      * @return
      */
+    @Override
     public Boolean ValidarCartonGanador(String identificador)
     {
         Carton objCarton = ObtenerCarton(identificador);
@@ -137,6 +137,7 @@ public final class Bingo
         return false;
     }
 
+    @Override
     public String validarCartones()
     {
         String cartones = "";
@@ -160,6 +161,7 @@ public final class Bingo
      *
      * @return El número de la bola, si ya no hay da -1.
      */
+    @Override
     public int ObtenerBola()
     {
         int bola = 0;
@@ -193,6 +195,7 @@ public final class Bingo
      * @param identificador
      * @return El cartón buscado, o null si no lo encuentra.
      */
+    @Override
     public Carton ObtenerCarton(String identificador)
     {
         for (Carton objCarton : this.ListaCarton)
@@ -213,7 +216,8 @@ public final class Bingo
      * @param objJugador
      * @return
      */
-    private Boolean AsingarJugador(Jugador objJugador)
+    @Override
+    public Boolean AsingarJugador(Jugador objJugador)
     {
         for (Carton objCarton : this.ListaCarton)
         {
@@ -235,6 +239,7 @@ public final class Bingo
      * @param cantidad
      * @return
      */
+    @Override
     public int AsingarCartones(Jugador objJugador, int cantidad)
     {
         for (int i = 0; i < cantidad; i++)
@@ -261,6 +266,7 @@ public final class Bingo
      * @param strCedula
      * @return
      */
+    @Override
     public ArrayList<Carton> ObtenerCartonesPorJugador(String strCedula)
     {
         ArrayList<Carton> lista = new ArrayList<>();
@@ -276,102 +282,53 @@ public final class Bingo
         return lista;
     }
 
+    /**
+     * Obtiene el modo de juego.
+     * @return
+     */
+    @Override
     public int getModoJuego()
     {
         return ModoJuego;
     }
 
+    /**
+     * Guarda el modo de juego.
+     * @param ModoJuego
+     */
+    @Override
     public void setModoJuego(int ModoJuego)
     {
         this.ModoJuego = ModoJuego;
     }
 
+    /**
+     * Obtiene el monto.
+     * @return
+     */
+    @Override
     public double getMonto()
     {
         return Monto;
     }
 
+    /**
+     * Guarda el monto.
+     * @param Monto
+     */
+    @Override
     public void setMonto(double Monto)
     {
         this.Monto = Monto;
     }
 
-    public ArrayList getListaCarton()
+    /**
+     * Obtiene el lista de cartoness.
+     * @return
+     */
+    @Override
+    public ArrayList<Carton> getListaCarton()
     {
         return ListaCarton;
-    }
-
-    public void ImprimirCartones()
-    {
-        int cont;
-
-        for (Carton objCarton : this.ListaCarton)
-        {
-            cont = 0;
-            System.err.format("%n");
-            System.err.format("%n");
-            System.err.format("Bingo: " + objCarton.getIdentificador());
-            System.err.format("%n");
-            System.err.format("%n");
-
-            for (int numero : objCarton.getListaNumeros())
-            {
-                System.out.format("%02d | ", numero);
-
-                if (cont != 4)
-                {
-                    cont++;
-                } else
-                {
-                    cont = 0;
-                    System.err.format("%n");
-                }
-            }
-        }
-
-        System.err.format("%n");
-        System.err.format("%n");
-        System.err.format(Arrays.toString(this.ListaIdentificadores));
-        System.err.format("%n");
-        System.err.format("%n");
-
-//        cont = 0;
-//        for(int i = 0; i < 80; i++)
-//        {
-//            System.out.format("%02d | ", objBingo.ObtenerBola());
-//            
-//            Boolean ganador = false;
-//            
-//            for(Carton objCarton: objBingo.ListaCarton)
-//            {
-//                Boolean cartonValido = objBingo.ValidarCartonGanador(objCarton.getIdentificador());
-//                
-//                if(cartonValido)
-//                {
-//                    ganador = true;
-//                    System.err.format("%n");
-//                    System.err.format("%n");
-//                    System.err.format("Cartón " + objCarton.getIdentificador() + " - Ganador");
-//                }
-//            }
-//            
-//            if(ganador)
-//            {
-//                System.err.format("%n");
-//                System.err.format("%n");
-//                System.out.format(Arrays.toString(objBingo.ListaBolas));
-//                break;
-//            }
-//
-//            if(cont != 9)
-//            {
-//                cont++;
-//            }
-//            else
-//            {
-//                cont = 0;
-//                System.err.format("%n");
-//            }
-//        }
     }
 }
