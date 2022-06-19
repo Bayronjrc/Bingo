@@ -95,6 +95,7 @@ public class Juego extends javax.swing.JPanel {
 
         txtNumerosCantados.setColumns(20);
         txtNumerosCantados.setRows(5);
+        txtNumerosCantados.setAutoscrolls(false);
         txtNumerosCantados.setEnabled(false);
         jScrollPane1.setViewportView(txtNumerosCantados);
 

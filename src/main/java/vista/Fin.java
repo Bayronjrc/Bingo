@@ -29,13 +29,12 @@ public class Fin extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblPremio = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
+        btTerminar = new javax.swing.JButton();
+        lblTipoJuego = new javax.swing.JLabel();
+        lblGanadores = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(51, 51, 51));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -50,49 +49,49 @@ public class Fin extends javax.swing.JPanel {
         jLabel2.setText("Premio:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 10, -1, -1));
 
-        jLabel3.setForeground(new java.awt.Color(255, 153, 0));
-        jLabel3.setText("x");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 30, 40, 30));
+        lblPremio.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblPremio.setForeground(new java.awt.Color(255, 153, 0));
+        lblPremio.setText("x");
+        add(lblPremio, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 20, 40, 30));
 
         jLabel4.setFont(new java.awt.Font("Viner Hand ITC", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 153, 0));
         jLabel4.setText("Cartones Ganadores:");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 789, -1));
-
         jLabel5.setFont(new java.awt.Font("Viner Hand ITC", 1, 48)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 153, 0));
         jLabel5.setText("Felicidades");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(102, 102, 102));
-        jButton1.setFont(new java.awt.Font("Viner Hand ITC", 0, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 153, 0));
-        jButton1.setText("Terminar Juego");
-        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 310, 212, -1));
+        btTerminar.setBackground(new java.awt.Color(102, 102, 102));
+        btTerminar.setFont(new java.awt.Font("Viner Hand ITC", 0, 24)); // NOI18N
+        btTerminar.setForeground(new java.awt.Color(255, 153, 0));
+        btTerminar.setText("Terminar Juego");
+        btTerminar.setActionCommand("0");
+        btTerminar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        add(btTerminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 310, 212, -1));
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 153, 0));
-        jLabel6.setText("x");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 40, 30));
+        lblTipoJuego.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblTipoJuego.setForeground(new java.awt.Color(255, 153, 0));
+        lblTipoJuego.setText("x");
+        add(lblTipoJuego, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 40, 30));
+
+        lblGanadores.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
+        lblGanadores.setForeground(new java.awt.Color(255, 255, 255));
+        lblGanadores.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        add(lblGanadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 810, 80));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    public javax.swing.JButton btTerminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    public javax.swing.JLabel lblGanadores;
+    public javax.swing.JLabel lblPremio;
+    public javax.swing.JLabel lblTipoJuego;
     // End of variables declaration//GEN-END:variables
 }
