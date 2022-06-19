@@ -51,7 +51,7 @@ public class ControladorEnviarCarton implements ActionListener
         String strCantidad = this.objEnviarCarton.txtCantidad.getText();
         String strCedula = this.objEnviarCarton.txtCedula.getText();
 
-        if (Utilitarios.ValidarEntero(strCantidad, Boolean.TRUE) && !Utilitarios.ExisteCedula(strCedula))
+        if (Utilitarios.ValidarEntero(strCantidad, Boolean.TRUE) && Utilitarios.ExisteCedula(strCedula))
         {
             JugadorDAOXML objJugadorDAOXML = new JugadorDAOXML();
             Jugador objJugador = objJugadorDAOXML.buscarJugador(strCedula);
