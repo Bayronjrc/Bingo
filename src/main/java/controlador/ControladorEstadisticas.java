@@ -42,7 +42,9 @@ public class ControladorEstadisticas implements ActionListener
             // Iniciar Juego
             case "0" ->
             {
+                objControladorInicio.objInicio.setSize(850,450);
                 this.objControladorInicio.CambiaPanelOpcionesHabilitarBotones();
+                
             }
         }
     }

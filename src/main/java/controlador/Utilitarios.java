@@ -370,19 +370,19 @@ public class Utilitarios
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
             int hora = pHora.getHour();
             int minuto = pHora.getMinute();
-            String horaActual = String.valueOf(hora) + ":" + String.valueOf(minuto);
+            String horaActual = String.valueOf(hora) + ";" + String.valueOf(minuto);
             //Elemento raíz
             Document doc = docBuilder.parse("HistorialPartidas.xml");
             doc.getDocumentElement().normalize();
 
             Node root = doc.getFirstChild();
-            Element elemento1 = doc.createElement("Partidas");
+            Element elemento1 = doc.createElement("Partida");
             root.appendChild(elemento1);
             Element Tipo = doc.createElement("tipo");
             Tipo.setTextContent(pTipo);
             elemento1.appendChild(Tipo);
 
-            Element NumerosCantados = doc.createElement("numeros Cantados");
+            Element NumerosCantados = doc.createElement("numerosCantados");
             NumerosCantados.setTextContent(pNumerosCantados);
             elemento1.appendChild(NumerosCantados);
 
