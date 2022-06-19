@@ -392,7 +392,7 @@ public class Utilitarios
         {
         }
     }
-     public Jugador buscarJugador(String pCedula)
+     public static Jugador buscarJugador(String pCedula)
     {
         try
         {
@@ -431,7 +431,7 @@ public class Utilitarios
     }
 
     
-    public int cantidadUsuarios() throws FileNotFoundException,IOException,CsvException
+    public static int cantidadUsuarios() throws FileNotFoundException,IOException,CsvException
     {
         int cantidad = 0;
         try

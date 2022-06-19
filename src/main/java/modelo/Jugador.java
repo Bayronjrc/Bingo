@@ -39,6 +39,8 @@ public final class Jugador
         this.cedula = pCedula;
         this.agregarJugador(this.nombreCompleto, this.correoElectronico, this.cedula);
     }
+    
+    public Jugador(){}
 
     /**
      * *
