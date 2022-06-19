@@ -1,7 +1,9 @@
 package controlador;
 
 import com.opencsv.CSVWriter;
+import com.opencsv.exceptions.CsvException;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -32,6 +34,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import modelo.Carton;
 import modelo.Correo;
+import modelo.Jugador;
 import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -388,5 +391,74 @@ public class Utilitarios
         catch (ParserConfigurationException | TransformerException pce)
         {
         }
+    }
+     public Jugador buscarJugador(String pCedula)
+    {
+        try
+        {
+            File file = new File("Jugadores.xml");
+
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+
+            DocumentBuilder db = dbf.newDocumentBuilder();
+            Document doc = db.parse(file);
+            doc.getDocumentElement().normalize();
+
+            NodeList nodeList = doc.getElementsByTagName("Jugador");
+
+            for (int i = 0; i < nodeList.getLength(); ++i)
+            {
+                Node node = nodeList.item(i);
+                if (node.getNodeType() == Node.ELEMENT_NODE)
+                {
+                    Element tElement = (Element) node;
+
+                    if ((tElement.getElementsByTagName("Cedula").item(0).getTextContent()).equals(pCedula))
+                    {
+                        String nombre = tElement.getElementsByTagName("Nombre").item(0).getTextContent();
+                        String cedula = tElement.getElementsByTagName("Cedula").item(0).getTextContent();
+                        String correo = tElement.getElementsByTagName("Correo").item(0).getTextContent();
+                        Jugador objJugador = new Jugador(nombre,correo,cedula);
+                        return objJugador;
+                    }
+                }
+            }
+        } catch (IOException | ParserConfigurationException | DOMException | SAXException e)
+        {
+            System.out.println(e);
+        }
+        return null;
+    }
+
+    
+    public int cantidadUsuarios() throws FileNotFoundException,IOException,CsvException
+    {
+        int cantidad = 0;
+        try
+        {
+            File file = new File("Jugadores.xml");
+            
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+
+            DocumentBuilder db = dbf.newDocumentBuilder();
+            Document doc = db.parse(file);
+            doc.getDocumentElement().normalize();
+
+            NodeList nodeList = doc.getElementsByTagName("Jugador");
+
+            for (int i = 0; i < nodeList.getLength(); ++i)
+            {
+                Node node = nodeList.item(i);
+                if (node.getNodeType() == Node.ELEMENT_NODE)
+                {
+                    cantidad++;
+                }
+            }
+            return cantidad;
+        } catch (IOException | ParserConfigurationException | DOMException | SAXException e)
+        {
+            System.out.println(e);
+        }
+        return cantidad;
     }
 }
