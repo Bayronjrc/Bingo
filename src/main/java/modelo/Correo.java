@@ -5,21 +5,11 @@ package modelo;
  * @author User
  */
 public class Correo {
-    private int cantidad;
-    private int cedula;
     
-    public Correo(int pCantidad, int pCedula){
-        this.cantidad = pCantidad;
-        this.cedula = pCedula;
-    }
+    public final static String DE = "rrodriguez@neotecnologias.com";
+    public final static String NOMBRE_USUARIO = "rrodriguez@neotecnologias.com";
+    public final static String CONTRASENA = "5tzEWVRSVu4CwpV";
 
-    public int getCantidad() {
-        return cantidad;
-    }
-
-    public int getCedula() {
-        return cedula;
-    }
 
   
 }

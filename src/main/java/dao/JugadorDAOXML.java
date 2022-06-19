@@ -89,11 +89,33 @@ public class JugadorDAOXML implements JugadorDAO
     @Override
     public int cantidadUsuarios() throws FileNotFoundException,IOException,CsvException
     {
-        String file = "Jugadores.csv";
-        CSVReader csvReader = new CSVReader(new FileReader(file));
-        ArrayList<String[]> datos = (ArrayList<String[]>) csvReader.readAll();
-        int cantidad = datos.size();
-        System.out.println(String.valueOf(cantidad));
+        int cantidad = 0;
+        try
+        {
+            File file = new File("Jugadores.xml");
+            
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+
+            DocumentBuilder db = dbf.newDocumentBuilder();
+            Document doc = db.parse(file);
+            doc.getDocumentElement().normalize();
+
+            NodeList nodeList = doc.getElementsByTagName("Jugador");
+
+            for (int i = 0; i < nodeList.getLength(); ++i)
+            {
+                Node node = nodeList.item(i);
+                if (node.getNodeType() == Node.ELEMENT_NODE)
+                {
+                    Element tElement = (Element) node;
+                    cantidad++;
+                }
+            }
+            return cantidad;
+        } catch (IOException | ParserConfigurationException | DOMException | SAXException e)
+        {
+            System.out.println(e);
+        }
         return cantidad;
     }
         

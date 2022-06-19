@@ -35,7 +35,7 @@ public class Juego extends javax.swing.JPanel {
         btCantarNumero = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtNumerosCantados = new javax.swing.JTextArea();
         jLabel7 = new javax.swing.JLabel();
         lbCartones = new javax.swing.JLabel();
         lbJugadores = new javax.swing.JLabel();
@@ -93,10 +93,10 @@ public class Juego extends javax.swing.JPanel {
 
         jScrollPane1.setForeground(new java.awt.Color(255, 153, 0));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setEnabled(false);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtNumerosCantados.setColumns(20);
+        txtNumerosCantados.setRows(5);
+        txtNumerosCantados.setEnabled(false);
+        jScrollPane1.setViewportView(txtNumerosCantados);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 194, 812, 79));
 
@@ -141,10 +141,10 @@ public class Juego extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTextArea jTextArea1;
     public javax.swing.JLabel lbCartones;
     public javax.swing.JLabel lbJugadores;
     public javax.swing.JLabel lbPremio;
     public javax.swing.JLabel lbTipoJuego;
+    public javax.swing.JTextArea txtNumerosCantados;
     // End of variables declaration//GEN-END:variables
 }

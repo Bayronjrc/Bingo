@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,14 +18,15 @@ public class ControladorJuego implements ActionListener
 {
     public Juego objJuego;
     public ControladorInicio objControladorInicio;
-    public JugadorDAO objJugadorDAO;
+
 
     public ControladorJuego(Juego objJuego, ControladorInicio objControladorInicio)
     {
         this.objJuego = objJuego;
-        this.objJugadorDAO = new JugadorDAOXML();
+       
         this.objControladorInicio = objControladorInicio;
         this.objJuego.btCantarNumero.addActionListener(this);
+        this.objJuego.btRegresar.addActionListener(this);
         
     }
 
@@ -49,29 +51,19 @@ public class ControladorJuego implements ActionListener
             }
             case "0" ->
             {
-                this.objControladorInicio.CambiaPanelOpciones();
+                this.objControladorInicio.CambiaPanelOpcionesHabilitarBotones();
             }
     }
     }
     
     public void cantarNumero() throws IOException, FileNotFoundException, CsvException{
-        this.objJuego.lbPremio.setText(String.valueOf(this.objControladorInicio.objBingo.getMonto()));
-        switch(String.valueOf(this.objControladorInicio.objBingo.getModoJuego())){
-            case "1"->{
-                this.objJuego.lbTipoJuego.setText("Juego en X");
-            }
-            case "2"->{
-                this.objJuego.lbTipoJuego.setText("Cuatro Esquinas");
-            }
-            case "3"->{
-                this.objJuego.lbTipoJuego.setText("Cartón Lleno");
-            }
-            case "4"->{
-                this.objJuego.lbTipoJuego.setText("Juego en Z");
-            }
+        if(objControladorInicio.objBingo.ObtenerBola()==-1){
+            JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Se acabaron las bolas", "Error", JOptionPane.INFORMATION_MESSAGE);
         }
-        this.objJuego.lbCartones.setText(String.valueOf(this.objControladorInicio.objBingo.getListaCarton().size()));
-        this.objJuego.lbJugadores.setText(String.valueOf(objJugadorDAO.cantidadUsuarios()));
+        else{
+            this.objJuego.txtNumerosCantados.setText(String.valueOf(objControladorInicio.objBingo.ObtenerBola()));
+            
+        }
     }
     
     
