@@ -33,6 +33,7 @@ public class Estadisticas extends javax.swing.JPanel
         pnlCircularHistorica = new javax.swing.JPanel();
         pnlDateHanding = new javax.swing.JPanel();
         pnlTopCinco = new javax.swing.JPanel();
+        btRegresar1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(51, 51, 51));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -88,10 +89,19 @@ public class Estadisticas extends javax.swing.JPanel
         );
 
         add(pnlTopCinco, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 400, 400, 400));
+
+        btRegresar1.setBackground(new java.awt.Color(102, 102, 102));
+        btRegresar1.setFont(new java.awt.Font("Viner Hand ITC", 0, 20)); // NOI18N
+        btRegresar1.setForeground(new java.awt.Color(255, 153, 0));
+        btRegresar1.setText("Regresar");
+        btRegresar1.setActionCommand("0");
+        btRegresar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        add(btRegresar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 750, 140, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btRegresar1;
     public javax.swing.JPanel pnlCircularHistorica;
     public javax.swing.JPanel pnlDateHanding;
     public javax.swing.JPanel pnlGrafoBarras;

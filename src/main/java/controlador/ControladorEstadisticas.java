@@ -1,5 +1,7 @@
 package controlador;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.UIManager;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
@@ -9,7 +11,7 @@ import vista.*;
  *
  * @author User
  */
-public class ControladorEstadisticas
+public class ControladorEstadisticas implements ActionListener
 {
     public Estadisticas objEstadisticas;
     public ControladorInicio objControladorInicio;
@@ -18,6 +20,20 @@ public class ControladorEstadisticas
     {
         this.objControladorInicio = objControladorInicio;
         this.objEstadisticas = objEstadisticas;
+        this.objEstadisticas.btRegresar1.addActionListener(this);
     }
+
+    @Override
+    public void actionPerformed(ActionEvent e)
+    {
+        switch (e.getActionCommand())
+        {
+            // Iniciar Juego
+            case "0" ->
+            {
+                this.objControladorInicio.CambiaPanelOpcionesHabilitarBotones();
+            }
+        }
     
+    }
 }
