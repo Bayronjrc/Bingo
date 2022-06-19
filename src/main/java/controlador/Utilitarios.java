@@ -1,10 +1,13 @@
 package controlador;
 
 import com.opencsv.CSVWriter;
+import com.opencsv.exceptions.CsvException;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Properties;
 import java.util.logging.Level;
@@ -31,6 +34,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import modelo.Carton;
 import modelo.Correo;
+import modelo.Jugador;
 import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -341,11 +345,14 @@ public class Utilitarios
         }
     }
     
-    public static void historialPartidas(String pTipo,String pNumerosCantados, String pGanadores, LocalDate pFecha, LocalDate pHora) throws SAXException, IOException{
+    public static void historialPartidas(String pTipo,String pNumerosCantados, String pGanadores, LocalDate pFecha, LocalDateTime pHora) throws SAXException, IOException{
         try{
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
         
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+            int hora = pHora.getHour();
+            int minuto = pHora.getMinute();
+            String horaActual = String.valueOf(hora)+":"+String.valueOf(minuto);
             //Elemento raíz
             Document doc = docBuilder.parse("HistorialPartidas.xml");
             doc.getDocumentElement().normalize();
@@ -370,7 +377,7 @@ public class Utilitarios
             elemento1.appendChild(Fecha);
             
             Element Hora = doc.createElement("hora");
-            Hora.setTextContent(pHora.toString());
+            Hora.setTextContent(horaActual);
             elemento1.appendChild(Hora);
 
             //Se escribe el contenido del XML en un archivo
@@ -384,5 +391,74 @@ public class Utilitarios
         catch (ParserConfigurationException | TransformerException pce)
         {
         }
+    }
+     public Jugador buscarJugador(String pCedula)
+    {
+        try
+        {
+            File file = new File("Jugadores.xml");
+
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+
+            DocumentBuilder db = dbf.newDocumentBuilder();
+            Document doc = db.parse(file);
+            doc.getDocumentElement().normalize();
+
+            NodeList nodeList = doc.getElementsByTagName("Jugador");
+
+            for (int i = 0; i < nodeList.getLength(); ++i)
+            {
+                Node node = nodeList.item(i);
+                if (node.getNodeType() == Node.ELEMENT_NODE)
+                {
+                    Element tElement = (Element) node;
+
+                    if ((tElement.getElementsByTagName("Cedula").item(0).getTextContent()).equals(pCedula))
+                    {
+                        String nombre = tElement.getElementsByTagName("Nombre").item(0).getTextContent();
+                        String cedula = tElement.getElementsByTagName("Cedula").item(0).getTextContent();
+                        String correo = tElement.getElementsByTagName("Correo").item(0).getTextContent();
+                        Jugador objJugador = new Jugador(nombre,correo,cedula);
+                        return objJugador;
+                    }
+                }
+            }
+        } catch (IOException | ParserConfigurationException | DOMException | SAXException e)
+        {
+            System.out.println(e);
+        }
+        return null;
+    }
+
+    
+    public int cantidadUsuarios() throws FileNotFoundException,IOException,CsvException
+    {
+        int cantidad = 0;
+        try
+        {
+            File file = new File("Jugadores.xml");
+            
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+
+            DocumentBuilder db = dbf.newDocumentBuilder();
+            Document doc = db.parse(file);
+            doc.getDocumentElement().normalize();
+
+            NodeList nodeList = doc.getElementsByTagName("Jugador");
+
+            for (int i = 0; i < nodeList.getLength(); ++i)
+            {
+                Node node = nodeList.item(i);
+                if (node.getNodeType() == Node.ELEMENT_NODE)
+                {
+                    cantidad++;
+                }
+            }
+            return cantidad;
+        } catch (IOException | ParserConfigurationException | DOMException | SAXException e)
+        {
+            System.out.println(e);
+        }
+        return cantidad;
     }
 }

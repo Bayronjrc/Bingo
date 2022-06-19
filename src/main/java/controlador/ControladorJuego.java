@@ -7,6 +7,8 @@ import vista.*;
 import dao.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.logging.Level;
@@ -14,6 +16,7 @@ import java.util.logging.Logger;
 import javax.mail.MessagingException;
 import javax.swing.JOptionPane;
 import modelo.Carton;
+import org.xml.sax.SAXException;
 
 /**
  *
@@ -58,7 +61,10 @@ public class ControladorJuego implements ActionListener
                 } catch (IOException | CsvException | MessagingException ex)
                 {
                     Logger.getLogger(ControladorJuego.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                } catch (SAXException ex)
+            {
+                Logger.getLogger(ControladorJuego.class.getName()).log(Level.SEVERE, null, ex);
+            }
             }
             case "0" ->
             {
@@ -76,11 +82,12 @@ public class ControladorJuego implements ActionListener
      * @throws CsvException
      * @throws MessagingException
      */
-    public void ObtenerBolaValidarGanador() throws IOException, FileNotFoundException, CsvException, MessagingException
+    public void ObtenerBolaValidarGanador() throws IOException, FileNotFoundException, CsvException, MessagingException, SAXException
     {
         this.objJuego.btCantarNumero.setEnabled(true);
         String cartonGanador = this.objControladorInicio.objBingo.validarCartones();
         int bola = objControladorInicio.objBingo.ObtenerBola();
+        
 
         if (bola == -1)
         {
@@ -128,6 +135,7 @@ public class ControladorJuego implements ActionListener
                 {
                     Utilitarios.EnviarCartonCorreo(objCarton.getJugador().getCorreoElectronico(), new ArrayList<>(), "Ganador", "Felicidades tu carton " + objCarton.getIdentificador() + " Fue el ganador del bingo");
                     objControladorInicio.CambiaPanel(objControladorFin.objFin);
+                    Utilitarios.historialPartidas(objControladorFin.objFin.lblTipoJuego.getText(), this.objJuego.txtNumerosCantados.getText(), objCarton.getIdentificador(), LocalDate.now(),LocalDateTime.now());
                 }
 
                 JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Carton Ganador" + cartonGanador, "Felicidades", JOptionPane.INFORMATION_MESSAGE);
