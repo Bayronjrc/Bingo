@@ -8,6 +8,8 @@ import dao.*;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 
@@ -43,23 +45,21 @@ public class ControladorJugador implements ActionListener
                 try
                 {
                     logIn();
-                }
-                catch (ParserConfigurationException | SAXException | IOException ex)
+                } catch (ParserConfigurationException | SAXException | IOException ex)
                 {
                     Logger.getLogger(ControladorJugador.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             case "Regresar" ->
             {
-                if(this.objControladorInicio.objBingo.getListaCarton() == null)
+                if (this.objControladorInicio.objBingo.getListaCarton() == null)
                 {
                     this.objControladorInicio.CambiaPanelOpciones();
-                }
-                else
+                } else
                 {
                     this.objControladorInicio.CambiaPanelOpcionesHabilitarBotones();
                 }
-                
+
             }
         }
     }
@@ -68,24 +68,31 @@ public class ControladorJugador implements ActionListener
     {
         if (objRegistroJugador.logInDatosCorrectos())
         {
-            String nombreJugador = objRegistroJugador.txtNombre.getText();
-            String correo = objRegistroJugador.txtCorreo.getText();
-            String cedula = objRegistroJugador.txtCedula.getText();
-            objJugador = new Jugador(nombreJugador, correo, Integer.parseInt(cedula));
-            Jugador usuarioActual = objJugadorDAO.registrarJugador(objJugador);
+            String strNombre = objRegistroJugador.txtNombre.getText();
+            String strCorreo = objRegistroJugador.txtCorreo.getText();
+            String strCedula = objRegistroJugador.txtCedula.getText();
 
-            if (usuarioActual != null)
+            String regx = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^-]+(?:\\\\.[a-zA-Z0-9_!#$%&’*+/=?`{|}~^-]+)*@[a-zA-Z0-9-]+(?:\\\\.[a-zA-Z0-9-]+)*$";
+            Pattern pattern = Pattern.compile(regx);
+            Matcher matcher = pattern.matcher(strCorreo);
+
+            if (Utilitarios.ExisteCedula(strCedula) || strCedula.length() > 9 || strCedula.length() < 1)
             {
-                objRegistroJugador.setVisible(false);
-                JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Bienvenido: " + objJugador.getNombreCompleto());
-                objRegistroJugador.setVisible(true);
+                JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "La cédula debe ser un número entero de 9 dígitos", "Error", JOptionPane.INFORMATION_MESSAGE);
+            } else if (!matcher.matches())
+            {
+                JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "El formato de correo es incorrecto.", "Error", JOptionPane.INFORMATION_MESSAGE);
             } else
             {
-                JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "El usuario indicado no existe","Error", JOptionPane.INFORMATION_MESSAGE);
+                objJugador = new Jugador(strNombre, strCorreo, strCedula);
+                JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Jugador " + objJugador.getNombreCompleto() + " registra con éxito.");
+                this.objRegistroJugador.txtNombre.setText("");
+                this.objRegistroJugador.txtCorreo.setText("");
+                this.objRegistroJugador.txtCedula.setText("");
             }
         } else
         {
-            JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Todos lo datos son requeridos","Error", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Todos lo datos son requeridos", "Error", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 

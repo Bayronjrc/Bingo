@@ -20,18 +20,19 @@ import org.xml.sax.SAXException;
  *
  * @authorBayron Rodriguez
  */
-public class Jugador
+public final class Jugador
 {
 
     private String nombreCompleto;
     private String correoElectronico;
     private String cedula;
 
-    public Jugador(String pNombre, String pCorreo, int pCedula)
+    public Jugador(String pNombre, String pCorreo, String pCedula) throws ParserConfigurationException, SAXException, IOException
     {
         this.nombreCompleto = pNombre;
         this.correoElectronico = pCorreo;
-        this.cedula = String.valueOf(pCedula);
+        this.cedula = pCedula;
+        this.agregarJugador(this.nombreCompleto,this.correoElectronico, this.cedula);
     }
 
     public Jugador()

@@ -65,7 +65,7 @@ public class ControladorEnviarCarton implements ActionListener
         {
             JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Debe ingregar un valor entero positivo de 9 dígitos.", "Error", JOptionPane.INFORMATION_MESSAGE);
         }    
-        else if(!Utilitarios.ExisteCedula(strCedula))
+        else if(!Utilitarios.ExisteCedula(strCedula) && (strCedula.length() > 9 || strCedula.length() < 1))
         {
             JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "La cédula no existe.", "Error", JOptionPane.INFORMATION_MESSAGE);
         }

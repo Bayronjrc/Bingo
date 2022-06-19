@@ -4,15 +4,11 @@
  */
 package dao;
 
-import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
 import controlador.Utilitarios;
-import java.awt.List;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -30,23 +26,6 @@ import org.xml.sax.SAXException;
  */
 public class JugadorDAOXML implements JugadorDAO
 {
-
-    @Override
-    public Jugador registrarJugador(Jugador pJugador) throws ParserConfigurationException, ParserConfigurationException, ParserConfigurationException, SAXException, IOException
-    {
-        if (!Utilitarios.ExisteCedula(pJugador.getCedula()))
-        {
-            Jugador nuevoJugador = new Jugador();
-            nuevoJugador.agregarJugador(pJugador.getNombreCompleto(), pJugador.getCorreoElectronico(), pJugador.getCedula());
-            return nuevoJugador;
-        } else
-        {
-            return null;
-        }
-    }
-
-   
-
     @Override
     public Jugador buscarJugador(String pCedula)
     {
@@ -74,7 +53,7 @@ public class JugadorDAOXML implements JugadorDAO
                         String nombre = tElement.getElementsByTagName("Nombre").item(0).getTextContent();
                         String cedula = tElement.getElementsByTagName("Cedula").item(0).getTextContent();
                         String correo = tElement.getElementsByTagName("Correo").item(0).getTextContent();
-                        Jugador objJugador = new Jugador(nombre,correo,Integer.parseInt(cedula));
+                        Jugador objJugador = new Jugador(nombre,correo,cedula);
                         return objJugador;
                     }
                 }
