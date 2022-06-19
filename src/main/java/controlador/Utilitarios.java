@@ -20,6 +20,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import modelo.Carton;
+import modelo.Correo;
 import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -209,18 +210,14 @@ public class Utilitarios
      * *
      * Función que envía correos.
      *
-     * @param pTo
+     * @param pPara
      * @param listaCartones
      * @return 
      * @throws javax.mail.internet.AddressException
      */
-    public static Boolean EnviarCartonCorreo(String pTo, ArrayList<Carton> listaCartones) throws AddressException, MessagingException
+    public static Boolean EnviarCartonCorreo(String pPara, ArrayList<Carton> listaCartones,String pAsunto,String pMensaje) throws AddressException, MessagingException
     {
-        String pFrom = "rrodriguez@neotecnologias.com";
-        String pUsername = "rrodriguez@neotecnologias.com";
-        String pPassword = "5tzEWVRSVu4CwpV";
-        String pSubject = "Bingo";
-        String pMessage = "Bingo";
+        
 
         try
         {
@@ -229,11 +226,11 @@ public class Utilitarios
             props.setProperty("mail.smtp.auth", "true");
             props.setProperty("mail.smtp.starttls.enable", "true");
             props.setProperty("mail.smtp.port", "25");
-            props.setProperty("mail.smtp.user", pFrom);
+            props.setProperty("mail.smtp.user", Correo.DE);
 
             Session session = Session.getDefaultInstance(props, null);
             BodyPart texto = new MimeBodyPart();
-            texto.setText(pMessage);
+            texto.setText(pMensaje);
 
             MimeMultipart multipart = new MimeMultipart();
             multipart.addBodyPart(texto);
@@ -254,13 +251,13 @@ public class Utilitarios
             }
 
             MimeMessage mensaje = new MimeMessage(session);
-            mensaje.setFrom(new InternetAddress(pFrom));
-            mensaje.addRecipient(Message.RecipientType.TO, new InternetAddress(pTo));
-            mensaje.setSubject(pSubject);
+            mensaje.setFrom(new InternetAddress(Correo.DE));
+            mensaje.addRecipient(Message.RecipientType.TO, new InternetAddress(pPara));
+            mensaje.setSubject(pAsunto);
             mensaje.setContent(multipart);
 
 //            Transport objTransport = session.getTransport("smtp");
-//            objTransport.connect(pFrom, pPassword);
+//            objTransport.connect(Correo.DE, Correo.CONTRASENA);
 //            objTransport.sendMessage(mensaje, mensaje.getAllRecipients());
 //            objTransport.close();
             
