@@ -1,7 +1,10 @@
 package controlador;
 
+import com.opencsv.CSVWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Properties;
 import java.util.logging.Level;
@@ -21,6 +24,11 @@ import javax.mail.internet.MimeMultipart;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 import modelo.Carton;
 import modelo.Correo;
 import org.w3c.dom.DOMException;
@@ -330,6 +338,51 @@ public class Utilitarios
         if (!file.delete())
         {
             throw new IOException("Failed to delete " + file);
+        }
+    }
+    
+    public static void historialPartidas(String pTipo,String pNumerosCantados, String pGanadores, LocalDate pFecha, LocalDate pHora) throws SAXException, IOException{
+        try{
+            DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+        
+            DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+            //Elemento raíz
+            Document doc = docBuilder.parse("HistorialPartidas.xml");
+            doc.getDocumentElement().normalize();
+
+            Node root = doc.getFirstChild();
+            Element elemento1 = doc.createElement("Partidas");
+            root.appendChild(elemento1);
+            Element Tipo = doc.createElement("tipo");
+            Tipo.setTextContent(pTipo);
+            elemento1.appendChild(Tipo);
+
+            Element NumerosCantados = doc.createElement("numeros Cantados");
+            NumerosCantados.setTextContent(pNumerosCantados);
+            elemento1.appendChild(NumerosCantados);
+
+            Element Ganadores = doc.createElement("ganadores");
+            Ganadores.setTextContent(pGanadores);
+            elemento1.appendChild(Ganadores);
+            
+            Element Fecha = doc.createElement("fecha");
+            Fecha.setTextContent(pFecha.toString());
+            elemento1.appendChild(Fecha);
+            
+            Element Hora = doc.createElement("hora");
+            Hora.setTextContent(pHora.toString());
+            elemento1.appendChild(Hora);
+
+            //Se escribe el contenido del XML en un archivo
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            DOMSource source = new DOMSource(doc);
+            StreamResult result = new StreamResult(("HistorialPartidas.xml"));
+            transformer.transform(source, result);
+
+        }
+        catch (ParserConfigurationException | TransformerException pce)
+        {
         }
     }
 }
