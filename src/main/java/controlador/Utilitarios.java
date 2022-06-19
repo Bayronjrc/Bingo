@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.activation.DataHandler;
 import javax.activation.FileDataSource;
 import javax.mail.BodyPart;
@@ -212,13 +214,13 @@ public class Utilitarios
      *
      * @param pPara
      * @param listaCartones
+     * @param pAsunto
+     * @param pMensaje
      * @return 
      * @throws javax.mail.internet.AddressException
      */
-    public static Boolean EnviarCartonCorreo(String pPara, ArrayList<Carton> listaCartones,String pAsunto,String pMensaje) throws AddressException, MessagingException
+    public static Boolean EnviarCartonCorreo(String pPara, ArrayList<Carton> listaCartones, String pAsunto, String pMensaje) throws AddressException, MessagingException
     {
-        
-
         try
         {
             Properties props = new Properties();
@@ -267,5 +269,50 @@ public class Utilitarios
         {
         }
         return false;
+    }
+    
+    /***
+     * Elimina la carpeta Cartones.
+     * @param carpeta
+     */
+    public static void BorrarCarpeta(String carpeta)
+    {
+        String path = System.getProperty("user.dir");
+        File file = new File(path + "\\" + carpeta);
+        
+        if (file.exists())
+        {
+            try
+            {
+                deleteDirectoryRecursionJava6(file);
+            } catch (IOException ex)
+            {
+                Logger.getLogger(ControladorOpciones.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    /***
+     * Elimina directorios.
+     * @param file
+     * @throws IOException 
+     */
+    private static void deleteDirectoryRecursionJava6(File file) throws IOException
+    {
+        if (file.isDirectory())
+        {
+            File[] entries = file.listFiles();
+            if (entries != null)
+            {
+                for (File entry : entries)
+                {
+                    deleteDirectoryRecursionJava6(entry);
+                }
+            }
+        }
+        if (!file.delete())
+        {
+            throw new IOException("Failed to delete " + file);
+        }
     }
 }

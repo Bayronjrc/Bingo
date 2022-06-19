@@ -8,7 +8,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.parsers.ParserConfigurationException;
 import modelo.Carton;
-import modelo.Jugador;
 import org.xml.sax.SAXException;
 
 /**
@@ -30,6 +29,8 @@ public class ControladorConsultarCartones implements ActionListener
     }
 
     /**
+     * *
+     * Evento de los botones de la interfaz.
      *
      * @param e
      */
@@ -44,8 +45,7 @@ public class ControladorConsultarCartones implements ActionListener
                 try
                 {
                     MostrarCarton();
-                }
-                catch (ParserConfigurationException | SAXException | IOException ex)
+                } catch (ParserConfigurationException | SAXException | IOException ex)
                 {
                     Logger.getLogger(ControladorJugador.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -58,32 +58,41 @@ public class ControladorConsultarCartones implements ActionListener
         }
     }
 
+    /**
+     * *
+     * Muestra el cartón según la identificación.
+     *
+     * @throws ParserConfigurationException
+     * @throws SAXException
+     * @throws IOException
+     */
     public void MostrarCarton() throws ParserConfigurationException, SAXException, IOException
     {
         String strIdentificacion = this.objConsultarCartones.txtIdentificación.getText();
-        GenerarVistaCarton(strIdentificacion);
-    }
-    
-    public void GenerarVistaCarton (String strIdentificacion)
-    {
         Carton objCarton = objControladorInicio.objBingo.ObtenerCarton(strIdentificacion);
-        
-        VistaCarton objVistaCarton = new VistaCarton();
-        objVistaCarton.setSize(465, 780);
-        objVistaCarton.AgregarLabels(objCarton);
 
-        JFrame frame = new JFrame();
-        frame.setContentPane(objVistaCarton);
-        frame.setSize(465, 780);
-        frame.setVisible(true);
-        frame.setLocationRelativeTo(null);
-        
-        if(objCarton.getJugador() == null)
+        if (objCarton != null)
         {
-            frame.setSize(465, 650);
-            objVistaCarton.setSize(465, 650);
+            VistaCarton objVistaCarton = new VistaCarton();
+            objVistaCarton.setSize(465, 780);
+            objVistaCarton.AgregarLabels(objCarton);
+
+            JFrame frame = new JFrame();
+            frame.setContentPane(objVistaCarton);
+            frame.setSize(465, 780);
+            frame.setVisible(true);
+            frame.setLocationRelativeTo(null);
+
+            if (objCarton.getJugador() == null)
+            {
+                frame.setSize(465, 650);
+                objVistaCarton.setSize(465, 650);
+            }
+
+            objConsultarCartones.txtIdentificación.setText("");
+        } else
+        {
+            JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "El cartón no fue encontrado.", "Error", JOptionPane.INFORMATION_MESSAGE);
         }
-        
-        objConsultarCartones.txtIdentificación.setText("");
     }
 }

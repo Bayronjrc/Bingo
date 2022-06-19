@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controlador;
 
 import java.awt.Graphics2D;
@@ -28,6 +24,11 @@ public class ControladorGenerarCartones implements ActionListener
     public GenerarCartones objGenerarCartones;
     public ControladorInicio objControladorInicio;
 
+    /***
+     * Constructor
+     * @param objGenerarCartones
+     * @param objControladorInicio 
+     */
     public ControladorGenerarCartones(GenerarCartones objGenerarCartones, ControladorInicio objControladorInicio)
     {
         this.objGenerarCartones = objGenerarCartones;
@@ -36,6 +37,10 @@ public class ControladorGenerarCartones implements ActionListener
         this.objGenerarCartones.btGenerar.addActionListener(this);
     }
 
+    /***
+     * Evento de los botones de la interfaz..
+     * @param e 
+     */
     @Override
     public void actionPerformed(ActionEvent e)
     {
@@ -46,7 +51,7 @@ public class ControladorGenerarCartones implements ActionListener
             {
                 try
                 {
-                    GenerarCartones();
+                    ObtenerValidarCampos();
                 }
                 catch (ParserConfigurationException | SAXException | IOException ex)
                 {
@@ -61,7 +66,7 @@ public class ControladorGenerarCartones implements ActionListener
         }
     }
 
-    public void GenerarCartones() throws ParserConfigurationException, SAXException, IOException
+    public void ObtenerValidarCampos() throws ParserConfigurationException, SAXException, IOException
     {
         String strCantidad = this.objGenerarCartones.txtCantidad.getText();
         
