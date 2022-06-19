@@ -40,6 +40,7 @@ public class Juego extends javax.swing.JPanel {
         lbCartones = new javax.swing.JLabel();
         lbJugadores = new javax.swing.JLabel();
         lbTipoJuego = new javax.swing.JLabel();
+        btRegresar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(51, 51, 51));
         setForeground(new java.awt.Color(51, 51, 51));
@@ -53,7 +54,7 @@ public class Juego extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Viner Hand ITC", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 153, 0));
         jLabel2.setText("Total Cartones");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Viner Hand ITC", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 153, 0));
@@ -91,7 +92,6 @@ public class Juego extends javax.swing.JPanel {
         jScrollPane1.setForeground(new java.awt.Color(255, 153, 0));
 
         jTextArea1.setColumns(20);
-        jTextArea1.setForeground(new java.awt.Color(255, 153, 0));
         jTextArea1.setRows(5);
         jTextArea1.setEnabled(false);
         jScrollPane1.setViewportView(jTextArea1);
@@ -104,7 +104,7 @@ public class Juego extends javax.swing.JPanel {
         lbCartones.setBackground(new java.awt.Color(255, 255, 255));
         lbCartones.setForeground(new java.awt.Color(255, 153, 0));
         lbCartones.setText("x");
-        add(lbCartones, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 320, 91, 39));
+        add(lbCartones, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, 91, 39));
 
         lbJugadores.setForeground(new java.awt.Color(255, 153, 0));
         lbJugadores.setText("x");
@@ -114,6 +114,14 @@ public class Juego extends javax.swing.JPanel {
         lbTipoJuego.setForeground(new java.awt.Color(255, 153, 0));
         lbTipoJuego.setText("x");
         add(lbTipoJuego, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, -1, -1));
+
+        btRegresar.setBackground(new java.awt.Color(102, 102, 102));
+        btRegresar.setFont(new java.awt.Font("Viner Hand ITC", 0, 20)); // NOI18N
+        btRegresar.setForeground(new java.awt.Color(255, 153, 0));
+        btRegresar.setText("Regresar");
+        btRegresar.setActionCommand("0");
+        btRegresar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        add(btRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 140, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btCantarNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCantarNumeroActionPerformed
@@ -123,6 +131,7 @@ public class Juego extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btCantarNumero;
+    public javax.swing.JButton btRegresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

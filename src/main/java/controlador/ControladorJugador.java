@@ -51,7 +51,15 @@ public class ControladorJugador implements ActionListener
             }
             case "Regresar" ->
             {
-                this.objControladorInicio.CambiaPanelOpciones();
+                if(this.objControladorInicio.objBingo.getListaCarton() == null)
+                {
+                    this.objControladorInicio.CambiaPanelOpciones();
+                }
+                else
+                {
+                    this.objControladorInicio.CambiaPanelOpcionesHabilitarBotones();
+                }
+                
             }
         }
     }

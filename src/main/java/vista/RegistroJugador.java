@@ -72,7 +72,6 @@ public class RegistroJugador extends javax.swing.JPanel {
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 90, -1));
 
         txtNombre.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
-        txtNombre.setForeground(new java.awt.Color(255, 153, 0));
         txtNombre.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -83,11 +82,9 @@ public class RegistroJugador extends javax.swing.JPanel {
         add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 650, -1));
 
         txtCorreo.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
-        txtCorreo.setForeground(new java.awt.Color(255, 153, 0));
         add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 650, -1));
 
         txtCedula.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
-        txtCedula.setForeground(new java.awt.Color(255, 153, 0));
         txtCedula.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)

@@ -50,7 +50,6 @@ public class IniciarJuego extends javax.swing.JPanel {
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
 
         jComboBox1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(255, 153, 0));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jugar X", "Cuatro esquinas", "Carton Lleno", "Jugar Z" }));
         jComboBox1.setSelectedIndex(2);
         jComboBox1.addActionListener(new java.awt.event.ActionListener()
@@ -68,7 +67,6 @@ public class IniciarJuego extends javax.swing.JPanel {
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 100, -1, -1));
 
         jTextField1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 153, 0));
         jTextField1.setText("x");
         jTextField1.addActionListener(new java.awt.event.ActionListener()
         {

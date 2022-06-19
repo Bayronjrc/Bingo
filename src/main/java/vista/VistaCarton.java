@@ -88,6 +88,8 @@ public final class VistaCarton extends javax.swing.JPanel
         lbl24 = new javax.swing.JLabel();
         lblTitulo = new javax.swing.JLabel();
         lblIdentificador = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
+        lblCedula = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(51, 51, 51));
         setPreferredSize(new java.awt.Dimension(420, 500));
@@ -303,37 +305,49 @@ public final class VistaCarton extends javax.swing.JPanel
         lblIdentificador.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
         lblIdentificador.setForeground(new java.awt.Color(255, 153, 0));
         lblIdentificador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        add(lblIdentificador, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 445, 70));
+        add(lblIdentificador, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 445, -1));
+
+        lblNombre.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(255, 153, 0));
+        lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 600, 445, -1));
+
+        lblCedula.setFont(new java.awt.Font("Viner Hand ITC", 1, 30)); // NOI18N
+        lblCedula.setForeground(new java.awt.Color(255, 153, 0));
+        lblCedula.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        add(lblCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 670, 445, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lbl0;
-    private javax.swing.JLabel lbl1;
-    private javax.swing.JLabel lbl10;
-    private javax.swing.JLabel lbl11;
-    private javax.swing.JLabel lbl12;
-    private javax.swing.JLabel lbl13;
-    private javax.swing.JLabel lbl14;
-    private javax.swing.JLabel lbl15;
-    private javax.swing.JLabel lbl16;
-    private javax.swing.JLabel lbl17;
-    private javax.swing.JLabel lbl18;
-    private javax.swing.JLabel lbl19;
-    private javax.swing.JLabel lbl2;
-    private javax.swing.JLabel lbl20;
-    private javax.swing.JLabel lbl21;
-    private javax.swing.JLabel lbl22;
-    private javax.swing.JLabel lbl23;
-    private javax.swing.JLabel lbl24;
-    private javax.swing.JLabel lbl3;
-    private javax.swing.JLabel lbl4;
-    private javax.swing.JLabel lbl5;
-    private javax.swing.JLabel lbl6;
-    private javax.swing.JLabel lbl7;
-    private javax.swing.JLabel lbl8;
-    private javax.swing.JLabel lbl9;
-    private javax.swing.JLabel lblIdentificador;
+    public javax.swing.JLabel lbl0;
+    public javax.swing.JLabel lbl1;
+    public javax.swing.JLabel lbl10;
+    public javax.swing.JLabel lbl11;
+    public javax.swing.JLabel lbl12;
+    public javax.swing.JLabel lbl13;
+    public javax.swing.JLabel lbl14;
+    public javax.swing.JLabel lbl15;
+    public javax.swing.JLabel lbl16;
+    public javax.swing.JLabel lbl17;
+    public javax.swing.JLabel lbl18;
+    public javax.swing.JLabel lbl19;
+    public javax.swing.JLabel lbl2;
+    public javax.swing.JLabel lbl20;
+    public javax.swing.JLabel lbl21;
+    public javax.swing.JLabel lbl22;
+    public javax.swing.JLabel lbl23;
+    public javax.swing.JLabel lbl24;
+    public javax.swing.JLabel lbl3;
+    public javax.swing.JLabel lbl4;
+    public javax.swing.JLabel lbl5;
+    public javax.swing.JLabel lbl6;
+    public javax.swing.JLabel lbl7;
+    public javax.swing.JLabel lbl8;
+    public javax.swing.JLabel lbl9;
+    public javax.swing.JLabel lblCedula;
+    public javax.swing.JLabel lblIdentificador;
+    public javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblTitulo;
     // End of variables declaration//GEN-END:variables
 }

@@ -69,19 +69,19 @@ public class ControladorConsultarCartones implements ActionListener
         Carton objCarton = objControladorInicio.objBingo.ObtenerCarton(strIdentificacion);
         Jugador objJugador = objCarton.getJugador();
         
+        VistaCarton objVistaCarton = new VistaCarton();
+        objVistaCarton.setSize(465, 780);
+        objVistaCarton.AgregarLabels(objCarton);
+        
         if(objJugador != null)
         {
-            this.objConsultarCartones.lblNombre.setText(objJugador.getNombreCompleto());
-            this.objConsultarCartones.lblCedula.setText(objJugador.getCedula());
+            objVistaCarton.lblNombre.setText(objJugador.getNombreCompleto());
+            objVistaCarton.lblCedula.setText(objJugador.getCedula());
         }
-        
-        VistaCarton objVistaCarton = new VistaCarton();
-        objVistaCarton.setSize(464, 610);
-        objVistaCarton.AgregarLabels(objCarton);
 
         JFrame frame = new JFrame();
         frame.setContentPane(objVistaCarton);
-        frame.setSize(480, 650);
+        frame.setSize(465, 780);
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
     }
