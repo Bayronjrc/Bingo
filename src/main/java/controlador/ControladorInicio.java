@@ -29,12 +29,13 @@ public final class ControladorInicio
 
     /**
      * *
-     * Cambia el content panel de la vista principal.
+     * Evento de los botones de la interfaz.
      *
      * @param panel
      */
     public void CambiaPanel(JPanel panel)
     {
+        panel.setSize(850, 850);
         this.objInicio.getContentPane().removeAll();
         this.objInicio.setContentPane(panel);
         this.objInicio.getContentPane().revalidate();
@@ -49,8 +50,6 @@ public final class ControladorInicio
     public void CambiaPanelOpciones()
     {
         InicioOpcion objInicioOpcion = new InicioOpcion();
-        objInicioOpcion.setSize(850, 450);
-        objInicioOpcion.setVisible(true);
         ControladorOpciones objControladorOpciones = new ControladorOpciones(objInicioOpcion, this);
         CambiaPanel(objControladorOpciones.objInicioOpcion);
     }
@@ -63,8 +62,6 @@ public final class ControladorInicio
     public void CambiaPanelOpcionesHabilitarBotones()
     {
         InicioOpcion objInicioOpcion = new InicioOpcion();
-        objInicioOpcion.setSize(850, 450);
-        objInicioOpcion.setVisible(true);
         ControladorOpciones objControladorOpciones = new ControladorOpciones(objInicioOpcion, this);
         objControladorOpciones.objInicioOpcion.btIniciar.setEnabled(true);
         objControladorOpciones.objInicioOpcion.btEnviarCarton.setEnabled(true);

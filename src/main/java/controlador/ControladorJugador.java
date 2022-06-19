@@ -43,7 +43,7 @@ public class ControladorJugador implements ActionListener
 
     /**
      * *
-     * Cambia el content panel de la vista principal.
+     * Evento de los botones de la interfaz.
      *
      * @param e
      */

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controlador;
 
 import java.awt.event.ActionEvent;
@@ -19,7 +15,7 @@ import org.jfree.data.xy.XYSeriesCollection;
 
 /**
  *
- * @author User
+ * @author Bayron Rodriguez Centeno
  */
 public class ControladorOpciones implements ActionListener
 {
@@ -41,6 +37,10 @@ public class ControladorOpciones implements ActionListener
         this.objInicioOpcion.btSalir.addActionListener(this);
     }
 
+    /***
+     * Evento de los botones de la interfaz.
+     * @param e 
+     */
     @Override
     public void actionPerformed(ActionEvent e)
     {
@@ -85,51 +85,65 @@ public class ControladorOpciones implements ActionListener
         }
     }
 
+    /***
+     * Configura el panel de juego y lo envía al frame principal.
+     */
     public void iniciarJuego()
     {
         IniciarJuego objIniciarJuego = new IniciarJuego();
-        objIniciarJuego.setSize(850,450);
         ControladorIniciarJuego controladorIniciarJuego = new ControladorIniciarJuego(objIniciarJuego,objControladorInicio);
         objControladorInicio.CambiaPanel(controladorIniciarJuego.objIniciarJuego);
     }
     
+    /***
+     * Configura el panel de registrar jugador y lo envía al frame principal.
+     */
     public void registrarJugador()
     {
         RegistroJugador objRegistroJugador = new RegistroJugador();
-        objRegistroJugador.setSize(850, 450);
         Jugador jugador = new Jugador();
         ControladorJugador controladorUsuario = new ControladorJugador(objRegistroJugador, jugador, objControladorInicio);
         objControladorInicio.CambiaPanel(controladorUsuario.objRegistroJugador);
     }
 
+    /***
+     * Configura el panel de enviar cartones y lo envía al frame principal.
+     */
     public void enviarCartones()
     {
         EnviarCarton objEnviarCarton = new EnviarCarton();
-        objEnviarCarton.setSize(850, 450);
         ControladorEnviarCarton controladorEnviarCarton = new ControladorEnviarCarton(objEnviarCarton, objControladorInicio);
         objControladorInicio.CambiaPanel(controladorEnviarCarton.objEnviarCarton);
     }
 
+    /***
+     * Configura el panel de generar cartones y lo envía al frame principal.
+     */
     public void generarCartones()
     {
         GenerarCartones objGenerarCartones = new GenerarCartones();
-        objGenerarCartones.setSize(850, 450);
         ControladorGenerarCartones objControladorGenerarCartones = new ControladorGenerarCartones(objGenerarCartones, objControladorInicio);
         objControladorInicio.CambiaPanel(objControladorGenerarCartones.objGenerarCartones);
     }
     
+    /***
+     * Configura el panel de consultar cartones y lo envía al frame principal.
+     */
     public void consultarCartones()
     {
         ConsultarCarton objConsultarCarton = new ConsultarCarton();
-        objConsultarCarton.setSize(850, 450);
         ControladorConsultarCartones objControladorConsultarCartones = new ControladorConsultarCartones(objConsultarCarton, objControladorInicio);
         objControladorInicio.CambiaPanel(objControladorConsultarCartones.objConsultarCartones);
     }
     
+    /***
+     * Configura el panel de estadísticas y lo envía al frame principal.
+     */
     public void estadisticas()
     {
+        objControladorInicio.objInicio.setSize(1000,1000);
+
         Estadisticas objEstadisticas = new Estadisticas();
-        objEstadisticas.setSize(850, 850);
         ControladorEstadisticas objControladorEstadisticas = new ControladorEstadisticas(objEstadisticas, objControladorInicio);
        
         //Grafico Circular Historia
@@ -141,6 +155,7 @@ public class ControladorOpciones implements ActionListener
         JFreeChart objChartBarrasCircular = ChartFactory.createPieChart("Frecuencia Historica", objPieDataSetCircular, true, true, true);
         ChartPanel objChartPanel = new ChartPanel(objChartBarrasCircular);
         objChartPanel.setSize(400,400);
+        
         //Grafico Barras
         DefaultCategoryDataset objCategoryDataSetBarra = new DefaultCategoryDataset();
         objCategoryDataSetBarra.setValue(10,"numeros","1");
@@ -165,15 +180,13 @@ public class ControladorOpciones implements ActionListener
         JFreeChart objChartBarrasCircular3D = ChartFactory.createPieChart3D("Frecuencia Historica", objPieDataSetCircular3D, true, true, true);
         ChartPanel objChartPanel3D = new ChartPanel(objChartBarrasCircular3D);
         objChartPanel3D.setSize(400,400);
+        
         //implementacion
         objEstadisticas.pnlCircularHistorica.add(objChartPanel);
         objEstadisticas.pnlGrafoBarras.add(objChartPanelBarras);
         objEstadisticas.pnlDateHanding.add(objChartPanelDataHandling);
         objEstadisticas.pnlTopCinco.add(objChartPanel3D);
-        objControladorInicio.objInicio.setSize(1000,1000);
   
         objControladorInicio.CambiaPanel(objControladorEstadisticas.objEstadisticas);
     }
-
-    
 }
