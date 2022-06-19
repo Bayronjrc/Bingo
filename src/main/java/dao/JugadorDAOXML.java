@@ -92,7 +92,9 @@ public class JugadorDAOXML implements JugadorDAO
         String file = "Jugadores.csv";
         CSVReader csvReader = new CSVReader(new FileReader(file));
         ArrayList<String[]> datos = (ArrayList<String[]>) csvReader.readAll();
-        return 2;
+        int cantidad = datos.size();
+        System.out.println(String.valueOf(cantidad));
+        return cantidad;
     }
         
 
