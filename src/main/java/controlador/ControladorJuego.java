@@ -24,7 +24,6 @@ public class ControladorJuego implements ActionListener
 
     public Juego objJuego;
     public ControladorInicio objControladorInicio;
-    public JugadorDAO objJugadorDAO;
 
     /***
      * Constructor
@@ -34,7 +33,6 @@ public class ControladorJuego implements ActionListener
     public ControladorJuego(Juego objJuego, ControladorInicio objControladorInicio)
     {
         this.objJuego = objJuego;
-        this.objJugadorDAO = new JugadorDAOXML();
         this.objControladorInicio = objControladorInicio;
         this.objJuego.btCantarNumero.addActionListener(this);
         this.objJuego.btRegresar.addActionListener(this);

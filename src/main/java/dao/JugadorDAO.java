@@ -1,9 +1,8 @@
 package dao;
 
-import com.opencsv.exceptions.CsvException;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import modelo.Jugador;
+import javax.xml.parsers.ParserConfigurationException;
+import org.xml.sax.SAXException;
 
 /**
  *
@@ -11,7 +10,11 @@ import modelo.Jugador;
  */
 public interface JugadorDAO
 {
-    abstract int cantidadUsuarios()throws FileNotFoundException,IOException,CsvException;
+    abstract void agregarJugador(String pNombre, String pCorreo, String pCedula) throws ParserConfigurationException, ParserConfigurationException, ParserConfigurationException, SAXException, IOException;
 
-    abstract Jugador buscarJugador(String pCedula);
+    abstract String getNombreCompleto();
+    
+    abstract String getCorreoElectronico();
+    
+    abstract String getCedula();
 }

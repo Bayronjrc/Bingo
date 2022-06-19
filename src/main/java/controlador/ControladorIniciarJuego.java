@@ -1,8 +1,6 @@
 package controlador;
 
 import com.opencsv.exceptions.CsvException;
-import dao.JugadorDAO;
-import dao.JugadorDAOXML;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -20,7 +18,6 @@ public class ControladorIniciarJuego implements ActionListener
 
     public IniciarJuego objIniciarJuego;
     public ControladorInicio objControladorInicio;
-    public JugadorDAO objJugadorDAO;
 
     /**
      * *
@@ -33,7 +30,6 @@ public class ControladorIniciarJuego implements ActionListener
     {
         this.objControladorInicio = objControladorInicio;
         this.objIniciarJuego = objIniciarJuego;
-        this.objJugadorDAO = new JugadorDAOXML();
         this.objIniciarJuego.btInciar.addActionListener(this);
         this.objIniciarJuego.btRegresar1.addActionListener(this);
     }
@@ -114,7 +110,7 @@ public class ControladorIniciarJuego implements ActionListener
             }
 
             objJuego.lbCartones.setText(String.valueOf(this.objControladorInicio.objBingo.getListaCarton().size()));
-            objJuego.lbJugadores.setText(String.valueOf(objJugadorDAO.cantidadUsuarios()));
+            objJuego.lbJugadores.setText(String.valueOf(Utilitarios.cantidadUsuarios()));
             objControladorInicio.CambiaPanel(objControladorJuego.objJuego);
         }
     }

@@ -1,6 +1,9 @@
 package modelo;
 
 import com.opencsv.CSVWriter;
+import com.opencsv.exceptions.CsvException;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import javax.xml.parsers.DocumentBuilder;
@@ -11,9 +14,11 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 /**
@@ -32,20 +37,29 @@ public final class Jugador
         this.nombreCompleto = pNombre;
         this.correoElectronico = pCorreo;
         this.cedula = pCedula;
-        this.agregarJugador(this.nombreCompleto,this.correoElectronico, this.cedula);
+        this.agregarJugador(this.nombreCompleto, this.correoElectronico, this.cedula);
     }
 
-    public Jugador()
-    {
-    }
-
+    /**
+     * *
+     * Guarda el jugador.
+     *
+     * @param pNombre
+     * @param pCorreo
+     * @param pCedula
+     * @throws ParserConfigurationException
+     * @throws ParserConfigurationException
+     * @throws ParserConfigurationException
+     * @throws SAXException
+     * @throws IOException
+     */
     public void agregarJugador(String pNombre, String pCorreo, String pCedula) throws ParserConfigurationException, ParserConfigurationException, ParserConfigurationException, SAXException, IOException
     {
         try
         {
-
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+
             //Elemento raíz
             Document doc = docBuilder.parse("Jugadores.xml");
             doc.getDocumentElement().normalize();
@@ -78,30 +92,44 @@ public final class Jugador
             };
 
             String archCSV = "Jugadores.csv";
-            CSVWriter writer = new CSVWriter(new FileWriter(archCSV, true));
-
-            writer.writeNext(Jugadores);
-
-            writer.close();
-        }
-        catch (ParserConfigurationException | TransformerException pce)
+            try ( CSVWriter writer = new CSVWriter(new FileWriter(archCSV, true)))
+            {
+                writer.writeNext(Jugadores);
+            }
+        } catch (ParserConfigurationException | TransformerException pce)
         {
         }
     }
 
+    /**
+     * *
+     * Obtiene el nombre.
+     *
+     * @return
+     */
     public String getNombreCompleto()
     {
         return nombreCompleto;
     }
 
+    /**
+     * Obtiene el correo.
+     *
+     * @return
+     */
     public String getCorreoElectronico()
     {
         return correoElectronico;
     }
 
+    /**
+     * *
+     * Obtiene la cédula.
+     *
+     * @return
+     */
     public String getCedula()
     {
         return cedula;
     }
-
 }

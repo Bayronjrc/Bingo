@@ -1,40 +1,65 @@
 package modelo;
 
 import controlador.Utilitarios;
+import dao.CartonDAO;
 import java.util.Arrays;
 import java.util.Random;
 
 /**
  *
- * @author Bayron Rodriguez
+ * @author Bayron Rodriguez Centeno
  */
-public final class Carton
+public final class Carton implements CartonDAO
 {
     private String Identificador;
     private int[] ListaNumeros;
     private Jugador objJugador;
 
+    /***
+     * Constructor
+     * @param listaIdentificadores 
+     */
     public Carton(String[] listaIdentificadores)
     {
         ListaNumeros = GenerarNumerosCarton();
         Identificador = GenerarIdentificadorCarton(listaIdentificadores);
     }
 
+    /**
+     * Obtiene el identificador.
+     * @return
+     */
+    @Override
     public String getIdentificador()
     {
         return Identificador;
     }
 
+    /**
+     * Guarda el identificador.
+     * @param identificador
+     */
+    @Override
     public void setIdentificador(String identificador)
     {
         this.Identificador = identificador;
     }
 
+    /**
+     * Obtiene el jugador.
+     * @return
+     */
+    @Override
     public Jugador getJugador()
     {
         return objJugador;
     }
 
+    /**
+     * Guarda el jugador.
+     * @param objJugador
+     */
+    @Override
     public void setJugador(Jugador objJugador)
     {
         this.objJugador = objJugador;
@@ -46,6 +71,7 @@ public final class Carton
      *
      * @return
      */
+    @Override
     public int[] GenerarNumerosCarton()
     {
         int[] numerosCarton = new int[25];
@@ -102,7 +128,8 @@ public final class Carton
      * @param lista
      * @return Número aleatorio sin repetir en la lista de entrada.
      */
-    private int ObtenerNumeroRandom(int rangoInferior, int rangoSuperior, int[] lista)
+    @Override
+    public int ObtenerNumeroRandom(int rangoInferior, int rangoSuperior, int[] lista)
     {
         Random rn = new Random();
         
@@ -132,6 +159,7 @@ public final class Carton
      * @param listaIdentificadores
      * @return Identificador
      */
+    @Override
     public String GenerarIdentificadorCarton(String[] listaIdentificadores)
     {
         Random rn = new Random();
@@ -150,11 +178,21 @@ public final class Carton
         return identificador;
     }
 
+    /**
+     * Obtiene la lista de números.
+     * @return
+     */
+    @Override
     public int[] getListaNumeros()
     {
         return ListaNumeros;
     }
 
+    /**
+     * Guarda la lista de números.
+     * @param ListaNumeros
+     */
+    @Override
     public void setListaNumeros(int[] ListaNumeros)
     {
         this.ListaNumeros = ListaNumeros;
@@ -164,6 +202,7 @@ public final class Carton
      * 
      * @return 
      */    
+    @Override
     public String ObtenerCedulaJugador()
     {
         if(getJugador() != null)

@@ -19,7 +19,6 @@ public class ControladorJugador implements ActionListener
 {
 
     public RegistroJugador objRegistroJugador;
-    public JugadorDAO objJugadorDAO;
     public Jugador objJugador;
     public ControladorInicio objControladorInicio;
 
@@ -35,7 +34,6 @@ public class ControladorJugador implements ActionListener
     {
         this.objRegistroJugador = objRegistroJugador;
         this.objJugador = objJugador;
-        this.objJugadorDAO = new JugadorDAOXML();
         this.objControladorInicio = objControladorInicio;
         this.objRegistroJugador.btRegresar.addActionListener(this);
         this.objRegistroJugador.btRegistrar.addActionListener(this);
