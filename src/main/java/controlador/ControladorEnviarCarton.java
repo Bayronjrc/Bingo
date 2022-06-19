@@ -75,7 +75,7 @@ public class ControladorEnviarCarton implements ActionListener
             Jugador objJugador = objJugadorDAOXML.buscarJugador(strCedula);
             
             int respuesta = this.objControladorInicio.objBingo.AsingarCartones(objJugador, Integer.parseInt(strCantidad));
-            Utilitarios.EnviarCartonCorreo(Utilitarios.BuscaCorreo(strCedula), objControladorInicio.objBingo.ObtenerCartonesPorJugador(strCedula));
+            Utilitarios.EnviarCartonCorreo(Utilitarios.BuscaCorreo(strCedula), objControladorInicio.objBingo.ObtenerCartonesPorJugador(strCedula),"Bingo","Saludos "+objJugador.getNombreCompleto()+", \n\n Adjunto encontrará las imágenes del bingo con los cartones que usted solicitó.\n\n Muchos éxitos!");
 
             if(respuesta == -1)
             {
@@ -83,7 +83,7 @@ public class ControladorEnviarCarton implements ActionListener
             }
             else
             {
-                JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Se enviaron " + respuesta + " cartones al correo del jugador.", "", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Se enviaron " + respuesta + " cartón(es) al correo del jugador.", "", JOptionPane.INFORMATION_MESSAGE);
             }
             
             objEnviarCarton.txtCantidad.setText("");
