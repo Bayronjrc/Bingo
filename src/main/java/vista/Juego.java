@@ -71,10 +71,12 @@ public class Juego extends javax.swing.JPanel {
         lbPremio.setText("x");
         add(lbPremio, new org.netbeans.lib.awtextra.AbsoluteConstraints(749, 10, 91, 39));
 
+        btCantarNumero.setBackground(new java.awt.Color(102, 102, 102));
         btCantarNumero.setFont(new java.awt.Font("Viner Hand ITC", 0, 24)); // NOI18N
         btCantarNumero.setForeground(new java.awt.Color(255, 153, 0));
         btCantarNumero.setText("Cantar Numero");
         btCantarNumero.setActionCommand("1");
+        btCantarNumero.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btCantarNumero.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -82,7 +84,7 @@ public class Juego extends javax.swing.JPanel {
                 btCantarNumeroActionPerformed(evt);
             }
         });
-        add(btCantarNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(302, 79, -1, -1));
+        add(btCantarNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(302, 79, 200, -1));
 
         jLabel6.setFont(new java.awt.Font("Viner Hand ITC", 0, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 153, 0));
