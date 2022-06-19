@@ -1,10 +1,8 @@
 package controlador;
 
-import com.opencsv.CSVWriter;
 import com.opencsv.exceptions.CsvException;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -18,7 +16,6 @@ import javax.mail.BodyPart;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
-import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
@@ -48,6 +45,7 @@ import org.xml.sax.SAXException;
  */
 public class Utilitarios
 {
+
     /**
      * *
      * Verfica si existe o no el número en la lista.
@@ -130,7 +128,6 @@ public class Utilitarios
 
                     if ((tElement.getElementsByTagName("Cedula").item(0).getTextContent()).equals(pCedula))
                     {
-
                         return true;
                     }
                 }
@@ -139,6 +136,7 @@ public class Utilitarios
         {
             System.out.println(e);
         }
+        
         return false;
     }
 
@@ -178,11 +176,13 @@ public class Utilitarios
                     }
                 }
             }
+            
             return "";
         } catch (IOException | ParserConfigurationException | DOMException | SAXException e)
         {
             System.out.println(e);
         }
+        
         return "";
     }
 
@@ -223,7 +223,7 @@ public class Utilitarios
      * @param listaCartones
      * @param pAsunto
      * @param pMensaje
-     * @return 
+     * @return
      * @throws javax.mail.internet.AddressException
      */
     public static Boolean EnviarCartonCorreo(String pPara, ArrayList<Carton> listaCartones, String pAsunto, String pMensaje) throws AddressException, MessagingException
@@ -243,19 +243,19 @@ public class Utilitarios
 
             MimeMultipart multipart = new MimeMultipart();
             multipart.addBodyPart(texto);
-            
-            for(Carton objCarton: listaCartones)
+
+            for (Carton objCarton : listaCartones)
             {
                 BodyPart archivos = new MimeBodyPart();
                 String path = System.getProperty("user.dir");
                 File file = new File(path + "\\Cartones");
-                
-                if(file.exists())
+
+                if (file.exists())
                 {
                     archivos.setDataHandler(new DataHandler(new FileDataSource(path + "\\Cartones\\" + objCarton.getIdentificador() + ".png")));
                     archivos.setFileName(objCarton.getIdentificador() + ".png");
                 }
-                
+
                 multipart.addBodyPart(archivos);
             }
 
@@ -269,46 +269,50 @@ public class Utilitarios
 //            objTransport.connect(Correo.DE, Correo.CONTRASENA);
 //            objTransport.sendMessage(mensaje, mensaje.getAllRecipients());
 //            objTransport.close();
-            
+
             return true;
-        }
-        catch (MessagingException e)
+            
+        } catch (MessagingException e)
         {
         }
+        
         return false;
     }
-    
-     /***
+
+    /**
+     * *
      * Crear carpeta.
+     *
      * @param carpeta
-     * @return 
+     * @return
      */
     public static String CrearCarpeta(String carpeta)
     {
         String path = System.getProperty("user.dir");
         File file = new File(path + "\\" + carpeta);
-        
+
         if (!file.exists())
         {
             file.mkdir();
-        }
-        else
+        } else
         {
             return null;
         }
-        
+
         return file.getPath();
     }
-    
-    /***
+
+    /**
+     * *
      * Elimina carpeta.
+     *
      * @param carpeta
      */
     public static void BorrarCarpeta(String carpeta)
     {
         String path = System.getProperty("user.dir");
         File file = new File(path + "\\" + carpeta);
-        
+
         if (file.exists())
         {
             try
@@ -320,11 +324,13 @@ public class Utilitarios
             }
         }
     }
-    
-    /***
+
+    /**
+     * *
      * Elimina directorios.
+     *
      * @param file
-     * @throws IOException 
+     * @throws IOException
      */
     private static void deleteDirectoryRecursionJava6(File file) throws IOException
     {
@@ -344,15 +350,27 @@ public class Utilitarios
             throw new IOException("Failed to delete " + file);
         }
     }
-    
-    public static void historialPartidas(String pTipo,String pNumerosCantados, String pGanadores, LocalDate pFecha, LocalDateTime pHora) throws SAXException, IOException{
-        try{
+
+    /***
+     * Guarda el historial de partidas.
+     * @param pTipo
+     * @param pNumerosCantados
+     * @param pGanadores
+     * @param pFecha
+     * @param pHora
+     * @throws SAXException
+     * @throws IOException 
+     */
+    public static void GuardarHistorialPartidas(String pTipo, String pNumerosCantados, String pGanadores, LocalDate pFecha, LocalDateTime pHora) throws SAXException, IOException
+    {
+        try
+        {
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
-        
+
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
             int hora = pHora.getHour();
             int minuto = pHora.getMinute();
-            String horaActual = String.valueOf(hora)+":"+String.valueOf(minuto);
+            String horaActual = String.valueOf(hora) + ":" + String.valueOf(minuto);
             //Elemento raíz
             Document doc = docBuilder.parse("HistorialPartidas.xml");
             doc.getDocumentElement().normalize();
@@ -371,11 +389,11 @@ public class Utilitarios
             Element Ganadores = doc.createElement("ganadores");
             Ganadores.setTextContent(pGanadores);
             elemento1.appendChild(Ganadores);
-            
+
             Element Fecha = doc.createElement("fecha");
             Fecha.setTextContent(pFecha.toString());
             elemento1.appendChild(Fecha);
-            
+
             Element Hora = doc.createElement("hora");
             Hora.setTextContent(horaActual);
             elemento1.appendChild(Hora);
@@ -387,12 +405,17 @@ public class Utilitarios
             StreamResult result = new StreamResult(("HistorialPartidas.xml"));
             transformer.transform(source, result);
 
-        }
-        catch (ParserConfigurationException | TransformerException pce)
+        } catch (ParserConfigurationException | TransformerException pce)
         {
         }
     }
-     public static Jugador buscarJugador(String pCedula)
+
+    /***
+     * Se busca el jugador en la BD.
+     * @param pCedula
+     * @return 
+     */
+    public static Jugador BuscarJugador(String pCedula)
     {
         try
         {
@@ -418,7 +441,8 @@ public class Utilitarios
                         String nombre = tElement.getElementsByTagName("Nombre").item(0).getTextContent();
                         String cedula = tElement.getElementsByTagName("Cedula").item(0).getTextContent();
                         String correo = tElement.getElementsByTagName("Correo").item(0).getTextContent();
-                        Jugador objJugador = new Jugador(nombre,correo,cedula);
+                        Jugador objJugador = new Jugador(nombre, correo, cedula);
+                        
                         return objJugador;
                     }
                 }
@@ -427,17 +451,24 @@ public class Utilitarios
         {
             System.out.println(e);
         }
+        
         return null;
     }
 
-    
-    public static int cantidadUsuarios() throws FileNotFoundException,IOException,CsvException
+    /***
+     * Cantidad de usuarios.
+     * @return
+     * @throws FileNotFoundException
+     * @throws IOException
+     * @throws CsvException 
+     */
+    public static int CantidadUsuarios() throws FileNotFoundException, IOException, CsvException
     {
         int cantidad = 0;
         try
         {
             File file = new File("Jugadores.xml");
-            
+
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 
             DocumentBuilder db = dbf.newDocumentBuilder();

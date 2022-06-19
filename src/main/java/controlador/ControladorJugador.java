@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.event.*;
 import modelo.*;
 import vista.*;
-import dao.*;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;

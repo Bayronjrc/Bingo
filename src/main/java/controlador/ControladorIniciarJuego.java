@@ -110,7 +110,7 @@ public class ControladorIniciarJuego implements ActionListener
             }
 
             objJuego.lbCartones.setText(String.valueOf(this.objControladorInicio.objBingo.getListaCarton().size()));
-            objJuego.lbJugadores.setText(String.valueOf(Utilitarios.cantidadUsuarios()));
+            objJuego.lbJugadores.setText(String.valueOf(Utilitarios.CantidadUsuarios()));
             objControladorInicio.CambiaPanel(objControladorJuego.objJuego);
         }
     }

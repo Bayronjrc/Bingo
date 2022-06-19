@@ -1,6 +1,5 @@
 package controlador;
 
-import dao.*;
 import javax.swing.*;
 import java.awt.event.*;
 import vista.*;
@@ -84,8 +83,8 @@ public class ControladorEnviarCarton implements ActionListener
             JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "La cédula no existe.", "Error", JOptionPane.INFORMATION_MESSAGE);
         } else
         {
-            
-            Jugador objJugador = Utilitarios.buscarJugador(strCedula);
+
+            Jugador objJugador = Utilitarios.BuscarJugador(strCedula);
 
             int respuesta = this.objControladorInicio.objBingo.AsingarCartones(objJugador, Integer.parseInt(strCantidad));
             Utilitarios.EnviarCartonCorreo(Utilitarios.BuscaCorreo(strCedula), objControladorInicio.objBingo.ObtenerCartonesPorJugador(strCedula), "Bingo", "Saludos " + objJugador.getNombreCompleto() + ", \n\n Adjunto encontrará las imágenes del bingo con los cartones que usted solicitó.\n\n Muchos éxitos!");
