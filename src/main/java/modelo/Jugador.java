@@ -19,7 +19,7 @@ import org.xml.sax.SAXException;
 
 /**
  *
- * @authorBayron Rodriguez
+ * @author Bayron Rodriguez Centeno
  */
 public final class Jugador implements JugadorDAO
 {

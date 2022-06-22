@@ -16,6 +16,7 @@ import javax.mail.BodyPart;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
+import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
@@ -265,10 +266,10 @@ public class Utilitarios
             mensaje.setSubject(pAsunto);
             mensaje.setContent(multipart);
 
-//            Transport objTransport = session.getTransport("smtp");
-//            objTransport.connect(Correo.DE, Correo.CONTRASENA);
-//            objTransport.sendMessage(mensaje, mensaje.getAllRecipients());
-//            objTransport.close();
+            Transport objTransport = session.getTransport("smtp");
+            objTransport.connect(Correo.DE, Correo.CONTRASENA);
+            objTransport.sendMessage(mensaje, mensaje.getAllRecipients());
+            objTransport.close();
 
             return true;
             
@@ -492,4 +493,51 @@ public class Utilitarios
         }
         return cantidad;
     }
+    
+    /***
+     * Busca la cantidad de veces que se jugó el tipo de juego en el historial
+     * @param pTipo
+     * @return 
+     */
+    public static int frecuenciaHistoriaConfiguracion(String pTipo)
+    {
+        int juego = 0;
+        try
+        {
+            
+
+            File file = new File("HistorialPartidas.xml");
+
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+
+            DocumentBuilder db = dbf.newDocumentBuilder();
+            Document doc = db.parse(file);
+            doc.getDocumentElement().normalize();
+
+            NodeList nodeList = doc.getElementsByTagName("Partida");
+
+            for (int i = 0; i < nodeList.getLength(); ++i)
+            {
+                Node node = nodeList.item(i);
+                if (node.getNodeType() == Node.ELEMENT_NODE)
+                {
+
+                    Element tElement = (Element) node;
+                    String Tipo = tElement.getElementsByTagName("tipo").item(0).getTextContent();
+                    if (pTipo.equals(Tipo))
+                    {
+                        juego++;
+                    }
+
+                }
+            }
+            return juego;
+        } catch (IOException | ParserConfigurationException | DOMException | SAXException e)
+        {
+            System.out.println(e);
+        }
+        return juego;
+    }
+        
+    
 }

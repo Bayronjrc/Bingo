@@ -6,7 +6,7 @@ import org.xml.sax.SAXException;
 
 /**
  *
- * @author User
+ * @author Bayron Rodriguez Centeno
  */
 public interface JugadorDAO
 {

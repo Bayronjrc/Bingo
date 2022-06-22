@@ -153,22 +153,32 @@ public class ControladorOpciones implements ActionListener
 
         Estadisticas objEstadisticas = new Estadisticas();
         ControladorEstadisticas objControladorEstadisticas = new ControladorEstadisticas(objEstadisticas, objControladorInicio);
-
+        //Promedio
+        
+        int total = Utilitarios.frecuenciaHistoriaConfiguracion("Juego en X")+Utilitarios.frecuenciaHistoriaConfiguracion("Cartón Lleno")+Utilitarios.frecuenciaHistoriaConfiguracion("Cuatro Esquinas")+Utilitarios.frecuenciaHistoriaConfiguracion("Juego en Z");
+        
         //Grafico Circular Historia
         DefaultPieDataset objPieDataSetCircular = new DefaultPieDataset();
-        objPieDataSetCircular.setValue("Value 1", 10);
-        objPieDataSetCircular.setValue("Value 2", 20);
-        objPieDataSetCircular.setValue("Value 3", 30);
-        objPieDataSetCircular.setValue("Value 4", 40);
+        objPieDataSetCircular.setValue("Juego en X", (100*Utilitarios.frecuenciaHistoriaConfiguracion("Juego en X"))/total);
+        objPieDataSetCircular.setValue("Cartón Lleno", (100*Utilitarios.frecuenciaHistoriaConfiguracion("Cartón Lleno"))/total);
+        objPieDataSetCircular.setValue("Cuatro Esquinas", (100*Utilitarios.frecuenciaHistoriaConfiguracion("Cuatro Esquinas"))/total);
+        objPieDataSetCircular.setValue("Juego en Z", (100*Utilitarios.frecuenciaHistoriaConfiguracion("Juego en Z"))/total);
         JFreeChart objChartBarrasCircular = ChartFactory.createPieChart("Frecuencia Historica", objPieDataSetCircular, true, true, true);
         ChartPanel objChartPanel = new ChartPanel(objChartBarrasCircular);
         objChartPanel.setSize(400, 400);
 
         //Grafico Barras
         DefaultCategoryDataset objCategoryDataSetBarra = new DefaultCategoryDataset();
-        objCategoryDataSetBarra.setValue(10, "numeros", "1");
-        objCategoryDataSetBarra.setValue(10, "numeros", "2");
-        objCategoryDataSetBarra.setValue(10, "numeros", "3");
+        objCategoryDataSetBarra.setValue(4, "numeros", "56");
+        objCategoryDataSetBarra.setValue(3, "numeros", "22");
+        objCategoryDataSetBarra.setValue(5, "numeros", "3");
+        objCategoryDataSetBarra.setValue(2, "numeros", "32");
+        objCategoryDataSetBarra.setValue(7, "numeros", "5");
+        objCategoryDataSetBarra.setValue(1, "numeros", "65");
+        objCategoryDataSetBarra.setValue(5, "numeros", "49");
+        objCategoryDataSetBarra.setValue(3, "numeros", "38");
+        objCategoryDataSetBarra.setValue(6, "numeros", "19");
+        objCategoryDataSetBarra.setValue(3, "numeros", "47");
         JFreeChart objChartBarras = ChartFactory.createBarChart("Top 10 Números Cantados", "Números", "Promedios", objCategoryDataSetBarra, PlotOrientation.VERTICAL, true, true, false);
         ChartPanel objChartPanelBarras = new ChartPanel(objChartBarras);
         objChartPanelBarras.setSize(400, 400);
@@ -181,10 +191,11 @@ public class ControladorOpciones implements ActionListener
 
         //Grafo cicular 3D
         DefaultPieDataset objPieDataSetCircular3D = new DefaultPieDataset();
-        objPieDataSetCircular3D.setValue("Value 1", 10);
-        objPieDataSetCircular3D.setValue("Value 2", 20);
-        objPieDataSetCircular3D.setValue("Value 3", 30);
-        objPieDataSetCircular3D.setValue("Value 4", 40);
+        objPieDataSetCircular3D.setValue("Luis",1);
+        objPieDataSetCircular3D.setValue("Bayron",2 );
+        objPieDataSetCircular3D.setValue("Mario",1);
+        objPieDataSetCircular3D.setValue("Yoshi",0 );
+        objPieDataSetCircular3D.setValue("Zelda", 1);
         JFreeChart objChartBarrasCircular3D = ChartFactory.createPieChart3D("Frecuencia Historica", objPieDataSetCircular3D, true, true, true);
         ChartPanel objChartPanel3D = new ChartPanel(objChartBarrasCircular3D);
         objChartPanel3D.setSize(400, 400);

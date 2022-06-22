@@ -123,7 +123,7 @@ public class ControladorJuego implements ActionListener
                     }
                     case "4" ->
                     {
-                        objControladorFin.objFin.lblTipoJuego.setText("Juego en Z");
+                            objControladorFin.objFin.lblTipoJuego.setText("Juego en Z");
                     }
                 }
 
@@ -135,7 +135,7 @@ public class ControladorJuego implements ActionListener
                 } else
                 {
                     Utilitarios.EnviarCartonCorreo(objCarton.getJugador().getCorreoElectronico(), new ArrayList<>(), "Ganador", "Felicidades tu cartón " + objCarton.getIdentificador() + " Fue el ganador del bingo");
-                    //Utilitarios.GuardarHistorialPartidas(objControladorFin.objFin.lblTipoJuego.getText(), this.objJuego.txtNumerosCantados.getText(), objCarton.getIdentificador(), LocalDate.now(), LocalDateTime.now());
+                    Utilitarios.GuardarHistorialPartidas(objControladorFin.objFin.lblTipoJuego.getText(), this.objJuego.txtNumerosCantados.getText(), objCarton.getIdentificador(), LocalDate.now(), LocalDateTime.now());
                     objControladorInicio.CambiaPanel(objControladorFin.objFin);
                 }
 
