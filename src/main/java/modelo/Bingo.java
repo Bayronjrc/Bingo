@@ -86,7 +86,7 @@ public final class Bingo implements BingoDAO
                     numerosAcertados = 0;
                     for (int numero : this.ListaBolas)
                     {
-                        if (Utilitarios.ExisteNumero(numero, ListaBolas, true))
+                        if (Utilitarios.ExisteNumero(numero, objCarton.getListaNumeros(), false))
                         {
                             numerosAcertados++;
                         }

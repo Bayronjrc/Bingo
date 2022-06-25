@@ -90,7 +90,6 @@ public class ControladorJuego implements ActionListener
 
         if (bola == -1)
         {
-            System.out.println(Arrays.toString(this.objControladorInicio.objBingo.ListaBolas));
             JOptionPane.showMessageDialog(this.objControladorInicio.objInicio, "Se acabaron las bolas", "Error", JOptionPane.INFORMATION_MESSAGE);
         } else
         {
@@ -99,8 +98,6 @@ public class ControladorJuego implements ActionListener
 
             if (!cartonGanador.equals(""))
             {
-                System.out.println(Arrays.toString(this.objControladorInicio.objBingo.ListaBolas));
-
                 Fin objFin = new Fin();
                 objFin.setSize(850, 450);
                 ControladorFin objControladorFin = new ControladorFin(objFin, objControladorInicio);
